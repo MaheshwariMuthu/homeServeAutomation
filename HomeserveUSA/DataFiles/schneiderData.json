@@ -1,0 +1,16 @@
+{
+  "environment": {
+	    "browser" : "chrome",
+	    "HomeserveUrl": "https://www.reghomeserve.com/?ncr=true",
+	    "SanjoseUrl":"https://www.reghomeserve.com/sc/mail/sanjose",
+	    "SLWAUrl":"https://www.slwofa.com/mail/lasanitation"
+   		},
+   				
+     "contactDetails":{
+   		"FirstName": "Zack",
+	    "LastName": "Ansley",
+	    "PhoneNumber": "650-795-9050"
+  		 }			   		
+ }
+ 
+ 
