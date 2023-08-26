@@ -14,7 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import stepDefinations.Hooks;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/java/features/aepindianamichigan.feature"},
+@CucumberOptions(features = {"src/test/java/features/slwofa.feature"},
 		glue = "stepDefinations",
 		dryRun = false,
 		monochrome = true,

@@ -21,10 +21,10 @@ public class SLWAStepDef {
 	SLWALandingPageActions slwaLandingPageActions = new SLWALandingPageActions();
 
 
-	@When("Choose and Make the Payment and clicks on Complete Secure Checkout")
-	public void clicks_on_continue_to_payment_information()	throws Exception {
+	@Then("the user selects the PaymentType as {string} Makes the Payment and clicks on Complete Secure Checkout")
+	public void the_user_selects_the_payment_type_as_makes_the_payment_and_clicks_on_complete_secure_checkout(String PaymentType) throws Exception {
 
-		slwaLandingPageActions.chooseAndMakePayementType();
+		slwaLandingPageActions.chooseAndMakePayementType(PaymentType);
 
 	}
 }

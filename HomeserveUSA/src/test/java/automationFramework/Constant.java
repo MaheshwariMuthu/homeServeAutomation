@@ -3,8 +3,8 @@ package automationFramework;
 public class Constant {
 	
 	/* Order Number text */
-	public static String orderNumberText;
-	
+	public static String BrowserorderNumberText;
+
 	/* Contact Details */
 	public static String Email;
 	public static String PhoneNumber;

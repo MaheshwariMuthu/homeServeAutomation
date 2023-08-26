@@ -11,9 +11,12 @@ public class OttawafrenchStepDef {
 	OttawaPageAction ottawaPageAction = new OttawaPageAction();
 
 
-	@When("User change the language of the application")
-	public void clicks_on_continue_to_payment_information()	throws Exception {
+	@When("the user selects the plan and add to cart add and Proceed To Checkout")
+	public void the_user_selects_the_plan_add_to_cart_and_Proceed_To_Checkout()	throws Exception {
 		ottawaPageAction.changeTheLanguageIntoEnglish();
-
+		ottawaPageAction.selectThePlanAndAddToCartAndProceedToCheckout();
 	}
+
+
+
 }
