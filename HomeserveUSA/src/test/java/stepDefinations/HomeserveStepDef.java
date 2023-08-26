@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import Config.update_Config_Properties;
+import Email_Validator.Verify_Gmail;
 import org.json.simple.parser.ParseException;
 
 import io.cucumber.datatable.DataTable;
@@ -13,6 +15,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.CommonPageActions;
 import pageObjects.HSLandingPageActions;
+import pageObjects.SanjosePageActions;
 
 import static automationFramework.DataReader.configProperties;
 import static automationFramework.DynamicWebElements.*;
@@ -20,12 +23,22 @@ import static automationFramework.DynamicWebElements.*;
 public class HomeserveStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();
 	HSLandingPageActions hslandingPage = new HSLandingPageActions();
+	SanjosePageActions sanjosePageActions = new SanjosePageActions();
+//
+//	//
+//	@Given("user is on {string} Home page")
+//	public void user_is_on_home_page(String Application) throws InterruptedException, IOException, ParseException {
+//		commonPageActions.navigateToApplication(Application);
+//
+//	}
 
-	@Given("User is on Home page")
-	public void user_is_on_Home_page() throws InterruptedException, IOException, ParseException {
+	@Given("User is on {string} Home page")
+	public void userIsOnHomePage(String Site) throws Exception {
+		update_Config_Properties.Update_Config_Prop(Site);
 		commonPageActions.navigateToApplication();
 
 	}
+
 
 	/**
 	 * Description: End to end flow for sale Homeserve
@@ -69,14 +82,14 @@ public class HomeserveStepDef {
 	}
 
 
-	@When("the user selects the payment method, enters the payment details, and clicks on Complete Secure Checkout")
-	public void the_user_selects_the_payment_method_enters_the_payment_details_and_clicks_on_complete_secure_checkout()
+	@When("the user selects the payment method as {string} enters the payment details, and clicks on Complete Secure Checkout")
+	public void the_user_selects_the_payment_method_as_enters_the_payment_details_and_clicks_on_complete_secure_checkout(String PaymentType)
 			throws InterruptedException {
-		hslandingPage.enterPaymentDetails();
+		sanjosePageActions.choosePaymentType(PaymentType);
 	}
 
 	@Then("the user should see an order confirmation message")
-	public void the_user_should_see_an_order_confirmation_message() throws InterruptedException {
+	public void the_user_should_see_an_order_confirmation_message() throws Exception {
 		hslandingPage.verifyOrderConformedSuccessfully();
 
 	}
@@ -90,7 +103,14 @@ public class HomeserveStepDef {
 
 	@Then("the user Enters the AccountNumber as {string} and Complete Secure Checkout")
 	public void the_user_enters_the_account_number_as_and_complete_secure_checkout(String value) throws Exception {
-		hslandingPage.enterAccountDetails(value);
+		hslandingPage.enterAccountDetailsAndCompleteCheckout(value);
+	}
+
+
+	@Then("open Gmail and Validate order number in confirmation email is received")
+	public void open_Gmail_and_Verify_Order_number_in_confirmation_email_is_received() throws Exception {
+
+		Verify_Gmail.Validate_Order_Confirmation_Email();
 	}
 
 }

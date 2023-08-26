@@ -130,6 +130,7 @@ public class PageActions extends StartDriver {
 				assertTrue(verifyWebElementPresent(element), "----> Element is present");
 				scrollToElement(element);
 				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				jsExecutor.executeScript("arguments[0].scrollIntoView()", element);
 				jsExecutor.executeScript(
 						"arguments[0].setAttribute('style', 'border:2px solid red; background:yellow');", element);
 				element.click();

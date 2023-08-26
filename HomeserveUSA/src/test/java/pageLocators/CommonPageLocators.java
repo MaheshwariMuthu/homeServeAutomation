@@ -53,6 +53,16 @@ public class CommonPageLocators {
 
 	}) public List<WebElement> addToCart;
 
+	@FindAll({
+	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div"),
+	@FindBy(xpath = "/html/body/div[2]/div/div[1]")
+			})
+	public WebElement Payment_not_Processed_Alert;
+
+
+	@FindBy(xpath = "//*[@id=\"installmentsPerYear\"]")
+	public WebElement Select_Bill_Frequency;
+
 
 	@FindBy(xpath = "//*[@id=\"payment_details_lower\"]/input")
 	public WebElement Add_To_Cart_Button;
@@ -113,9 +123,11 @@ public class CommonPageLocators {
 	@FindBy(xpath = "//*[@id=\"card_type_001\"]"),
 	})	public WebElement cardType;
 	@FindAll({
+		@FindBy(xpath = "/html/body/form/input[2]"),
 		@FindBy(xpath = "//*[@id=\"CardNumber\"]"),
 		@FindBy(xpath = "//*[@id=\"card_number\"]"),
 		@FindBy(xpath = "//input[@id='number']"),
+			@FindBy(xpath = "//*[@id=\"number\"]")
 	}) public WebElement card_Number;
 
 	@FindBy(xpath = "//*[@class='button js-post-message']")
@@ -176,8 +188,7 @@ public class CommonPageLocators {
 			@FindBy(xpath = "//*[@class='btn btn--red product-tile__cta-button']"),
 			@FindBy(xpath = "//div[@class='cart__submit-container']/descendant::a[contains(text(),'Proceed To Checkout')]"),
 			@FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
-
-
+			@FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[9]/a/div"),
 	})public WebElement proceedToCheckout;
 
 	//
@@ -208,7 +219,9 @@ public class CommonPageLocators {
 	/* Credit card number X-path */
 	@FindAll({
 			@FindBy(xpath = "(//iframe)[1]"),
-			@FindBy(xpath = "(//iframe)[2]")
+			@FindBy(xpath = "(//iframe)[2]"),
+			@FindBy(xpath = "//*[@id=\"micro-number-container\"]/iframe"),
+
 	})public WebElement creditCardNumberFrame;
 
 	/* Credit card number X-path */
@@ -235,6 +248,8 @@ public class CommonPageLocators {
 	@FindAll({
 			@FindBy(xpath = "//span[@class='order-confirm__text']/descendant::span"),
 			@FindBy(xpath = "*//p/strong"),
+			@FindBy(xpath = "/html/body/main/div/div/div/div/div/div/div[1]/div[4]/p/strong")
+
 	})public WebElement orderNumber;
 
 //	/* First name checkout X-path */
@@ -243,8 +258,9 @@ public class CommonPageLocators {
 
 	/* Close cookies X-path */
 	@FindAll({
-	@FindBy(xpath = "//div[@id='onetrust-close-btn-container']/descendant::button"),
-	@FindBy(xpath = "/html/body/main/div[3]/div/button"),
+			@FindBy(xpath = "//div[@id='onetrust-close-btn-container']/descendant::button"),
+			@FindBy(xpath = "/html/body/main/div[3]/div/button"),
+			@FindBy(xpath = "/html/body/main/div[6]/div/button"),
 })public WebElement cookiesClose;
 
 }

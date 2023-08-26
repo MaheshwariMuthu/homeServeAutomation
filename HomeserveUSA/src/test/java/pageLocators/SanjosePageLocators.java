@@ -3,19 +3,20 @@ package pageLocators;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import stepDefinations.Hooks;
 
-import static automationFramework.StartDriver.driver;
 
 import java.util.List;
 
-public class SanjosePageLocators {
+
+public class SanjosePageLocators extends Hooks {
 	public SanjosePageLocators() {
 		PageFactory.initElements(driver, this);
 	}
 
-	/* Credit card number X-path */
-	@FindBy(xpath = "(//iframe)[2]")
-	public WebElement creditCardNumberFrame;
+//	/* Credit card number X-path */
+//	@FindBy(xpath = "(//iframe)[2]")
+//	public WebElement creditCardNumberFrame;
 
 	/* Add to cart X-path */
 	@FindBy(xpath = "//a[@class='button js-add-to-cart']//span[@class='add']")

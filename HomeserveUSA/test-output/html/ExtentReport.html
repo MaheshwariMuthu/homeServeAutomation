@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">HomeServe Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 16, 2023 02:20:39 PM</span></a>
+<a href="#"><span class="badge badge-primary">Aug 25, 2023 08:33:06 PM</span></a>
 </li>
 </ul>
 </div>
@@ -61,13 +61,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 16, 2023 02:20:39 PM</h3>
+<h3>Aug 25, 2023 08:33:06 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 16, 2023 02:22:29 PM</h3>
+<h3>Aug 25, 2023 08:35:25 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -138,7 +138,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>6</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>7</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -157,7 +157,7 @@
 </div></div>
 <script>
 var timeline = {
-"aepindianamichigan feature file":109.146
+"SLWOFA feature file":138.608
 };
 </script>
 <div class="row">
@@ -177,7 +177,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 6,
+passGrandChild: 7,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -207,9 +207,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">aepindianamichigan feature file</p>
+            <p class="name">SLWOFA feature file</p>
             <p class="text-sm">
-              <span>2:20:40 PM</span> / <span>00:01:49:146</span>
+              <span>8:33:06 PM</span> / <span>00:02:18:608</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -217,10 +217,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">aepindianamichigan feature file</h5>
-<span class='badge badge-success'>08.16.2023 2:20:40 PM</span>
-<span class='badge badge-danger'>08.16.2023 2:22:29 PM</span>
-<span class='badge badge-default'>00:01:49:146</span>
+<h5 class="test-status text-pass">SLWOFA feature file</h5>
+<span class='badge badge-success'>08.25.2023 8:33:06 PM</span>
+<span class='badge badge-danger'>08.25.2023 8:35:25 PM</span>
+<span class='badge badge-default'>00:02:18:608</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -232,18 +232,20 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Complete a sale in HomeServe aepindianamichigan</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Complete a sale in SLWOFA</div>
       </div>
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.user_is_on_Home_page()">
-                <span>Given User is on Home page</span>
+              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.userIsOnHomePage(java.lang.String)">
+                <span>Given User is on "slwofa" Home page</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.the_user_Should_Select_the_Required_State(java.lang.String)">
-                <span>When the user Selects the State as "Indiana"</span>
+              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.the_user_enters_a_valid_zipcode_and_clicks_on_view_plans(io.cucumber.datatable.DataTable)">
+                <span>When the user enters a valid zipcode and clicks on View Plans</span>
+      <div><table class='markup-table table '><tr><td>zipcode</td><td>EnterZipLocation</td></tr><tr><td>64105</td><td>LandingPage</td></tr></table>
+      </div>
       <div>
       </div>
               </div>
@@ -252,18 +254,23 @@ eventsCount: 5,
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepDefinations.SanjoseStepDef.the_user_fills_up_the_contact_details_with_Zipcode_as_and_City_as(java.lang.String,java.lang.String)">
-                <span>Then the user fills up the Contact details with Zipcode as "46001" and City as "something"</span>
+              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.the_user_fills_in_the_contact_details()">
+                <span>When the user fills in the Contact details</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.the_user_enters_the_account_number_as_and_complete_secure_checkout(java.lang.String)">
-                <span>Then the user Enters the AccountNumber as "10834561321" and Complete Secure Checkout</span>
+              <div class="step pass-bg" title="stepDefinations.SLWAStepDef.clicks_on_continue_to_payment_information()">
+                <span>And Choose and Make the Payment and clicks on Complete Secure Checkout</span>
       <div>
       </div>
               </div>
               <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.the_user_should_see_an_order_confirmation_message()">
                 <span>Then the user should see an order confirmation message</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinations.HomeserveStepDef.open_Gmail_and_Verify_Order_number_in_confirmation_email_is_received()">
+                <span>Then open Gmail and Validate order number in confirmation email is received</span>
       <div>
       </div>
               </div>

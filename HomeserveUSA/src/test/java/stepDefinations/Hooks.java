@@ -26,7 +26,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static automationFramework.DataReader.geturl;
 
@@ -38,39 +38,37 @@ public class Hooks extends StartDriver {
 	public static String fileName;
 	public static boolean flag=false;
 	public static String start_date;
-	
+
 	
 	@Before
-	public void beforeScenario() throws FileNotFoundException, IOException, ParseException {
+	public void beforeScenario() throws FileNotFoundException, IOException, ParseException, InterruptedException {
 
 		System.out.println("Starting Scrtips");
 	//	initialize_ExtentReports();
-
 		String browser = DataReader.getParameterString("browser", "environment");
 
 		if ((browser.equalsIgnoreCase("chrome"))) {
-			WebDriverManager.chromedriver().setup();
-			
-			
+		//	WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-
 			options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 			options.addArguments("-incognito");
 			options.addArguments("--remote-allow-origins=*");
 			options.addArguments("start-maximized");
 			options.setExperimentalOption("excludeSwitches",
 				    Arrays.asList("disable-popup-blocking"));
-		
-			
+			options.setBrowserVersion("116");
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setAcceptInsecureCerts(true);
-			caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
+			caps.acceptInsecureCerts();
+		//	caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 			driver = new ChromeDriver(options);
-			
+			Thread.sleep(2000);
+			driver.manage().deleteAllCookies();
+
 		}
 
 		else if ((browser.equalsIgnoreCase("firefox"))) {
-			WebDriverManager.firefoxdriver().setup();
+//			WebDriverManager.firefoxdriver().setup();
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setAcceptInsecureCerts(true);
 			FirefoxOptions options = new FirefoxOptions();
@@ -101,7 +99,8 @@ public class Hooks extends StartDriver {
 	 * @throws IOException
 	 */
 	@After(order = 1)
-	public static void saveScreenShotForFailedAndPassScenario(Scenario scenario) throws IOException {
+	public static void saveScreenShotForFailedAndPassScenario(Scenario scenario) throws IOException, InterruptedException {
+		Thread.sleep(10000);
 		if (scenario.isFailed()) {
 			try {
 				((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -120,14 +119,25 @@ public class Hooks extends StartDriver {
 			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 			}
-
 		}
 		System.out.println("After test");
 		JvmReport.generateJVMReport(System.getProperty("user.dir")+"//src//test//resources//Reporting//cucumber.json");
 		System.out.println("success JVM");
+		driver.manage().deleteAllCookies();
+	//	driver.close();
+	//	driver.quit();
+	}
 
+	public static void takeScreenshot(String featurename){
 
-		//	driver.quit();
+		try {
+			((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			File screenshot_with_scenario_name = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(screenshot_with_scenario_name,
+					new File("./Failed_Screenshots/" + Utils.getStringWithTimeStamp(featurename) + ".png"));
+		} catch (WebDriverException | IOException somePlatformsDontSupportScreenshots) {
+			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+		}
 	}
 
 
