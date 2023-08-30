@@ -9,10 +9,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageLocators.CommonPageLocators;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 
 import static automationFramework.Constant.*;
 import static automationFramework.DataReader.configProperties;
@@ -22,6 +25,7 @@ import static automationFramework.PageActions.*;
 import static automationFramework.PageActions.clickElement;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
+import static pageObjects.CommonPageActions.commonPageLocators;
 import static pageObjects.HSLandingPageActions.getCurrentTime;
 
 public class SLWALandingPageActions {
@@ -36,6 +40,10 @@ public class SLWALandingPageActions {
 	public void chooseAndMakePayementType(String accountType)throws Exception {
 		if (accountType.equals("Checking Account")) {
 
+			if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
+			}
+
 			clickElement(getWebElementByText("Checking Account"), "Checking Account");
 			sleep(5);
 			typeText(getWebElementByID("full-name"), "Dean Heandreson", "Full name");
@@ -49,11 +57,13 @@ public class SLWALandingPageActions {
 			if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
 					configProperties.getProperty("server.url").equalsIgnoreCase("ottawa-french")) {
 
+				scrollToElement(commonPageLocators.select_Go_PaperLess);
 				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
 				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
-				sleep(3);
-				System.out.println(configProperties.getProperty("card.Number"));
-				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
+				sleep(5);
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[1]")));
+				driver.switchTo().frame(iframe);
 				sleep(5);
 				commonPageLocators.card_Number.sendKeys(configProperties.getProperty("card.Number"));
 				commonPageLocators.month_Year.sendKeys("0527");
@@ -65,13 +75,18 @@ public class SLWALandingPageActions {
 				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
 				getCurrentTime();
 			} else if (configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
-					configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")) {
-				System.out.println("@@@@@@@@@@");
-				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
+					(configProperties.getProperty("server.url").equalsIgnoreCase("slwofa"))
+
+			)
+					 {
+				scrollToElement(commonPageLocators.choosePaymentTYpe);
 				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
 				sleep(5);
-				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[1]")));
+				driver.switchTo().frame(iframe);
 				sleep(5);
+				System.out.println(commonPageLocators.cardType.getAttribute("value"));
 				clickElement(commonPageLocators.cardType, "cardtype");
 				typeText(commonPageLocators.card_Number, configProperties.getProperty("card.Number"), "card number");
 				clickElement(commonPageLocators.cardExpiryMonth, "cardtype");
@@ -85,12 +100,31 @@ public class SLWALandingPageActions {
 				getCurrentTime();
 				waitTillPageLoad();
 				getCurrentTime();
-			} else {
+			} if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
+				clickElement(commonPageLocators.creditCardOption, "CreditCard");
+				Thread.sleep(12000);
+				waitTillPageLoad();
+				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
+				System.out.println("Enter Card Number");
+				Thread.sleep(5000);
+				typeText(commonPageLocators.card_Number, "4024007168458700", "Card number");
+				driver.switchTo().defaultContent();
+				typeText(getWebElementByID("micro-exp-date"), "122027", "Expiratioin Date");
+				clickElement(commonPageLocators.completeSecureCheckout, "Checkout");
+				waitTillPageLoad();
+				Thread.sleep(8000);
+			}else {
+				scrollToElement(commonPageLocators.select_Go_PaperLess);
+				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
 				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
 				sleep(5);
-
-				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[2]")));
+				driver.switchTo().frame(iframe);
+				//driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
 				sleep(5);
+				System.out.println(commonPageLocators.cardType.getAttribute("value"));
 				clickElement(commonPageLocators.cardType, "cardtype");
 				typeText(commonPageLocators.card_Number, configProperties.getProperty("card.Number"), "card number");
 				clickElement(commonPageLocators.cardExpiryMonth, "cardtype");

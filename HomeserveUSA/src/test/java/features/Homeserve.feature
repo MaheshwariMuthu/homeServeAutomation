@@ -14,6 +14,6 @@ Feature: Homeserve feature file
 #    Then the user selects the Billing Frequency as "Quarterly"
     When the user fills in the Contact details
     When Clicks on Continue to Payment Information
-    And the user selects the payment method as "Credit or Debit Card" enters the payment details, and clicks on Complete Secure Checkout
+    And the user selects the PaymentType as "Credit or Debit Card" Makes the Payment and clicks on Complete Secure Checkout
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received

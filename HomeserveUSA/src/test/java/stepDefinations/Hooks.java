@@ -54,8 +54,9 @@ public class Hooks extends StartDriver {
 			options.addArguments("-incognito");
 			options.addArguments("--remote-allow-origins=*");
 			options.addArguments("start-maximized");
-			options.setExperimentalOption("excludeSwitches",
-				    Arrays.asList("disable-popup-blocking"));
+//			options.setExperimentalOption("excludeSwitches",
+//				    Arrays.asList("disable-popup-blocking"));
+			options.addArguments("--disable-popup-blocking");
 			options.setBrowserVersion("116");
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setAcceptInsecureCerts(true);

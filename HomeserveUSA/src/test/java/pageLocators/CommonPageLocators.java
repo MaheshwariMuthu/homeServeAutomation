@@ -40,10 +40,11 @@ public class CommonPageLocators {
 
 	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div[2]/a")
 	public WebElement use_This_Address;
-
+//
 	@FindAll({
 			@FindBy(xpath = "//*[text()='Address not found!']"),
 			@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/h2"),
+
 	}) public WebElement AddressNotFound;
 @FindAll({
 			@FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[1]"),
@@ -202,6 +203,9 @@ public class CommonPageLocators {
 
 	/* Credit Card option X-path */
 	@FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]")
+	//*[@id="select2-checkout-form__method-result-k7dy-Checking Account"]/span
+	//*[@id="select2-checkout-form__method-result-5etj-Credit or Debit Card"]/span
+
 	public WebElement creditCardOption;
 
 
@@ -222,7 +226,7 @@ public class CommonPageLocators {
 			@FindBy(xpath = "(//iframe)[2]"),
 			@FindBy(xpath = "//*[@id=\"micro-number-container\"]/iframe"),
 
-	})public WebElement creditCardNumberFrame;
+	})public static WebElement creditCardNumberFrame;
 
 	/* Credit card number X-path */
 	@FindBy(xpath = "(//span[text()='Shop Now'])[1]")
