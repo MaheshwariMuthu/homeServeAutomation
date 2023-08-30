@@ -126,6 +126,7 @@ public class HSLandingPageActions  {
 		clickElement(getWebElementByText("Continue to Payment Information"), "Continue to Payment Information");
 		sleep(12);
 		clickElement(getWebElementByText("Yes, use this address"), "Yes, use this address");
+		sleep(10);
 	}
 
 	/**
@@ -171,6 +172,7 @@ try {
 	if (commonPageLocators.AddressNotFound.getText().contains("Address not found!")
 		//	commonPageLocators.AddressNotFound.getText().equalsIgnoreCase("Address not found!")
 	) {
+		System.out.println("Hoooooo");
 		clickElement(commonPageLocators.use_This_Address, "use the address");
 		waitTillPageLoad();
 		Thread.sleep(5000);

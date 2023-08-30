@@ -133,7 +133,7 @@ public class PageActions extends StartDriver {
 				jsExecutor.executeScript("arguments[0].scrollIntoView()", element);
 				jsExecutor.executeScript(
 						"arguments[0].setAttribute('style', 'border:2px solid red; background:yellow');", element);
-				element.click();
+				jsExecutor.executeScript("arguments[0].click();", element);
 				log.info("Clicking on: " + elementName);
 			} catch (AssertionError e) {
 				assertTrue(verifyWebElementPresent(element), "----> Element is not present");
