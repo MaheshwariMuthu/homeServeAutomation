@@ -115,6 +115,7 @@ public class CommonPageLocators {
 	@FindAll({
 			@FindBy(xpath = "//div[3]/div[2]/div[2]/p/button"),
 			@FindBy(xpath = "//*[@class='c491-add-new-payment__btn']"),
+			@FindBy(xpath = "//*[@id=\"select2-checkout-form__method-container\"]"),
 
 	}) public WebElement choosePaymentTYpe;
 	//div[4]/div/div[1]/fieldset/div/div[1]/input
@@ -128,7 +129,8 @@ public class CommonPageLocators {
 		@FindBy(xpath = "//*[@id=\"CardNumber\"]"),
 		@FindBy(xpath = "//*[@id=\"card_number\"]"),
 		@FindBy(xpath = "//input[@id='number']"),
-			@FindBy(xpath = "//*[@id=\"number\"]")
+		@FindBy(xpath = "//*[@id=\"number\"]"),
+
 	}) public WebElement card_Number;
 
 	@FindBy(xpath = "//*[@class='button js-post-message']")
@@ -203,10 +205,10 @@ public class CommonPageLocators {
 
 	/* Credit Card option X-path */
 	@FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]")
-	//*[@id="select2-checkout-form__method-result-k7dy-Checking Account"]/span
-	//*[@id="select2-checkout-form__method-result-5etj-Credit or Debit Card"]/span
-
 	public WebElement creditCardOption;
+
+	@FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]")
+	public WebElement checkingAccountOption;
 
 
 	/* Credit Card option X-path */
@@ -215,6 +217,7 @@ public class CommonPageLocators {
 			@FindBy(xpath = "/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
 			@FindBy(xpath = "(//div[@class='checkout-form__container']//button[text()='Complete Secure Checkout'])[1]"),
 			@FindBy(xpath = "(/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
+			@FindBy(xpath = "//*[@id=\"checking-form\"]/div[3]/button"),
 	})public WebElement completeSecureCheckout;
 
 	/* Card number X-path */
@@ -226,7 +229,7 @@ public class CommonPageLocators {
 			@FindBy(xpath = "(//iframe)[2]"),
 			@FindBy(xpath = "//*[@id=\"micro-number-container\"]/iframe"),
 
-	})public static WebElement creditCardNumberFrame;
+	})public WebElement creditCardNumberFrame;
 
 	/* Credit card number X-path */
 	@FindBy(xpath = "(//span[text()='Shop Now'])[1]")
@@ -252,7 +255,8 @@ public class CommonPageLocators {
 	@FindAll({
 			@FindBy(xpath = "//span[@class='order-confirm__text']/descendant::span"),
 			@FindBy(xpath = "*//p/strong"),
-			@FindBy(xpath = "/html/body/main/div/div/div/div/div/div/div[1]/div[4]/p/strong")
+			@FindBy(xpath = "/html/body/main/div/div/div/div/div/div/div[1]/div[4]/p/strong"),
+			@FindBy(xpath = "//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"),
 
 	})public WebElement orderNumber;
 

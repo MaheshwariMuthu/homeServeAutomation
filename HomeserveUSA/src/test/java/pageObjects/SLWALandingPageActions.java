@@ -38,22 +38,40 @@ public class SLWALandingPageActions {
 	}
 
 	public void chooseAndMakePayementType(String accountType)throws Exception {
-		if (accountType.equals("Checking Account")) {
+		if (accountType.equalsIgnoreCase("Checking Account")) {
 
 			if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
-				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
-			}
+				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
+				Paymenttype.click();
+				sleep(2);
+				clickElement(commonPageLocators.checkingAccountOption, "Checking Account");
+				commonPageLocators.checkingAccountOption.click();
+				sleep(2);
+				typeText(getWebElementByID("checking-full-name"), "Dean Heandreson", "Full name");
+				typeText(getWebElementByID("checking-routing-number"), "021912915", "Routing number");
+				typeText(getWebElementByID("checking-account-number"), "6011000000000000", "Account number");
+				typeText(getWebElementByID("checking-account-number-confirm"), "6011000000000000", "Checking account number");
+				scrollToBottomOfPage();
+				sleep(5);
+				WebElement checkout = driver.findElement(By.xpath("//*[@id=\"checking-form\"]/div[3]/button"));
+				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				jsExecutor.executeScript("arguments[0].click();", checkout);
+				getCurrentTime();
+				waitTillPageLoad();
+			}else {
 
-			clickElement(getWebElementByText("Checking Account"), "Checking Account");
-			sleep(5);
-			typeText(getWebElementByID("full-name"), "Dean Heandreson", "Full name");
-			typeText(getWebElementByID("routing-number"), "021912915", "Routing number");
-			typeText(getWebElementByID("checking-account"), "6011000000000000", "Account number");
-			typeText(getWebElementByID("verify-checking-account"), "6011000000000000", "Checking account number");
-			clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
-			waitTillPageLoad();
+				clickElement(getWebElementByText("Checking Account"), "Checking Account");
+				sleep(5);
+				typeText(getWebElementByID("full-name"), "Dean Heandreson", "Full name");
+				typeText(getWebElementByID("routing-number"), "021912915", "Routing number");
+				typeText(getWebElementByID("checking-account"), "6011000000000000", "Account number");
+				typeText(getWebElementByID("verify-checking-account"), "6011000000000000", "Checking account number");
+				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
+				getCurrentTime();
+				waitTillPageLoad();
+			}
 		}
-		if (accountType.equals("Credit or Debit Card")) {
+		else if (accountType.equalsIgnoreCase("Credit or Debit Card")) {
 			if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
 					configProperties.getProperty("server.url").equalsIgnoreCase("ottawa-french")) {
 
@@ -74,10 +92,9 @@ public class SLWALandingPageActions {
 				driver.switchTo().defaultContent();
 				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
 				getCurrentTime();
-			} else if (configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
-					(configProperties.getProperty("server.url").equalsIgnoreCase("slwofa"))
+			} else if (configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation")||
+					configProperties.getProperty("server.url").equalsIgnoreCase("slwofa"))
 
-			)
 					 {
 				scrollToElement(commonPageLocators.choosePaymentTYpe);
 				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
@@ -100,20 +117,31 @@ public class SLWALandingPageActions {
 				getCurrentTime();
 				waitTillPageLoad();
 				getCurrentTime();
-			} if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
-				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
+			} else if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
+				Paymenttype.click();
+				sleep(2);
 				clickElement(commonPageLocators.creditCardOption, "CreditCard");
-				Thread.sleep(12000);
-				waitTillPageLoad();
-				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
+				commonPageLocators.creditCardOption.click();
+				sleep(2);
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[2]")));
+				driver.switchTo().frame(iframe);
 				System.out.println("Enter Card Number");
-				Thread.sleep(5000);
-				typeText(commonPageLocators.card_Number, "4024007168458700", "Card number");
+				sleep(2);
+				//typeText(commonPageLocators.card_Number, "4024007168458700", "Card number");
+				JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+				jsExecutor.executeScript("arguments[0].click();", commonPageLocators.card_Number);
+				commonPageLocators.card_Number.sendKeys(configProperties.getProperty("card.Number"));
+			//	WebElement textboxElement = driver.findElement(By.id("textboxId"));
+
+				// Click on the textbox using JavaScript Executor
+
 				driver.switchTo().defaultContent();
 				typeText(getWebElementByID("micro-exp-date"), "122027", "Expiratioin Date");
 				clickElement(commonPageLocators.completeSecureCheckout, "Checkout");
+				getCurrentTime();
 				waitTillPageLoad();
-				Thread.sleep(8000);
 			}else {
 				scrollToElement(commonPageLocators.select_Go_PaperLess);
 				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
@@ -138,6 +166,8 @@ public class SLWALandingPageActions {
 				getCurrentTime();
 				waitTillPageLoad();
 			}
+		}else {
+			System.err.println("PaymentType is provided incorrectly");
 		}
 	}
 }
