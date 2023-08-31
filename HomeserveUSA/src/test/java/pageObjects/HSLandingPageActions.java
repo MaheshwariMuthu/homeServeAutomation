@@ -5,10 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 
 import automationFramework.PageActions;
@@ -167,12 +164,11 @@ public class HSLandingPageActions  {
 	 */
 	public void verifyOrderConformedSuccessfully() throws Exception {
 		waitTillPageLoad();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 try {
 	if (commonPageLocators.AddressNotFound.getText().contains("Address not found!")
 		//	commonPageLocators.AddressNotFound.getText().equalsIgnoreCase("Address not found!")
 	) {
-		System.out.println("Hoooooo");
 		clickElement(commonPageLocators.use_This_Address, "use the address");
 		waitTillPageLoad();
 		Thread.sleep(5000);
@@ -193,15 +189,40 @@ try {
 		clickElement(getWebElementByText("Finish"), "Finish");
 		waitTillPageLoad();
 		String feedBackMessage = getWebElementByClass("survey__message survey__message--subtitle").getText();
+		Thread.sleep(5000);
 		if (feedBackMessage.equals("Your feedback has been submitted successfully.")) {
-			clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn");
-			Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
-			BrowserorderNumberText = commonPageLocators.orderNumber.getText();
-			String[] parts = BrowserorderNumberText.split("\\.");
-			String extractedValue = parts[1];
-			System.out.println("Extracted Value:" + extractedValue.trim());
-			Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(getWebElementByText("Create Account")));
-			log.info("Homeserve sale completed.");
+
+			if (configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")) {
+				clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn");
+				Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
+				WebElement ordertext = driver.findElement(By.xpath("//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"));
+				scrollToElement(ordertext);
+				System.out.println(ordertext.getText());
+				BrowserorderNumberTexts = ordertext.getText();
+				System.out.println(BrowserorderNumberTexts);
+				String[] parts = BrowserorderNumberTexts.split(" ");
+				if (parts.length >= 3) {
+					String extractedValue = parts[2];
+					System.out.println("Extracted Value: " + extractedValue);
+					BrowserorderNumberTexts =	extractedValue;
+				} else {
+					System.out.println("Error: Unable to extract order number.");
+				}
+
+				System.out.println("Order Number is : " + BrowserorderNumberTexts);
+			} else {
+				clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn");
+				Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
+				BrowserorderNumberText = commonPageLocators.orderNumber.getText();
+				String[] parts = BrowserorderNumberText.split("\\.");
+				String extractedValue = parts[1];
+				System.out.println("Extracted Value:" + extractedValue.trim());
+				BrowserorderNumberTexts = extractedValue.trim();
+				System.out.println("Order Number is: " + BrowserorderNumberTexts);
+				log.info("Order Number is: " + BrowserorderNumberTexts);
+				Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(getWebElementByText("Create Account")));
+				log.info("Homeserve sale completed.");
+			}
 		}
 	}
 }

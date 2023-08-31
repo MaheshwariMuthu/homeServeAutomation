@@ -2,9 +2,7 @@ package pageObjects;
 
 import static automationFramework.Constant.*;
 import static automationFramework.DataReader.configProperties;
-import static automationFramework.DynamicWebElements.getWebElementByID;
-import static automationFramework.DynamicWebElements.getWebElementByText;
-import static automationFramework.DynamicWebElements.getWebElementByValue;
+import static automationFramework.DynamicWebElements.*;
 import static automationFramework.PageActions.clickElement;
 import static automationFramework.PageActions.log;
 import static automationFramework.PageActions.scrollToElement;
@@ -16,6 +14,8 @@ import static pageObjects.CommonPageActions.commonPageLocators;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pageLocators.SanjosePageLocators;
 
@@ -71,7 +71,26 @@ public class SanjosePageActions {
 		typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Adress Second");
 		typeText(getWebElementByID("city"), City, "Adress");
 		typeText(getWebElementByID("zip-code"), Zipcode, "Zip code");
-		typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
+		WebElement State = driver.findElement(By.xpath("//*[@id=\"state\"]"));
+		String state = State.getAttribute("value");
+		System.out.println(state);
+
+		if(configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan")
+			&& state.equalsIgnoreCase("IN")) {
+			// (313) 793-4983
+			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
+			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
+		}
+		if(configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan")
+				&& state.equalsIgnoreCase("MI")) {
+			// (313) 793-4983
+			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
+			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
+		}
+
+		else{
+			typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
+		}
 		Thread.sleep(4000);
 	}
 
@@ -134,11 +153,21 @@ public class SanjosePageActions {
 	public void selectBillingFrequency(String billingFreq) throws InterruptedException {
 		Thread.sleep(5000);
 		if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
-			selectFromDropdownByValue(commonPageLocators.Select_Bill_Frequency, billingFreq);
-			// //*[@id="installmentsPerYear"]/option[2]
+			clickElement(getWebElementByClass("billing-frequency__dropdown"),"Bill Frequency");
+			WebElement FreqDropdown = getWebElementByClass("billing-frequency__dropdown");
+		//	FreqDropdown.click();
+			if(billingFreq.equalsIgnoreCase("Monthly")) {
+				selectFromDropdownByValue(FreqDropdown, "12");
+			}
+			if(billingFreq.equalsIgnoreCase("Quarterly")) {
+				selectFromDropdownByValue(FreqDropdown, "4");
+			}
+			if(billingFreq.equalsIgnoreCase("Annually")) {
+				selectFromDropdownByValue(FreqDropdown, "1");
+			}
 		}
 
-		if (billingFreq.equalsIgnoreCase("Monthly")) {
+		else if (billingFreq.equalsIgnoreCase("Monthly")) {
 			clickElement(getWebElementByText("Monthly"), "Monthly");
 			System.out.println("Monthly checkbox selected");
 			log.info("Mothly checkbox selected");

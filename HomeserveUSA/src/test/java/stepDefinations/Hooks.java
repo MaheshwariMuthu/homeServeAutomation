@@ -122,11 +122,11 @@ public class Hooks extends StartDriver {
 			}
 		}
 		System.out.println("After test");
-		JvmReport.generateJVMReport(System.getProperty("user.dir")+"//src//test//resources//Reporting//cucumber.json");
-		System.out.println("success JVM");
+	//	JvmReport.generateJVMReport(System.getProperty("user.dir")+"//src//test//resources//Reporting//cucumber.json");
+	//	System.out.println("success JVM");
 		driver.manage().deleteAllCookies();
-	//	driver.close();
-	//	driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 	public static void takeScreenshot(String featurename){
