@@ -3,7 +3,7 @@ package pageLocators;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import automationFramework.Hooks;
+import stepDefinations.Hooks;
 
 
 import java.util.List;

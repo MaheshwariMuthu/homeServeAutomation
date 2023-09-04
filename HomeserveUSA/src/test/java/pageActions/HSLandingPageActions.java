@@ -85,7 +85,7 @@ public class HSLandingPageActions {
      * @throws IOException
      * @throws FileNotFoundException
      */
-    public void entercontactDetails() throws InterruptedException, FileNotFoundException, IOException, ParseException {
+    public void entercontactDetails(String FirstName, String LastName) throws InterruptedException, FileNotFoundException, IOException, ParseException {
         String generateRandomEmail = RandomStringUtils.randomNumeric(3);
         String generateRandomPhonenumber = RandomStringUtils.randomNumeric(3);
         String generateRandomAddress = RandomStringUtils.randomNumeric(4);
@@ -98,11 +98,11 @@ public class HSLandingPageActions {
         waitForElement(getWebElementByID("email"), "Email", 120);
         typeText(getWebElementByID("email"), Email, "Email");
         typeText(getWebElementByID("email-confirm"), Email, "Conform Email");
-        typeText(commonPageLocators.firstName, getParameterString("FirstName", "contactDetails"), "First name");
-        typeText(getWebElementByID("last-name"), getParameterString("LastName", "contactDetails"), "Last name");
+        typeText(commonPageLocators.firstName, FirstName, "First name");
+        typeText(getWebElementByID("last-name"), LastName, "Last name");
         typeText(commonPageLocators.addressLine, Address, "Adress");
         typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Adress Second");
-        typeText(getWebElementByID("home-phone"), getParameterString("PhoneNumber", "contactDetails"), "Home phone");
+        typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
 
     }
 

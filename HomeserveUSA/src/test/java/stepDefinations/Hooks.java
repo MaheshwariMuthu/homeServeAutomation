@@ -1,4 +1,4 @@
-package automationFramework;
+package stepDefinations;
 
 import automationFramework.DataReader;
 import automationFramework.StartDriver;
@@ -20,9 +20,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import java.util.Properties;
 
 
 public class Hooks extends StartDriver {
@@ -32,14 +33,16 @@ public class Hooks extends StartDriver {
 	public static String fileName;
 	public static boolean flag=false;
 	public static String start_date;
+	public static Properties configProperties;
 
 	
 	@Before
 	public void beforeScenario() throws FileNotFoundException, IOException, ParseException, InterruptedException {
 
 		System.out.println("Starting Scrtips");
-	//	initialize_ExtentReports();
-		String browser = DataReader.getParameterString("browser", "environment");
+		configProperties=new Properties();
+		configProperties.load(new FileInputStream((new File(System.getProperty("user.dir")+"/src/test/resources/config.properties"))));
+		String browser = configProperties.getProperty("browser");
 
 		if ((browser.equalsIgnoreCase("chrome"))) {
 		//	WebDriverManager.chromedriver().setup();

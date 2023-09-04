@@ -13,32 +13,6 @@ import org.testng.Assert;
 public class DataReader {
 	public static Properties configProperties;
 
-	public static Object getFileLocation()
-			throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
-		JSONParser parser = new JSONParser();
-		return parser.parse(new FileReader(System.getProperty("user.dir")+"/DataFiles/schneiderData.json"));
-	}
-
-	/**
-	 * Description: To read the jason data 
-	 * @param key
-	 * @param node
-	 * @return
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 * @throws org.json.simple.parser.ParseException
-	 */
-	public static String getParameterString(String key, String node)
-			throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
-		geturl();
-		Object obj = getFileLocation();
-		JSONArray array = new JSONArray();
-		array.add(obj);
-		JSONObject jsonObject = (JSONObject) array.get(0);
-		JSONObject record = (JSONObject) jsonObject.get(node);
-		String value = (String) record.get(key);
-		return value;
-	}
 
 	public static String geturl() throws IOException {
 		String url=null;
