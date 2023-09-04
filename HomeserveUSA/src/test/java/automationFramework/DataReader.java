@@ -26,40 +26,40 @@ public class DataReader {
 			switch (Site){
 
 				case"aepindianamichigan":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case"wvwachoice":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case"buffalowaternipcnew":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case"kypower-tabs":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case"firstenergy-fundle":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case "sanjose":
-					url="https://www.reghomeserve.com/sc/mail/"+Site;
+					url= "https://www." + env + "homeserve.com/sc/mail/" +Site;
 					break;
 				case"lasanitation":
-					url="https://preprod.slwofa.com/mail/"+Site;
+					url= "https://" + env + ".slwofa.com/mail/" +Site;
 					break;
 				case"ottawa-french":
-					url="https://preprod.slwofc.ca/mail/"+Site;
+					url= "https://" + env + ".slwofc.ca/mail/" +Site;
 					break;
 				case"Homeserve":
-					url="https://www.reghomeserve.com/?ncr=true";
+					url= "https://www." + env + "homeserve.com/?ncr=true";
 					break;
 				case"slwofa":
-					url="https://preprod.slwofa.com/";
+					url= "https://" + env + ".slwofa.com/";
 					break;
 				case"slwofc":
-					url="https://preprod.slwofc.ca/";
+					url= "https://" + env + ".slwofc.ca/";
 					break;
 				case"HomeServe-CE":
-					url="https://www.reghomeserve.com/sc/mail/homeserve-ce";
+					url= "https://www." + env + "homeserve.com/sc/mail/homeserve-ce";
 					break;
 
 				default:

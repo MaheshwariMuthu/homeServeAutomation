@@ -56,21 +56,25 @@ public class HSLandingPageActions {
      */
     public void addProductToCartAndProceedToCheckout() throws InterruptedException {
         int i = 0;
-        scrollToElement(commonPageLocators.addToCart.get(0));
-        clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
-        waitTillPageLoad();
-        verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
-        clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout");
-        waitTillPageLoad();
-        System.out.println(configProperties.getProperty("server.url"));
-        if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
-                configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan") ||
-                configProperties.getProperty("server.url").equalsIgnoreCase("kypower-tabs") ||
-                //	configProperties.getProperty("server.url").equalsIgnoreCase("firstenergy-fundle")||
-                configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
-                configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")
-        ) {
-            clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout");
+        if(verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart.get(0))) {
+            scrollToElement(commonPageLocators.addToCart.get(0));
+            clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
+            waitTillPageLoad();
+            verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
+            clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout");
+            waitTillPageLoad();
+            System.out.println(configProperties.getProperty("server.url"));
+            if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
+                    configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan") ||
+                    configProperties.getProperty("server.url").equalsIgnoreCase("kypower-tabs") ||
+                    //	configProperties.getProperty("server.url").equalsIgnoreCase("firstenergy-fundle")||
+                    configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
+                    configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")
+            ) {
+                clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout");
+            }
+        }else {
+            Assert.fail("ERROR:  --- addToCart --- button Not displayed");
         }
 
         waitTillPageLoad();
