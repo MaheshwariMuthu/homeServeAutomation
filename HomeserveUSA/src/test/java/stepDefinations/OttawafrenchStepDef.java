@@ -1,9 +1,8 @@
 package stepDefinations;
 
 import io.cucumber.java.en.When;
-import pageObjects.CommonPageActions;
-import pageObjects.OttawaPageAction;
-import pageObjects.SLWALandingPageActions;
+import pageActions.CommonPageActions;
+import pageActions.OttawaPageAction;
 
 public class OttawafrenchStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();

@@ -5,6 +5,7 @@ Feature: aepindianamichigan feature file
   Background: User navigate to Homeserve-aepindianamichigan application
     Given User is on "aepindianamichigan" Home page
 
+@saleaep
   Scenario: Complete a sale in HomeServe aepindianamichigan-Michigan
     When the user Selects the State as "Michigan"
     Then add product to the cart and the user clicks on Proceed to Checkout

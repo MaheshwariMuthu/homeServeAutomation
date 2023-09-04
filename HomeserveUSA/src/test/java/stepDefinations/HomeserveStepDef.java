@@ -13,12 +13,9 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageObjects.CommonPageActions;
-import pageObjects.HSLandingPageActions;
-import pageObjects.SanjosePageActions;
-
-import static automationFramework.DataReader.configProperties;
-import static automationFramework.DynamicWebElements.*;
+import pageActions.CommonPageActions;
+import pageActions.HSLandingPageActions;
+import pageActions.SanjosePageActions;
 
 public class HomeserveStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();

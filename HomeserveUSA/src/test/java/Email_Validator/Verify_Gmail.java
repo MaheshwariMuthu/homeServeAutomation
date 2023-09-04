@@ -10,11 +10,10 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.jsoup.Jsoup;
-import pageObjects.HSLandingPageActions;
 
 import static automationFramework.Constant.BrowserorderNumberText;
 import static automationFramework.DataReader.configProperties;
-import static pageObjects.HSLandingPageActions.*;
+import static pageActions.HSLandingPageActions.*;
 
 
 public class Verify_Gmail {

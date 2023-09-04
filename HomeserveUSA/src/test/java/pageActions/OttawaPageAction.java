@@ -1,4 +1,4 @@
-package pageObjects;
+package pageActions;
 
 import static automationFramework.PageActions.clickElement;
 import static automationFramework.StartDriver.driver;

@@ -1,4 +1,4 @@
-package pageObjects;
+package pageActions;
 
 import static automationFramework.Constant.*;
 import static automationFramework.DataReader.configProperties;
@@ -10,7 +10,7 @@ import static automationFramework.PageActions.selectFromDropdownByValue;
 import static automationFramework.PageActions.typeText;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
-import static pageObjects.CommonPageActions.commonPageLocators;
+import static pageActions.CommonPageActions.commonPageLocators;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;

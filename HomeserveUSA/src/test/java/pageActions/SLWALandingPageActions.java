@@ -1,10 +1,7 @@
-package pageObjects;
+package pageActions;
 
 import automationFramework.PageActions;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
-import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -13,20 +10,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageLocators.CommonPageLocators;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.time.Duration;
 
-import static automationFramework.Constant.*;
 import static automationFramework.DataReader.configProperties;
-import static automationFramework.DataReader.getParameterString;
 import static automationFramework.DynamicWebElements.*;
 import static automationFramework.PageActions.*;
 import static automationFramework.PageActions.clickElement;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
-import static pageObjects.CommonPageActions.commonPageLocators;
-import static pageObjects.HSLandingPageActions.getCurrentTime;
+import static pageActions.HSLandingPageActions.getCurrentTime;
 
 public class SLWALandingPageActions {
 

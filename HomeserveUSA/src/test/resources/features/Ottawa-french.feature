@@ -19,7 +19,7 @@ Background: User navigate to Ottawa page
 		Then open Gmail and Validate order number in confirmation email is received
 
 
-	@sale
+
 	Scenario: Complete Quarterly sale in Ottawa-french with PaymetType as Credit or Debit Card
 		When the user selects the plan and add to cart add and Proceed To Checkout
 		Then the user selects the Billing Frequency as "Quarterly"
@@ -30,7 +30,7 @@ Background: User navigate to Ottawa page
 
 
 
-	@sale
+
 	Scenario: Complete Annually sale in Ottawa-french with PaymetType as Credit or Debit Card
 		When the user selects the plan and add to cart add and Proceed To Checkout
 		Then the user selects the Billing Frequency as "Annually"

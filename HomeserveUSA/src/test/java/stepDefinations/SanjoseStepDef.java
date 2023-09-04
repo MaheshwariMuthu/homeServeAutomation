@@ -3,8 +3,8 @@ package stepDefinations;
 import io.cucumber.java.en.Then;
 
 import io.cucumber.java.en.When;
-import pageObjects.CommonPageActions;
-import pageObjects.SanjosePageActions;
+import pageActions.CommonPageActions;
+import pageActions.SanjosePageActions;
 
 public class SanjoseStepDef {
 	

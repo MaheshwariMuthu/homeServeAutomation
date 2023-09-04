@@ -21,7 +21,11 @@ public class CommonPageLocators {
 
 //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
 //	public WebElement enterZipHeaderLink;
-
+@FindAll({
+		@FindBy(xpath = "//div[@class='component generic-error-lightbox light-box js-generic-error-lb']")
+		//	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
+})
+public WebElement PaymentnotprocessedDialog;
 	@FindAll({
 			@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
 		//	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");

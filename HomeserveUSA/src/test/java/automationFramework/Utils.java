@@ -1,5 +1,8 @@
 package automationFramework;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,9 +13,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+import static automationFramework.StartDriver.driver;
 
 
 public class Utils {
+
 
 	public static void deleteDir(String pathToDeleteFolder) {
 		File extefolder = new File(pathToDeleteFolder);
@@ -77,5 +82,27 @@ public class Utils {
         String randomString=value+date;
 		return randomString;
 	
+	}
+
+	public void acceptAlert() {
+		while (isAlertPresent()) {
+			try {
+				Alert alert = driver.switchTo().alert();
+				alert.accept();
+				System.out.println("- \n--------------\n" + "AlertDialog - " + "\n--------------");
+
+			} catch (NoAlertPresentException e) {
+				System.out.println("- Alert not found " + e.getMessage());
+			}
+		}
+	}
+
+	public boolean isAlertPresent() {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (NoAlertPresentException Ex) {
+			return false;
+		}
 	}
 }

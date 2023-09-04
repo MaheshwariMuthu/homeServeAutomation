@@ -1,4 +1,4 @@
-package pageObjects;
+package pageActions;
 
 import static automationFramework.DataReader.configProperties;
 import static automationFramework.DataReader.geturl;
@@ -6,10 +6,8 @@ import static automationFramework.DynamicWebElements.getWebElementByID;
 import static automationFramework.PageActions.clickElement;
 import static automationFramework.PageActions.typeText;
 import static automationFramework.StartDriver.driver;
-import static automationFramework.Waits.EXPLICIT_WAIT_120_SEC;
 import static automationFramework.Waits.waitTillPageLoad;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.json.simple.parser.ParseException;
@@ -41,7 +39,7 @@ public class CommonPageActions {
 			throws InterruptedException, IOException, ParseException {
 		driver.navigate().to(geturl());
 		waitTillPageLoad();
-		closeCookiesBottom();
+//		closeCookiesBottom();
 	}
 
 	/**

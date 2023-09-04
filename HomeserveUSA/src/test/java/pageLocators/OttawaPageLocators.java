@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import stepDefinations.Hooks;
+import automationFramework.Hooks;
 
 
 public class OttawaPageLocators  extends Hooks {

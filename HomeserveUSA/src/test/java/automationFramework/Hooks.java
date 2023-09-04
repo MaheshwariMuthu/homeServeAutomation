@@ -1,23 +1,4 @@
-package stepDefinations;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-
-import automationFramework.JvmReport;
-import org.apache.commons.io.FileUtils;
-import org.json.simple.parser.ParseException;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
+package automationFramework;
 
 import automationFramework.DataReader;
 import automationFramework.StartDriver;
@@ -26,9 +7,22 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-//import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.json.simple.parser.ParseException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static automationFramework.DataReader.geturl;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 
 public class Hooks extends StartDriver {
@@ -76,20 +70,17 @@ public class Hooks extends StartDriver {
 			options.addArguments("--start-maximized");
 			driver = new FirefoxDriver(options);
 		}
-//		driver.navigate().to(geturl());  -- this is not needed and we are using this in Navigation method
 	}
 
 
-//	@AfterStep
-//	public void AddScreenshot(Scenario scenario) throws IOException {
-//		if (scenario.isFailed()) {
-//			// screenshot
-//			File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//			byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
-//			scenario.attach(fileContent, "image/png", "image");
-//		}
-//
-//	}
+	@AfterStep
+	public void AddScreenshot(Scenario scenario) throws IOException {
+		if (scenario.isFailed()) {
+			byte[] imageBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			//byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+			scenario.attach(imageBytes, "image/png", "image");
+		}
+	}
 	
 	/**
 	 * Description: Taking screenshot for pass and failed scenario- -creating folder
@@ -99,15 +90,16 @@ public class Hooks extends StartDriver {
 	 * @param scenario
 	 * @throws IOException
 	 */
-	@After(order = 1)
+	@After
 	public static void saveScreenShotForFailedAndPassScenario(Scenario scenario) throws IOException, InterruptedException {
+		String ImagePath;
 		Thread.sleep(10000);
 		if (scenario.isFailed()) {
 			try {
 				((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 				File screenshot_with_scenario_name = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(screenshot_with_scenario_name,
-						new File("./Failed_Screenshots/" + Utils.getStringWithTimeStamp(scenario.getName()) + ".png"));
+				ImagePath = "./Failed_Screenshots/" + Utils.getStringWithTimeStamp(scenario.getName()) + ".png";
+				FileUtils.copyFile(screenshot_with_scenario_name,new File(ImagePath));
 			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 			}
@@ -122,11 +114,10 @@ public class Hooks extends StartDriver {
 			}
 		}
 		System.out.println("After test");
-	//	JvmReport.generateJVMReport(System.getProperty("user.dir")+"//src//test//resources//Reporting//cucumber.json");
-	//	System.out.println("success JVM");
+
 		driver.manage().deleteAllCookies();
 		driver.close();
-		driver.quit();
+
 	}
 
 	public static void takeScreenshot(String featurename){
@@ -139,18 +130,6 @@ public class Hooks extends StartDriver {
 		} catch (WebDriverException | IOException somePlatformsDontSupportScreenshots) {
 			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 		}
-	}
-
-
-	public static void initialize_ExtentReports()
-	{
-		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy_HH:mm:ss");
-		Date curDate = new Date();
-		strDate = sdf.format(curDate);
-		strDate=strDate.replaceAll(":", ".");
-		fileName = System.getProperty("user.dir")+"\\target\\Extent_Reports\\"+"HomeserveDigital"+".html";
-		File extentFile = new File(fileName);
-
 	}
 
 
