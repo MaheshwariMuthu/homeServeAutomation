@@ -33,7 +33,7 @@ public class SanjosePageActions {
 	 * @param productCount
 	 * @throws InterruptedException
 	 */
-	public void selectProductProceedToCheckout(String productCount) throws InterruptedException {
+	public void selectProductProceedToCheckout(String productCount) throws Exception {
 		int i = 0;
 		scrollToElement(sanjosePageLocators.addToCart.get(0));
 		clickElement(sanjosePageLocators.addToCart.get(0), "Add to cart");
@@ -42,7 +42,17 @@ public class SanjosePageActions {
 			clickElement(sanjosePageLocators.addToCart.get(i), "Add to cart");
 			Thread.sleep(2000);
 		}
-		clickElement(sanjosePageLocators.proceedToCheckout.get(i - 0), "Proceed to checkout");
+		String messageText = driver.getTitle();
+		System.out.println(messageText);
+
+		if (messageText.contains("Checkout Empty Cart")) {
+			System.out.println("Cart is empty.");
+			throw new Exception("Checkout Cart is Empty");
+		} else {
+			System.out.println("Item added to cart.");
+			clickElement(sanjosePageLocators.proceedToCheckout.get(i), "Proceed to checkout");
+		}
+
 	}
 
 	/**
