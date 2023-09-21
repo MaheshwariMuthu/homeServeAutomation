@@ -48,6 +48,8 @@ public class Hooks extends StartDriver {
 		//	WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("-incognito");
 			options.addArguments("--remote-allow-origins=*");
 			options.addArguments("start-maximized");

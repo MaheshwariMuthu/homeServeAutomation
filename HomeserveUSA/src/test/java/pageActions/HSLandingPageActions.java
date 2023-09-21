@@ -56,27 +56,40 @@ public class HSLandingPageActions {
      */
     public void addProductToCartAndProceedToCheckout() throws InterruptedException {
         int i = 0;
-        if(verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart.get(0))) {
-            scrollToElement(commonPageLocators.addToCart.get(0));
-            clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
-            waitTillPageLoad();
-            verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
-            clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout");
-            waitTillPageLoad();
-            System.out.println(configProperties.getProperty("server.url"));
-            if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
-                    configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan") ||
-                    configProperties.getProperty("server.url").equalsIgnoreCase("kypower-tabs") ||
-                    //	configProperties.getProperty("server.url").equalsIgnoreCase("firstenergy-fundle")||
-                    configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
-                    configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")
-            ) {
-                clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout");
+        if (!commonPageLocators.addToCart.isEmpty()) {
+            if (verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart.get(0))) {
+                scrollToElement(commonPageLocators.addToCart.get(0));
+                clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
+                waitTillPageLoad();
+                String CartPage = driver.getTitle();
+                System.out.println(CartPage);
+
+                if (CartPage.equalsIgnoreCase("Checkout Empty Cart")) {
+
+                    Assert.fail("Your Cart is Empty");
+                } else {
+                    System.out.println("Product is added to Cart successfully");
+                    verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
+                    clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout");
+
+                    waitTillPageLoad();
+                    System.out.println(configProperties.getProperty("server.url"));
+                    if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
+                            configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan") ||
+                            configProperties.getProperty("server.url").equalsIgnoreCase("kypower-tabs") ||
+                            //	configProperties.getProperty("server.url").equalsIgnoreCase("firstenergy-fundle")||
+                            configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
+                            configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")
+                    ) {
+                        clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout");
+                    } else {
+                        Assert.fail("Unable to Click on ADD to cart or Proceed To checkout buttons");
+                    }
+                }
             }
         }else {
             Assert.fail("ERROR:  --- addToCart --- button Not displayed");
-        }
-
+            }
         waitTillPageLoad();
     }
 

@@ -16,7 +16,7 @@ public class SanjoseStepDef {
 //	   commonPageActions.navigateToApplication();
 //	}
 	@When("User select product and proceed to checkout")
-	public void user_select_product_and_proceed_to_checkout() throws InterruptedException {
+	public void user_select_product_and_proceed_to_checkout() throws Exception {
 	   sanjosePage.selectProductProceedToCheckout("0");
 //	   sanjosePage.entercontactDetails(Zipcode,City);
 //	   sanjosePage.selectBillingFrequency("Annually");
