@@ -30,6 +30,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"wvwachoice":
@@ -38,6 +40,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"buffalowaternipcnew":
@@ -46,6 +50,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"kypower-tabs":
@@ -54,6 +60,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"firstenergy-fundle":
@@ -62,6 +70,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case "sanjose":
@@ -70,6 +80,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"lasanitation":
@@ -84,6 +96,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 				case"slwofa":
@@ -98,6 +112,8 @@ public class DataReader {
 						url = url.replace("www.reg","preprod.");
 					} else if (env.equalsIgnoreCase("test")) {
 						url = url.replace("www.reg","uat");
+					}else if (env.equalsIgnoreCase("prod")) {
+						url = url.replace("www.reg","prod.");
 					}
 					break;
 
