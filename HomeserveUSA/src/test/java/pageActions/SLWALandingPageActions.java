@@ -32,7 +32,7 @@ public class SLWALandingPageActions {
 	public void chooseAndMakePayementType(String accountType)throws Exception {
 		if (accountType.equalsIgnoreCase("Checking Account")) {
 
-			if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+			if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
 				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
 				Paymenttype.click();
 				sleep(2);
@@ -64,8 +64,8 @@ public class SLWALandingPageActions {
 			}
 		}
 		else if (accountType.equalsIgnoreCase("Credit or Debit Card")) {
-			if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
-					configProperties.getProperty("server.url").equalsIgnoreCase("ottawa-french")) {
+			if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofc") ||
+					configProperties.getProperty("server.site").equalsIgnoreCase("ottawa-french")) {
 
 				scrollToElement(commonPageLocators.select_Go_PaperLess);
 				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
@@ -84,8 +84,8 @@ public class SLWALandingPageActions {
 				driver.switchTo().defaultContent();
 				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
 				getCurrentTime();
-			} else if (configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation")||
-					configProperties.getProperty("server.url").equalsIgnoreCase("slwofa"))
+			} else if (configProperties.getProperty("server.site").equalsIgnoreCase("lasanitation")||
+					configProperties.getProperty("server.site").equalsIgnoreCase("slwofa"))
 
 					 {
 				scrollToElement(commonPageLocators.choosePaymentTYpe);
@@ -109,7 +109,7 @@ public class SLWALandingPageActions {
 				getCurrentTime();
 				waitTillPageLoad();
 				getCurrentTime();
-			} else if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+			} else if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
 				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
 				Paymenttype.click();
 				sleep(2);

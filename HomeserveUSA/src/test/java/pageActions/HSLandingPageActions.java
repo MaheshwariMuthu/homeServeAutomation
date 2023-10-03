@@ -73,13 +73,13 @@ public class HSLandingPageActions {
                     clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout");
 
                     waitTillPageLoad();
-                    System.out.println(configProperties.getProperty("server.url"));
-                    if (configProperties.getProperty("server.url").equalsIgnoreCase("slwofc") ||
-                            configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan") ||
-                            configProperties.getProperty("server.url").equalsIgnoreCase("kypower-tabs") ||
-                            //	configProperties.getProperty("server.url").equalsIgnoreCase("firstenergy-fundle")||
-                            configProperties.getProperty("server.url").equalsIgnoreCase("lasanitation") ||
-                            configProperties.getProperty("server.url").equalsIgnoreCase("wvwachoice")
+                    System.out.println(configProperties.getProperty("server.site"));
+                    if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofc") ||
+                            configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan") ||
+                            configProperties.getProperty("server.site").equalsIgnoreCase("kypower-tabs") ||
+                            //	configProperties.getProperty("server.site").equalsIgnoreCase("firstenergy-fundle")||
+                            configProperties.getProperty("server.site").equalsIgnoreCase("lasanitation") ||
+                            configProperties.getProperty("server.site").equalsIgnoreCase("wvwachoice")
                     ) {
                         clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout");
                     } else {
@@ -124,7 +124,7 @@ public class HSLandingPageActions {
     }
 
     public void enter_Zipcode_and_City_Details(String Zipcode, String City) {
-        if (configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan")) {
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")) {
             typeText(commonPageLocators.txtZipCode, Zipcode, "Zipcode");
             typeText(commonPageLocators.city_Details, City, "Zipcode");
 
@@ -210,7 +210,7 @@ public class HSLandingPageActions {
                 Thread.sleep(5000);
                 if (feedBackMessage.equals("Your feedback has been submitted successfully.")) {
 
-                    if (configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")) {
+                    if (configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")) {
                         clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn");
                         Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
                         WebElement ordertext = driver.findElement(By.xpath("//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"));

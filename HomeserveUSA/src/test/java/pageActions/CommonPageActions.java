@@ -63,10 +63,10 @@ public class CommonPageActions {
 			Thread.sleep(2000);
 			typeText(commonPageLocators.txtZipCode, zipCode, "Enter Your ZIP Code");
 			waitTillPageLoad();
-			if(configProperties.getProperty("server.url").equalsIgnoreCase("slwofa")) {
+			if(configProperties.getProperty("server.site").equalsIgnoreCase("slwofa")) {
 				clickElement(commonPageLocators.view_Plan, "Shop Now");
 			}
-			if(configProperties.getProperty("server.url").equalsIgnoreCase("slwofc")) {
+			if(configProperties.getProperty("server.site").equalsIgnoreCase("slwofc")) {
 				clickElement(commonPageLocators.view_Plan, "Get a quote");
 			}
 			waitTillPageLoad();

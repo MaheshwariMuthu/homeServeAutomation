@@ -85,13 +85,13 @@ public class SanjosePageActions {
 		String state = State.getAttribute("value");
 		System.out.println(state);
 
-		if(configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan")
+		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
 			&& state.equalsIgnoreCase("IN")) {
 			// (313) 793-4983
 			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
 			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
 		}
-		if(configProperties.getProperty("server.url").equalsIgnoreCase("aepindianamichigan")
+		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
 				&& state.equalsIgnoreCase("MI")) {
 			// (313) 793-4983
 			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
@@ -121,7 +121,7 @@ public class SanjosePageActions {
 			typeText(getWebElementByID("verify-checking-account"), "6011000000000000", "Checking account number");
 
 		} else if (PaymentType.equals("Credit or Debit Card")) {
-			if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+			if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
 				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
 				clickElement(commonPageLocators.creditCardOption, "CreditCard");
 				Thread.sleep(12000);
@@ -162,7 +162,7 @@ public class SanjosePageActions {
 	 */
 	public void selectBillingFrequency(String billingFreq) throws InterruptedException {
 		Thread.sleep(5000);
-		if(configProperties.getProperty("server.url").equalsIgnoreCase("Homeserve")){
+		if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
 			clickElement(getWebElementByClass("billing-frequency__dropdown"),"Bill Frequency");
 			WebElement FreqDropdown = getWebElementByClass("billing-frequency__dropdown");
 		//	FreqDropdown.click();
