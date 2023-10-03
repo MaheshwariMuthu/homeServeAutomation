@@ -15,9 +15,9 @@ public class update_Config_Properties {
 	public static void Update_Config_Prop(String Value) throws Exception {
 		try {
 
-			Update_Config_Values.set_config_values("server.url", Value );
+			Update_Config_Values.set_config_values("server.site", Value );
 	        System.out.println("After updating properties file");
-	        System.out.println("server.url: " + Update_Config_Values.get_Config_Val("server.url"));
+	        System.out.println("server.site: " + Update_Config_Values.get_Config_Val("server.site"));
 
 		        
 	}	 catch (Exception e) {

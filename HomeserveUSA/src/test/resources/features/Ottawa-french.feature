@@ -1,11 +1,11 @@
 #Author: your.email@your.domain.com
 # https://preprod.slwofc.ca/mail/ottawa-french
 
-Feature: Complete an sale for Ottawa-french
+Feature: Complete an sale for Ottawa
 
 
 Background: User navigate to Ottawa page
-	Given User is on "ottawa-french" Home page
+	Given User is on "ottawa" Home page
 
 
 

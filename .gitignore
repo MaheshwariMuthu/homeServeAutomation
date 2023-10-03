@@ -3,3 +3,4 @@ HomeserveUSA/test-output/PdfReport/Extent.pdf
 HomeserveUSA/test-output/html/ExtentReport.html
 *.png
 HomeserveUSA/target/.*
+*.class
