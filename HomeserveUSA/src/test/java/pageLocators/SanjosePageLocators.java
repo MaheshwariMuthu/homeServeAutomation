@@ -19,12 +19,18 @@ public class SanjosePageLocators extends Hooks {
 //	public WebElement creditCardNumberFrame;
 
 	/* Add to cart X-path */
+	@FindBy(xpath = "//*[@id='mtw-code-form']")
+	public WebElement sanjoseWaterpopup;
+	@FindBy(xpath = "//*[@id='mtw-code-form']/fieldset/div/a")
+	public WebElement sanjoseWaterpopupClose;
+
+	/* Add to cart X-path */
 	@FindBy(xpath = "//a[@class='button js-add-to-cart']//span[@class='add']")
-	public List<WebElement> addToCart;
+	public WebElement addToCart;
 
 	/* Proceed to Checkout X-path */
 	@FindBy(xpath = "//div[@class='wrapper-cta']//a//span[@class='co']")
-	public List<WebElement> proceedToCheckout;
+	public WebElement proceedToCheckout;
 
 	/* Title X-path */
 	@FindBy(xpath = "//h1[contains(text(),'Order')]")

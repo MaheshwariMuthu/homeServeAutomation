@@ -56,10 +56,10 @@ public class HSLandingPageActions {
      */
     public void addProductToCartAndProceedToCheckout() throws InterruptedException {
         int i = 0;
-        if (!commonPageLocators.addToCart.isEmpty()) {
-            if (verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart.get(0))) {
-                scrollToElement(commonPageLocators.addToCart.get(0));
-                clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
+        if (!commonPageLocators.addToCart.isEnabled()) {
+            if (verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart)) {
+                scrollToElement(commonPageLocators.addToCart);
+                clickElement(commonPageLocators.addToCart, "Add to cart");
                 waitTillPageLoad();
                 String CartPage = driver.getTitle();
                 System.out.println(CartPage);

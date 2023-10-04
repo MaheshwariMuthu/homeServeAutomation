@@ -56,7 +56,7 @@ public WebElement PaymentnotprocessedDialog;
 			@FindBy(xpath = "//button[text()='Add To Cart']"),
 			@FindBy(xpath = "//*[@class='button js-add-to-cart']"),
 
-	}) public List<WebElement> addToCart;
+	}) public WebElement addToCart;
 
 	@FindAll({
 	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div"),

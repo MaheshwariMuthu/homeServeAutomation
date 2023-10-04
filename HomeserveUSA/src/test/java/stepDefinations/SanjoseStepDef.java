@@ -1,15 +1,23 @@
 package stepDefinations;
 
+import automationFramework.Waits;
 import io.cucumber.java.en.Then;
 
 import io.cucumber.java.en.When;
 import pageActions.CommonPageActions;
 import pageActions.SanjosePageActions;
+import pageLocators.SanjosePageLocators;
+
+import static automationFramework.PageActions.clickElement;
+import static automationFramework.PageActions.scrollToElement;
+import static automationFramework.Waits.verifyWebElementVisibleWebElementBoolean;
+import static automationFramework.Waits.waitTillPageLoad;
 
 public class SanjoseStepDef {
 	
 	CommonPageActions commonPageActions = new CommonPageActions();
 	SanjosePageActions sanjosePage = new SanjosePageActions();
+
 //
 //	@Given("User is on Sanjose page")
 //	public void user_is_on_sanjose_page() throws FileNotFoundException, InterruptedException, IOException, ParseException {
@@ -17,7 +25,8 @@ public class SanjoseStepDef {
 //	}
 	@When("User select product and proceed to checkout")
 	public void user_select_product_and_proceed_to_checkout() throws Exception {
-	   sanjosePage.selectProductProceedToCheckout("0");
+		sanjosePage.handleSanjosePagePopups();
+		sanjosePage.selectProductProceedToCheckout("0");
 //	   sanjosePage.entercontactDetails(Zipcode,City);
 //	   sanjosePage.selectBillingFrequency("Annually");
 //	   sanjosePage.addPaymentMethodForCreditOrDebitCard("Checking Account");

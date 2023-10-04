@@ -87,7 +87,7 @@ public class DataReader {
 				case"lasanitation":
 					url= "https://" + env + ".slwofa.com/mail/" +Site;
 					break;
-				case"ottawa-french":
+				case"ottawa":
 					url= "https://" + env + ".slwofc.ca/mail/" +Site;
 					break;
 				case"Homeserve":

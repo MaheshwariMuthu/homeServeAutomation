@@ -3,7 +3,7 @@ package pageActions;
 import static automationFramework.Constant.*;
 import static automationFramework.DataReader.configProperties;
 import static automationFramework.DynamicWebElements.*;
-import static automationFramework.PageActions.clickElement;
+import static automationFramework.PageActions.*;
 import static automationFramework.PageActions.log;
 import static automationFramework.PageActions.scrollToElement;
 import static automationFramework.PageActions.selectFromDropdownByValue;
@@ -27,6 +27,17 @@ public class SanjosePageActions {
 		PageFactory.initElements(driver, this);
 	}
 
+	public void handleSanjosePagePopups() throws Exception {
+		System.out.println("handle Sanjose Page Popups if any");
+		Thread.sleep(2000);
+		if (waitForElementavailblilityboolean(sanjosePageLocators.sanjoseWaterpopup,"sanjose Water popup",10)) {
+//			scrollToElement(sanjosePageLocators.sanjoseWaterpopup);
+			mouseHoverAndClick(sanjosePageLocators.sanjoseWaterpopupClose,"Sanjose Water popup");
+//			clickElement(sanjosePageLocators.sanjoseWaterpopupClose, "Sanjose Water popup");
+			waitTillPageLoad();
+		}
+	}
+
 	/**
 	 * Description: Selecting Product to cart and then proceed to checkout
 	 * 
@@ -35,11 +46,11 @@ public class SanjosePageActions {
 	 */
 	public void selectProductProceedToCheckout(String productCount) throws Exception {
 		int i = 0;
-		scrollToElement(sanjosePageLocators.addToCart.get(0));
-		clickElement(sanjosePageLocators.addToCart.get(0), "Add to cart");
+		scrollToElement(sanjosePageLocators.addToCart);
+		clickElement(sanjosePageLocators.addToCart, "Add to cart");
 		for (; i < Integer.parseInt(productCount); i++) {
-			scrollToElement(sanjosePageLocators.addToCart.get(i));
-			clickElement(sanjosePageLocators.addToCart.get(i), "Add to cart");
+			scrollToElement(sanjosePageLocators.addToCart);
+			clickElement(sanjosePageLocators.addToCart, "Add to cart");
 			Thread.sleep(2000);
 		}
 		String messageText = driver.getTitle();
@@ -50,7 +61,7 @@ public class SanjosePageActions {
 			throw new Exception("Checkout Cart is Empty");
 		} else {
 			System.out.println("Item added to cart.");
-			clickElement(sanjosePageLocators.proceedToCheckout.get(i), "Proceed to checkout");
+			clickElement(sanjosePageLocators.proceedToCheckout, "Proceed to checkout");
 		}
 
 	}

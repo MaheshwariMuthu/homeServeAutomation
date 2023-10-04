@@ -255,4 +255,32 @@ public class Waits {
 			}
 		}
 	}
+	public static boolean waitForElementavailblilityboolean(WebElement element, String elementName, int waitTime){
+		boolean availbility = false;
+		log.info("waiting for "+elementName+" element to load in UI");
+		for(int i=0; i<=waitTime; i++){
+			try{
+				if(element.isDisplayed() || element.isEnabled()){
+					log.info("Element "+elementName+" is displayed in UI");
+					availbility =true;
+					break;
+				}else{
+					try{
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+					}
+				}
+			} catch (WebDriverException e) {
+				try{
+					Thread.sleep(1000);
+				} catch (InterruptedException j) {
+				}
+			}
+			if(i==waitTime){
+				log.info("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
+				Assert.fail("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
+			}
+		}
+		return availbility;
+	}
 }

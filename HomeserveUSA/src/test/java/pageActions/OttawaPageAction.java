@@ -45,7 +45,7 @@ public class OttawaPageAction {
 		Thread.sleep(5000);
 		scrollToElement(ottawaPageLocators.SelectAPlanOttawa);
 		clickElement(ottawaPageLocators.SelectAPlanOttawa, "Select A Plan");
-		clickElement(commonPageLocators.addToCart.get(0), "Add to cart");
+		clickElement(commonPageLocators.addToCart, "Add to cart");
 		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout");
 		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout");
 		waitTillPageLoad();

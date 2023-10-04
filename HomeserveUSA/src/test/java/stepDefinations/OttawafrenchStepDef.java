@@ -12,7 +12,7 @@ public class OttawafrenchStepDef {
 
 	@When("the user selects the plan and add to cart add and Proceed To Checkout")
 	public void the_user_selects_the_plan_add_to_cart_and_Proceed_To_Checkout()	throws Exception {
-		ottawaPageAction.changeTheLanguageIntoEnglish();
+//		ottawaPageAction.changeTheLanguageIntoEnglish();
 		ottawaPageAction.selectThePlanAndAddToCartAndProceedToCheckout();
 	}
 

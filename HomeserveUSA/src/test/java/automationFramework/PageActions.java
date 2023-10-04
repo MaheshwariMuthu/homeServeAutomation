@@ -124,7 +124,41 @@ public class PageActions extends StartDriver {
 	/**
 	 * Description: Scroll to element and performing click
 	 */
-	public static void clickElement(WebElement element, String elementName) throws InterruptedException {
+	public static void clickElement(WebElement element, String sElementName) throws InterruptedException {
+		try {
+			waitUntilClickable(element);
+			log.info("Trying to click on " + sElementName + " element");
+			setHighlight(element);
+			element.click();
+			log.info("Clicked on " + sElementName + " element");
+		} catch (StaleElementReferenceException e) {
+//			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " is not attached to the page document");
+			e.printStackTrace();
+			toBeFail("Element " + sElementName + " is not attached to the page document");
+		} catch (NoSuchElementException e) {
+//			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " was not found in DOM");
+			e.printStackTrace();
+			toBeFail("Element " + sElementName + " was not found in DOM");
+		} catch (Exception e) {
+//			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " was not clickable in time-" + optionWaitTime);
+			e.printStackTrace();
+			toBeFail("Element " + sElementName + " was not clickable in time-" + 5);
+		}
+	}
+
+	public static void setHighlight(WebElement element) {
+
+			String attributevalue = "border:2px solid Crimson;";
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, attributevalue);
+	}
+
+	public static void toBeFail(String sMessage) {
+		log.error(sMessage);
+		org.junit.Assert.fail(sMessage);
+	}
+
+	public static void clickElementWithJS(WebElement element, String elementName) throws InterruptedException {
 		if (waitUntilClickable(element) != null) {
 			try {
 				assertTrue(verifyWebElementPresent(element), "----> Element is present");
@@ -316,10 +350,19 @@ public class PageActions extends StartDriver {
 	/*
 	 * Description: Mouse hover on element and click on the element
 	 */
-	public static void mouseHoverAndClick(WebElement element) {
+	public static void mouseHoverAndClick(WebElement element, String elementName) {
+		if (waitUntilClickable(element) != null) {
+			try {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(element);
 		actions.click().build().perform();
+	} catch (AssertionError e) {
+		assertTrue(verifyWebElementPresent(element), "----> Element is not present");
+	}
+} else {
+		log.info("Unable to click on: " + elementName);
+		Assert.fail("Element not found");
+		}
 	}
 
 	public static void closeCurrentTabAndMoveToParentTab(String parentWin) {
