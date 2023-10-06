@@ -27,16 +27,7 @@ public class SanjosePageActions {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void handleSanjosePagePopups() throws Exception {
-		System.out.println("handle Sanjose Page Popups if any");
-		Thread.sleep(2000);
-		if (waitForElementavailblilityboolean(sanjosePageLocators.sanjoseWaterpopup,"sanjose Water popup",10)) {
-//			scrollToElement(sanjosePageLocators.sanjoseWaterpopup);
-			mouseHoverAndClick(sanjosePageLocators.sanjoseWaterpopupClose,"Sanjose Water popup");
-//			clickElement(sanjosePageLocators.sanjoseWaterpopupClose, "Sanjose Water popup");
-			waitTillPageLoad();
-		}
-	}
+
 
 	/**
 	 * Description: Selecting Product to cart and then proceed to checkout

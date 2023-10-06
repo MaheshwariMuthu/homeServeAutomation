@@ -278,7 +278,7 @@ public class Waits {
 			}
 			if(i==waitTime){
 				log.info("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
-				Assert.fail("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
+//				Assert.fail("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
 			}
 		}
 		return availbility;

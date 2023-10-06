@@ -18,19 +18,12 @@ public class SanjoseStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();
 	SanjosePageActions sanjosePage = new SanjosePageActions();
 
-//
-//	@Given("User is on Sanjose page")
-//	public void user_is_on_sanjose_page() throws FileNotFoundException, InterruptedException, IOException, ParseException {
-//	   commonPageActions.navigateToApplication();
-//	}
+
 	@When("User select product and proceed to checkout")
 	public void user_select_product_and_proceed_to_checkout() throws Exception {
-		sanjosePage.handleSanjosePagePopups();
+		commonPageActions.handleEnterCodePopups();
 		sanjosePage.selectProductProceedToCheckout("0");
-//	   sanjosePage.entercontactDetails(Zipcode,City);
-//	   sanjosePage.selectBillingFrequency("Annually");
-//	   sanjosePage.addPaymentMethodForCreditOrDebitCard("Checking Account");
-//	   sanjosePage.completeTheSaleAndVerifyOrderConfermation();
+
 	}
 
 //

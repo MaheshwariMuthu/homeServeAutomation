@@ -53,8 +53,8 @@ public class HomeserveStepDef {
 	}
 
 	@Then("add product to the cart and the user clicks on Proceed to Checkout")
-	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws InterruptedException {
-
+	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws Exception {
+		commonPageActions.handleEnterCodePopups();
 		hslandingPage.addProductToCartAndProceedToCheckout();
 	}
 

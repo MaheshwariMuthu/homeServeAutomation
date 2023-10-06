@@ -242,7 +242,9 @@ public class PageActions extends StartDriver {
 	 * Description: Scroll to element particular element
 	 */
 	public static void scrollToElement(WebElement element) {
+
 		try {
+			verifyWebElementVisibleWebElementBoolean(element);
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-100)");
 		} catch (Exception e) {
@@ -313,7 +315,7 @@ public class PageActions extends StartDriver {
 	}
 
 	public String defaultValueOfDropdown(WebElement dropdownElement, String dropdownName, int waitTime) {
-		waits.waitForElement(dropdownElement, dropdownName, waitTime);
+		waitForElement(dropdownElement, dropdownName, waitTime);
 		Select select = new Select(dropdownElement);
 		WebElement option = select.getFirstSelectedOption();
 		String defaultItem = option.getText();

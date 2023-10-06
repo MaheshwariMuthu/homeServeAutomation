@@ -5,7 +5,7 @@ Feature: SLWOFC feature file
   Background: User navigate to Service Line Warranties application
     Given User is on "slwofc" Home page
 
-
+  @sale1
   Scenario: Complete Monthly sale in slwofc with PaymetType using Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |

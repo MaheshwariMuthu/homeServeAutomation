@@ -115,11 +115,11 @@ public class HSLandingPageActions {
         verifyWebElementVisibleWebElementBoolean(getWebElementByID("email"));
         waitForElement(getWebElementByID("email"), "Email", 120);
         typeText(getWebElementByID("email"), Email, "Email");
-        typeText(getWebElementByID("email-confirm"), Email, "Conform Email");
+        typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
         typeText(commonPageLocators.firstName, FirstName, "First name");
         typeText(getWebElementByID("last-name"), LastName, "Last name");
         typeText(commonPageLocators.addressLine, Address, "Adress");
-        typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Adress Second");
+        typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
         typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
 
     }
@@ -203,7 +203,7 @@ public class HSLandingPageActions {
 					log.info("Homeserve sale completed.");
 				}
             } else {
-                waitForElement(getWebElementByValue("TVStreaming"), "TVStreaming", 120);
+                waitForElement(getWebElementByValue("TVStreaming"), "TVStreaming", 40);
                 clickElement(getWebElementByValue("TVStreaming"), "TVStreaming");
                 clickElement(getWebElementByText("Finish"), "Finish");
                 waitTillPageLoad();

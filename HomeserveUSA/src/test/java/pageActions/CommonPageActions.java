@@ -3,9 +3,9 @@ package pageActions;
 import static automationFramework.DataReader.configProperties;
 import static automationFramework.DataReader.geturl;
 import static automationFramework.DynamicWebElements.getWebElementByID;
-import static automationFramework.PageActions.clickElement;
-import static automationFramework.PageActions.typeText;
+import static automationFramework.PageActions.*;
 import static automationFramework.StartDriver.driver;
+import static automationFramework.Waits.waitForElementavailblilityboolean;
 import static automationFramework.Waits.waitTillPageLoad;
 
 import java.io.IOException;
@@ -40,6 +40,17 @@ public class CommonPageActions {
 		driver.navigate().to(geturl());
 		waitTillPageLoad();
 //		closeCookiesBottom();
+	}
+
+	public void handleEnterCodePopups() throws Exception {
+		System.out.println("handle Sanjose Page Popups if any");
+		Thread.sleep(2000);
+		if (waitForElementavailblilityboolean(commonPageLocators.entercodepopup,"sanjose Water popup",10)) {
+//			scrollToElement(sanjosePageLocators.sanjoseWaterpopup);
+			mouseHoverAndClick(commonPageLocators.entercodepopupClose,"Sanjose Water popup");
+//			clickElement(sanjosePageLocators.sanjoseWaterpopupClose, "Sanjose Water popup");
+			waitTillPageLoad();
+		}
 	}
 
 	/**

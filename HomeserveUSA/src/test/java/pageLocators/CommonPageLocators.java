@@ -65,6 +65,12 @@ public WebElement PaymentnotprocessedDialog;
 	public WebElement Payment_not_Processed_Alert;
 
 
+	@FindBy(xpath = "//*[@id='mtw-code-form']")
+	public WebElement entercodepopup;
+
+	@FindBy(xpath = "//*[@id='mtw-code-form']/fieldset/div/a")
+	public WebElement entercodepopupClose;
+
 	@FindBy(xpath = "//*[@id=\"installmentsPerYear\"]")
 	public WebElement Select_Bill_Frequency;
 
