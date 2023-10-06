@@ -5,6 +5,7 @@ Feature: SLWOFC feature file
   Background: User navigate to Service Line Warranties application
     Given User is on "slwofc" Home page
 
+
   Scenario: Complete Monthly sale in slwofc with PaymetType using Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -16,7 +17,7 @@ Feature: SLWOFC feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-
+  @sale1
  Scenario: Complete Annually sale in slwofc with PaymetType using Credit or Debit Card
    When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |

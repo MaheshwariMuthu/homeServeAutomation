@@ -92,27 +92,40 @@ public class SanjosePageActions {
 		typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Adress Second");
 		typeText(getWebElementByID("city"), City, "Adress");
 		typeText(getWebElementByID("zip-code"), Zipcode, "Zip code");
-		WebElement State = driver.findElement(By.xpath("//*[@id=\"state\"]"));
-		String state = State.getAttribute("value");
-		System.out.println(state);
-
-		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
-			&& state.equalsIgnoreCase("IN")) {
-			// (313) 793-4983
-			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
-			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
-		}
-		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
-				&& state.equalsIgnoreCase("MI")) {
-			// (313) 793-4983
-			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
-			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
+		if(configProperties.getProperty("server.site").equalsIgnoreCase("ottawa"))
+		{
+			typeText(getWebElementByID("home-phone"), PhoneNumber, "Home Phone");
 		}
 
-		else{
-			typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
+
+
+		try {
+			WebElement State = driver.findElement(By.xpath("//*[@id=\"state\"]"));
+
+				String state = State.getAttribute("value");
+				System.out.println(state);
+
+				if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
+						&& state.equalsIgnoreCase("IN")) {
+					// (313) 793-4983
+					String MobileNumber = "33131" + RandomStringUtils.randomNumeric(3) + "340";
+					typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
+				}
+				if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
+						&& state.equalsIgnoreCase("MI")) {
+					// (313) 793-4983
+					String MobileNumber = "33131" + RandomStringUtils.randomNumeric(3) + "340";
+					typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
+				} else {
+					typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
+				}
+				Thread.sleep(4000);
+
 		}
-		Thread.sleep(4000);
+		catch(Exception e)
+		{
+
+		}
 	}
 
 	/**

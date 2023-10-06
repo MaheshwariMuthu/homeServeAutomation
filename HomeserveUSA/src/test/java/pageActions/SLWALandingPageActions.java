@@ -65,7 +65,7 @@ public class SLWALandingPageActions {
 		}
 		else if (accountType.equalsIgnoreCase("Credit or Debit Card")) {
 			if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofc") ||
-					configProperties.getProperty("server.site").equalsIgnoreCase("ottawa-french")) {
+					configProperties.getProperty("server.site").equalsIgnoreCase("ottawa")) {
 
 				scrollToElement(commonPageLocators.select_Go_PaperLess);
 				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");

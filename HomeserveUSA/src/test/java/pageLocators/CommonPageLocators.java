@@ -38,7 +38,6 @@ public WebElement PaymentnotprocessedDialog;
 
 	})public WebElement txtZipCode;
 
-
 	@FindBy(xpath = "//*[@id=\"city\"]")
 	public WebElement city_Details;
 
@@ -55,10 +54,11 @@ public WebElement PaymentnotprocessedDialog;
 			@FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[1]"),
 			@FindBy(xpath = "//button[text()='Add To Cart']"),
 			@FindBy(xpath = "//*[@class='button js-add-to-cart']"),
-
+		    @FindBy(xpath = "(//span[text()='Add To Cart'])[1]"),
 	}) public WebElement addToCart;
 
 	@FindAll({
+
 	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div"),
 	@FindBy(xpath = "/html/body/div[2]/div/div[1]")
 			})
@@ -105,6 +105,7 @@ public WebElement PaymentnotprocessedDialog;
 
 	@FindAll({
 			@FindBy(xpath = "//*[@id=\"card_expiry_month\"]"),
+			@FindBy(xpath = "//*[@id='Expiry']"),
 
 	})public WebElement cardExpiryMonth;
 
@@ -127,6 +128,7 @@ public WebElement PaymentnotprocessedDialog;
 	@FindAll({
 	@FindBy(xpath = "//fieldset/div[4]/div/div[1]/fieldset/div/div[1]/input"),
 	@FindBy(xpath = "//*[@id=\"card_type_001\"]"),
+			@FindBy(xpath = "//*[text()='Credit or Debit Card']"),
 	})	public WebElement cardType;
 	@FindAll({
 		@FindBy(xpath = "/html/body/form/input[2]"),

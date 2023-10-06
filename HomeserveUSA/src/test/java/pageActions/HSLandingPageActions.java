@@ -56,7 +56,8 @@ public class HSLandingPageActions {
      */
     public void addProductToCartAndProceedToCheckout() throws InterruptedException {
         int i = 0;
-        if (!commonPageLocators.addToCart.isEnabled()) {
+
+        if (commonPageLocators.addToCart.isEnabled()) {
             if (verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart)) {
                 scrollToElement(commonPageLocators.addToCart);
                 clickElement(commonPageLocators.addToCart, "Add to cart");
@@ -109,7 +110,7 @@ public class HSLandingPageActions {
         // homeservertesting@gmail.com
         Email = "chandra.hstest+" + generateRandomEmail + "@gmail.com";
         Address = generateRandomAddress + " Chapmans Lane";
-        PhoneNumber = "65070" + generateRandomPhonenumber + "34";
+        PhoneNumber = "45070" + generateRandomPhonenumber + "34";
         ApartmentNumber = RandomStringUtils.randomNumeric(4);
         verifyWebElementVisibleWebElementBoolean(getWebElementByID("email"));
         waitForElement(getWebElementByID("email"), "Email", 120);

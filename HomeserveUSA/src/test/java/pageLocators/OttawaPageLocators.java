@@ -30,6 +30,6 @@ public class OttawaPageLocators  extends Hooks {
 
 	@FindBy(xpath = "/html/body/main/div[2]/div/div/div/p[2]/span[2]/a")
 	public static WebElement changeLanguageTOEnnglish;
-	
+
 
 }
