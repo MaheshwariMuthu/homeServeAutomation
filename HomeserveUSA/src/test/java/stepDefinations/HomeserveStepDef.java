@@ -61,7 +61,7 @@ public class HomeserveStepDef {
 	@Then("the user fills in the Contact details")
 	public void the_user_fills_in_the_contact_details()
 			throws InterruptedException, FileNotFoundException, IOException, ParseException {
-		hslandingPage.entercontactDetails("RegFN","RegLN");
+		commonPageActions.enterUserDetails("","");
 
 	}
 

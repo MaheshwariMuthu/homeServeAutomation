@@ -124,25 +124,29 @@ public class PageActions extends StartDriver {
 	/**
 	 * Description: Scroll to element and performing click
 	 */
-	public static void clickElement(WebElement element, String sElementName) throws InterruptedException {
-		try {
-			waitUntilClickable(element);
-			log.info("Trying to click on " + sElementName + " element");
-			setHighlight(element);
-			element.click();
-			log.info("Clicked on " + sElementName + " element");
-		} catch (StaleElementReferenceException e) {
+	public static void clickElement(WebElement element, String sElementName, boolean blnClickUsingMouseOver) throws InterruptedException {
+		if (!blnClickUsingMouseOver) {
+			try {
+				waitUntilClickable(element);
+				log.info("Trying to click on " + sElementName + " element");
+				setHighlight(element);
+				element.click();
+				log.info("Clicked on " + sElementName + " element");
+			} catch (StaleElementReferenceException e) {
 //			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " is not attached to the page document");
-			e.printStackTrace();
-			toBeFail("Element " + sElementName + " is not attached to the page document");
-		} catch (NoSuchElementException e) {
+				e.printStackTrace();
+				toBeFail("Element " + sElementName + " is not attached to the page document");
+			} catch (NoSuchElementException e) {
 //			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " was not found in DOM");
-			e.printStackTrace();
-			toBeFail("Element " + sElementName + " was not found in DOM");
-		} catch (Exception e) {
+				e.printStackTrace();
+				toBeFail("Element " + sElementName + " was not found in DOM");
+			} catch (Exception e) {
 //			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " was not clickable in time-" + optionWaitTime);
-			e.printStackTrace();
-			toBeFail("Element " + sElementName + " was not clickable in time-" + 5);
+				e.printStackTrace();
+				toBeFail("Element " + sElementName + " was not clickable in time-" + 5);
+			}
+		}else {
+			mouseHoverAndClick(element,sElementName);
 		}
 	}
 
@@ -276,7 +280,7 @@ public class PageActions extends StartDriver {
 			element.clear();
 			log.info("Enter the value into " + elementName);
 			JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:pink');",
+			jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid yellow');",
 					element);
 			element.sendKeys(value);
 			log.info(value + " typed into " + elementName);

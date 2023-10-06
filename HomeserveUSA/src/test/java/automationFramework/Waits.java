@@ -68,7 +68,7 @@ public class Waits {
 	}
 
 	public static WebElement waitUntilClickable(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_10_SEC));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_60_SEC));
 		wait.pollingEvery(Duration.ofSeconds(2));
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
@@ -277,6 +277,7 @@ public class Waits {
 				}
 			}
 			if(i==waitTime){
+				System.out.println("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
 				log.info("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
 //				Assert.fail("No WebObject "+elementName+" Found in UI, waited for :: "+waitTime+ " seconds");
 			}

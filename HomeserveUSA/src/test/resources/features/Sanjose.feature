@@ -6,7 +6,7 @@ Feature: Complete an sale for sanjose
 Background: User navigate to Sanjose page
 	Given User is on "sanjose" Home page
 
-@sale
+@sale-sanjose
 Scenario: Complete Monthly sale in sanjose with PaymetType as Credit or Debit Card
 	When User select product and proceed to checkout
 	Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
@@ -15,7 +15,7 @@ Scenario: Complete Monthly sale in sanjose with PaymetType as Credit or Debit Ca
 	Then the user should see an order confirmation message
 	Then open Gmail and Validate order number in confirmation email is received
 
-	@sale
+	@sale-sanjose
 	Scenario: Complete Quarterly sale in sanjose with PaymetType as Credit or Debit Card
 		When User select product and proceed to checkout
 		Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
@@ -24,7 +24,7 @@ Scenario: Complete Monthly sale in sanjose with PaymetType as Credit or Debit Ca
 		Then the user should see an order confirmation message
 		Then open Gmail and Validate order number in confirmation email is received
 
-	@sale
+	@sale-sanjose
 	Scenario: Complete Annually sale in sanjose with PaymetType as Credit or Debit Card
 		When User select product and proceed to checkout
 		Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
@@ -33,7 +33,7 @@ Scenario: Complete Monthly sale in sanjose with PaymetType as Credit or Debit Ca
 		Then the user should see an order confirmation message
 		Then open Gmail and Validate order number in confirmation email is received
 
-@sale
+@sale-sanjose
 Scenario: Complete Monthly sale in sanjose with PaymetType as Checking Account
 	When User select product and proceed to checkout
 	Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
@@ -42,7 +42,7 @@ Scenario: Complete Monthly sale in sanjose with PaymetType as Checking Account
 	Then the user should see an order confirmation message
 	Then open Gmail and Validate order number in confirmation email is received
 
-@sale
+@sale-sanjose
 Scenario: Complete Quarterly sale in sanjose with PaymetType as Checking Account
 	When User select product and proceed to checkout
 	Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
@@ -52,7 +52,7 @@ Scenario: Complete Quarterly sale in sanjose with PaymetType as Checking Account
 	Then open Gmail and Validate order number in confirmation email is received
 
 
-@sale
+@sale-sanjose
 Scenario: Complete Annually sale in sanjose with PaymetType as Checking Account
 	When User select product and proceed to checkout
 	Then the user fills up the Contact details with Zipcode as "94088" and City as "something"
