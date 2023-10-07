@@ -15,7 +15,4 @@ public class OttawaStepDef {
 //		ottawaPageAction.changeTheLanguageIntoEnglish();
 		ottawaPageAction.selectThePlanAndAddToCartAndProceedToCheckout();
 	}
-
-
-
 }

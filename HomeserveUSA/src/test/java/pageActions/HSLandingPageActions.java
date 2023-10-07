@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import automationFramework.PageActions;
 import pageLocators.CommonPageLocators;
-
 import static automationFramework.DataReader.*;
 import static automationFramework.Constant.*;
 import static automationFramework.DynamicWebElements.*;
@@ -19,7 +18,6 @@ import static automationFramework.PageActions.*;
 import static automationFramework.Waits.*;
 import static automationFramework.Waits.verifyWebElementVisibleWebElementBoolean;
 import static automationFramework.Waits.waitTillPageLoad;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;

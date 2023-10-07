@@ -39,7 +39,7 @@ public class Hooks extends StartDriver {
 	@Before
 	public void beforeScenario() throws FileNotFoundException, IOException, ParseException, InterruptedException {
 
-		System.out.println("Starting Scrtips");
+		System.out.println("Starting Scripts");
 		configProperties=new Properties();
 		configProperties.load(new FileInputStream((new File(System.getProperty("user.dir")+"/src/test/resources/config.properties"))));
 		String browser = configProperties.getProperty("browser");

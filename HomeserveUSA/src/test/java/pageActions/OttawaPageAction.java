@@ -15,11 +15,11 @@ public class OttawaPageAction {
 	public OttawaPageAction() {
 		PageFactory.initElements(driver, this);
 	}
-	public static CommonPageLocators commonPageLocators = new CommonPageLocators();
+	public CommonPageLocators commonPageLocators = new CommonPageLocators();
 
-	public static CommonPageActions commonPageActions = new CommonPageActions();
+	public CommonPageActions commonPageActions = new CommonPageActions();
 
-	public static OttawaPageLocators ottawaPageLocators = new OttawaPageLocators();
+	public OttawaPageLocators ottawaPageLocators = new OttawaPageLocators();
 	
 	/**
 	 * Description: Change the Language into English
@@ -39,7 +39,7 @@ public class OttawaPageAction {
 	 * Description: Change the Language into English
 	 * @throws InterruptedException
 	 */
-	public static void selectThePlanAndAddToCartAndProceedToCheckout() throws InterruptedException {
+	public void selectThePlanAndAddToCartAndProceedToCheckout() throws InterruptedException {
 		waitTillPageLoad();
 //		commonPageActions.closeCookiesBottom();
 //		scrollToElement(ottawaPageLocators.SelectAPlanOttawa);
