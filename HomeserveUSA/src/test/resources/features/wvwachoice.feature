@@ -7,7 +7,7 @@ Feature: Complete an sale for wvwachoice
 		Given User is on "wvwachoice" Home page
 
 
-@sale
+@sale-wvwachoice
 Scenario: Complete Monthly sale in wvwachoice with PaymetType as Credit or Debit Card
 	Then add product to the cart and the user clicks on Proceed to Checkout
 	Then the user selects the Billing Frequency as "Monthly"
@@ -16,7 +16,7 @@ Scenario: Complete Monthly sale in wvwachoice with PaymetType as Credit or Debit
 	Then the user should see an order confirmation message
 	Then open Gmail and Validate order number in confirmation email is received
 
-	@sale
+	@sale-wvwachoice
 	Scenario: Complete Quarterly sale in wvwachoice with PaymetType as Credit or Debit Card
 		Then add product to the cart and the user clicks on Proceed to Checkout
 		Then the user selects the Billing Frequency as "Quarterly"

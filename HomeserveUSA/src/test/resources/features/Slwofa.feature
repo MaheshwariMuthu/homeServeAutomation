@@ -31,6 +31,7 @@ Feature: SLWOFA feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale-slwofa
   Scenario: Complete Annually sale in slwofa with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -42,6 +43,7 @@ Feature: SLWOFA feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale-slwofa
   Scenario: Complete Monthly sale in slwofa with PaymetType as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -53,6 +55,7 @@ Feature: SLWOFA feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale-slwofa
   Scenario: Complete Quarterly sale in slwofa with PaymetType as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -64,6 +67,7 @@ Feature: SLWOFA feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale-slwofa
   Scenario: Complete Annually sale in slwofa with PaymetType as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
