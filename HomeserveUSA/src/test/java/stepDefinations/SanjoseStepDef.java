@@ -21,7 +21,7 @@ public class SanjoseStepDef {
 
 	@When("User select product and proceed to checkout")
 	public void user_select_product_and_proceed_to_checkout() throws Exception {
-		commonPageActions.handleEnterCodePopups();
+		commonPageActions.handlePopups();
 		sanjosePage.selectProductProceedToCheckout("0");
 
 	}

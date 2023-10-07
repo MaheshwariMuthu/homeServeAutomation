@@ -42,7 +42,7 @@ public class OttawaPageAction {
 	public static void selectThePlanAndAddToCartAndProceedToCheckout() throws InterruptedException {
 		waitTillPageLoad();
 //		commonPageActions.closeCookiesBottom();
-//		scrollToElement(ottawaPageLocators.SelectAPlanOttawa);
+		scrollToElement(ottawaPageLocators.SelectAPlanOttawa);
 		clickElement(ottawaPageLocators.SelectAPlanOttawa, "Select A Plan",false);
 		clickElement(commonPageLocators.addToCart, "Add to cart",false);
 		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout",false);
