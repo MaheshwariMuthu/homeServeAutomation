@@ -8,17 +8,12 @@ import static automationFramework.DynamicWebElements.*;
 import static automationFramework.PageActions.*;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
-import static automationFramework.Waits.waitForElement;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import automationFramework.PageActions;
@@ -26,7 +21,7 @@ import pageLocators.CommonPageLocators;
 
 
 public class CommonPageActions {
-    static CommonPageLocators commonPageLocators = new CommonPageLocators();
+    CommonPageLocators commonPageLocators = new CommonPageLocators();
     PageActions pageActions = new PageActions();
 
     public CommonPageActions() {
@@ -48,16 +43,19 @@ public class CommonPageActions {
 //		closeCookiesBottom();
     }
 
-    public void handleEnterCodePopups() throws Exception {
+    public void handlePopups() throws Exception {
         System.out.println("handleing EnterCode Popups if any");   // //a[contains(text(),'Do Not Have Code')]
         waitTillPageLoad();
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("sanjose")) {
 
-        WebElement entercodepopupClose = getWebElementByContainsText("Do Not Have Code");
+            WebElement entercodepopupClose = getWebElementByContainsText("Do Not Have Code");
 
-        if (waitForElementavailblilityboolean(entercodepopupClose,"Water popup",30)) {
-            clickElement(entercodepopupClose, "Water popup",false);
-            waitTillPageLoad();
+            if (waitForElementavailblilityboolean(entercodepopupClose,"Water popup",30)) {
+                clickElement(entercodepopupClose, "Water popup",false);
+                waitTillPageLoad();
+            }
         }
+
 
     }
 
@@ -66,7 +64,7 @@ public class CommonPageActions {
      *
      * @throws InterruptedException
      */
-    public static void enterZipCodeAndSubmit(String zipCode, String EnterZipLocation) throws InterruptedException {
+    public void enterZipCodeAndSubmit(String zipCode, String EnterZipLocation) throws InterruptedException {
         if (EnterZipLocation.equalsIgnoreCase("header")) {
             clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip", false);
             typeText(getWebElementByID("zipcode"), zipCode, "ZipCode field");

@@ -6,6 +6,7 @@ Feature: Complete an sale for sanjose
   Background: User navigate to Sanjose page
     Given User is on "sanjose" Home page
 
+  @sale-sanjose
   @sale-sanjose1
   Scenario: Complete Monthly sale in sanjose with PaymetType as Credit or Debit Card
     When User select product and proceed to checkout
@@ -15,6 +16,7 @@ Feature: Complete an sale for sanjose
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale-sanjose
   @sale-sanjose2
   Scenario: Complete Quarterly sale in sanjose with PaymetType as Credit or Debit Card
     When User select product and proceed to checkout
