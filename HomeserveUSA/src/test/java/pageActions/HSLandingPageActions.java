@@ -181,46 +181,46 @@ public class HSLandingPageActions {
                     Assert.fail("ERROR : ------Sale Not Completed OR UI Latency issue, check screenshots:--------");
                 }
             } else {
-                waitForElement(getWebElementByValue("TVStreaming"), "TVStreaming", 40);
-                clickElement(getWebElementByValue("TVStreaming"), "TVStreaming", false);
-                clickElement(getWebElementByText("Finish"), "Finish", false);
-                waitTillPageLoad();
-                String feedBackMessage = getWebElementByClass("survey__message survey__message--subtitle").getText();
-                Thread.sleep(5000);
-                if (feedBackMessage.equals("Your feedback has been submitted successfully.")) {
+//                waitForElement(getWebElementByValue("TVStreaming"), "TVStreamComm", 40);
+//                clickElement(getWebElementByValue("TVStreaming"), "TVStreamComm", false);
+//                clickElement(getWebElementByText("Finish"), "Finish", false);
+//                waitTillPageLoad();
+//                String feedBackMessage = getWebElementByClass("survey__message survey__message--subtitle").getText();
+//                Thread.sleep(5000);
+//                if (feedBackMessage.equals("Your feedback has been submitted successfully.")) {
 
-                    if (configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")) {
-                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
-                        Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
-                        WebElement ordertext = driver.findElement(By.xpath("//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"));
-                        scrollToElement(ordertext);
-                        System.out.println(ordertext.getText());
-                        BrowserorderNumberTexts = ordertext.getText();
-                        System.out.println(BrowserorderNumberTexts);
-                        String[] parts = BrowserorderNumberTexts.split(" ");
-                        if (parts.length >= 3) {
-                            String extractedValue = parts[2];
-                            System.out.println("Extracted Value: " + extractedValue);
-                            BrowserorderNumberTexts = extractedValue;
-                        } else {
-                            System.out.println("Error: Unable to extract order number.");
-                        }
-
-                        System.out.println("Order Number is : " + BrowserorderNumberTexts);
+                if (configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")) {
+//                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
+                    Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
+                    WebElement ordertext = driver.findElement(By.xpath("//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"));
+                    scrollToElement(ordertext);
+                    System.out.println(ordertext.getText());
+                    BrowserorderNumberTexts = ordertext.getText();
+                    System.out.println(BrowserorderNumberTexts);
+                    String[] parts = BrowserorderNumberTexts.split(" ");
+                    if (parts.length >= 3) {
+                        String extractedValue = parts[2];
+                        System.out.println("Extracted Value: " + extractedValue);
+                        BrowserorderNumberTexts = extractedValue;
                     } else {
-                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
-                        Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
-                        BrowserorderNumberText = commonPageLocators.orderNumber.getText();
-                        String[] parts = BrowserorderNumberText.split("\\.");
-                        String extractedValue = parts[1];
-                        System.out.println("Extracted Value:" + extractedValue.trim());
-                        BrowserorderNumberTexts = extractedValue.trim();
-                        System.out.println("Order Number is: " + BrowserorderNumberTexts);
-                        log.info("Order Number is: " + BrowserorderNumberTexts);
-                        Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(getWebElementByText("Create Account")));
-                        log.info("Homeserve sale completed.");
+                        System.out.println("Error: Unable to extract order number.");
                     }
+
+                    System.out.println("Order Number is : " + BrowserorderNumberTexts);
+                } else {
+                    clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
+                    Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
+                    BrowserorderNumberText = commonPageLocators.orderNumber.getText();
+                    String[] parts = BrowserorderNumberText.split("\\.");
+                    String extractedValue = parts[1];
+                    System.out.println("Extracted Value:" + extractedValue.trim());
+                    BrowserorderNumberTexts = extractedValue.trim();
+                    System.out.println("Order Number is: " + BrowserorderNumberTexts);
+                    log.info("Order Number is: " + BrowserorderNumberTexts);
+                    Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(getWebElementByText("Create Account")));
+                    log.info("Homeserve sale completed.");
                 }
+//            }
             }
         } catch (Exception e) {
             e.printStackTrace();

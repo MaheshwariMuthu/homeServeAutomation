@@ -113,8 +113,7 @@ public class SLWALandingPageActions {
 				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
 				Paymenttype.click();
 				sleep(2);
-				clickElement(commonPageLocators.creditCardOption, "CreditCard",false);
-				commonPageLocators.creditCardOption.click();
+				clickElement(commonPageLocators.creditCardOption, "creditCardOption",false);
 				sleep(2);
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[2]")));

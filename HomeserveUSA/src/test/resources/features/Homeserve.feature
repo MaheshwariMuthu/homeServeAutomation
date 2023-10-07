@@ -6,6 +6,7 @@ Feature: Homeserve feature file
   Background: User navigate to Homeserve application
     Given User is on "Homeserve" Home page
 
+    @sale-Homeserve
   Scenario: Complete Monthly sale in Homeserve with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -18,7 +19,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-
+  @sale-Homeserve
   Scenario: Complete Quarterly sale in Homeserve with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
