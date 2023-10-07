@@ -43,16 +43,19 @@ public class CommonPageActions {
 //		closeCookiesBottom();
     }
 
-    public void handleEnterCodePopups() throws Exception {
+    public void handlePopups() throws Exception {
         System.out.println("handleing EnterCode Popups if any");   // //a[contains(text(),'Do Not Have Code')]
         waitTillPageLoad();
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("sanjose")) {
 
-        WebElement entercodepopupClose = getWebElementByContainsText("Do Not Have Code");
+            WebElement entercodepopupClose = getWebElementByContainsText("Do Not Have Code");
 
-        if (waitForElementavailblilityboolean(entercodepopupClose,"Water popup",30)) {
-            clickElement(entercodepopupClose, "Water popup",false);
-            waitTillPageLoad();
+            if (waitForElementavailblilityboolean(entercodepopupClose,"Water popup",30)) {
+                clickElement(entercodepopupClose, "Water popup",false);
+                waitTillPageLoad();
+            }
         }
+
 
     }
 
