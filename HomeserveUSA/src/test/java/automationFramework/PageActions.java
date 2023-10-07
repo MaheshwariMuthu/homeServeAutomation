@@ -127,11 +127,14 @@ public class PageActions extends StartDriver {
 	public static void clickElement(WebElement element, String sElementName, boolean blnClickUsingMouseOver) throws InterruptedException {
 		if (!blnClickUsingMouseOver) {
 			try {
-				waitUntilClickable(element);
+				waitForElement(element,sElementName,30);
 				log.info("Trying to click on " + sElementName + " element");
 				setHighlight(element);
+				sleep(3);
+				waitUntilClickable(element);
 				element.click();
 				log.info("Clicked on " + sElementName + " element");
+				System.out.println("Clicked on " + sElementName + " element");
 			} catch (StaleElementReferenceException e) {
 //			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " is not attached to the page document");
 				e.printStackTrace();
@@ -143,7 +146,7 @@ public class PageActions extends StartDriver {
 			} catch (Exception e) {
 //			log.error(lesseePojo.getScenarioName().trim() + "- Element " + sElementName + " was not clickable in time-" + optionWaitTime);
 				e.printStackTrace();
-				toBeFail("Element " + sElementName + " was not clickable in time-" + 5);
+				toBeFail("Element " + sElementName + " was not clickable in time");
 			}
 		}else {
 			mouseHoverAndClick(element,sElementName);
@@ -248,7 +251,6 @@ public class PageActions extends StartDriver {
 	public static void scrollToElement(WebElement element) {
 
 		try {
-			verifyWebElementVisibleWebElementBoolean(element);
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,-100)");
 		} catch (Exception e) {

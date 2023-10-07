@@ -31,7 +31,7 @@ public class HSLandingPageActions {
     public static String currentDateandTime;
     public static Logger log = Logger.getLogger(PageActions.class);
     CommonPageLocators commonPageLocators = new CommonPageLocators();
-	Utils Utils = new Utils();
+    Utils Utils = new Utils();
 
 
     CommonPageActions commonPageActions = new CommonPageActions();
@@ -45,7 +45,7 @@ public class HSLandingPageActions {
 
 
     public void enterZipcode(String zipCode) throws InterruptedException {
-        clickElement(commonPageLocators.txtZipCode, "Enter Zipcode textbox",false);
+        clickElement(commonPageLocators.txtZipCode, "Enter Zipcode textbox", false);
 
     }
 
@@ -60,7 +60,7 @@ public class HSLandingPageActions {
         if (commonPageLocators.addToCart.isEnabled()) {
             if (verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart)) {
                 scrollToElement(commonPageLocators.addToCart);
-                clickElement(commonPageLocators.addToCart, "Add to cart",false);
+                clickElement(commonPageLocators.addToCart, "Add to cart", false);
                 waitTillPageLoad();
                 String CartPage = driver.getTitle();
                 System.out.println(CartPage);
@@ -70,7 +70,7 @@ public class HSLandingPageActions {
                 } else {
                     System.out.println("Product is added to Cart successfully");
                     verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
-                    clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout",false);
+                    clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout", false);
 
                     waitTillPageLoad();
                     System.out.println(configProperties.getProperty("server.site"));
@@ -81,15 +81,15 @@ public class HSLandingPageActions {
                             configProperties.getProperty("server.site").equalsIgnoreCase("lasanitation") ||
                             configProperties.getProperty("server.site").equalsIgnoreCase("wvwachoice")
                     ) {
-                        clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout",false);
+                        clickElement(getWebElementByText("Proceed To Checkout"), "Proceed To Checkout", false);
                     } else {
                         Assert.fail("Unable to Click on ADD to cart or Proceed To checkout buttons");
                     }
                 }
             }
-        }else {
+        } else {
             Assert.fail("ERROR:  --- addToCart --- button Not displayed");
-            }
+        }
         waitTillPageLoad();
     }
 
@@ -114,9 +114,9 @@ public class HSLandingPageActions {
     }
 
     public void continueToPayment() throws Exception {
-        clickElement(getWebElementByText("Continue to Payment Information"), "Continue to Payment Information",false);
+        clickElement(getWebElementByText("Continue to Payment Information"), "Continue to Payment Information", false);
         sleep(12);
-        clickElement(getWebElementByText("Yes, use this address"), "Yes, use this address",false);
+        clickElement(getWebElementByText("Yes, use this address"), "Yes, use this address", false);
         sleep(10);
     }
 
@@ -126,8 +126,8 @@ public class HSLandingPageActions {
      * @throws InterruptedException
      */
     public void enterPaymentDetails() throws InterruptedException {
-        clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options",false);
-        clickElement(commonPageLocators.creditCardOption, "CreditCard",false);
+        clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options", false);
+        clickElement(commonPageLocators.creditCardOption, "CreditCard", false);
         Thread.sleep(12000);
         waitTillPageLoad();
         driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
@@ -136,7 +136,7 @@ public class HSLandingPageActions {
         typeText(commonPageLocators.creditCardNumberFrame, "4024007168458700", "Card number");
         typeText(getWebElementByID("micro-exp-date"), "122027", "Expiratioin Date");
         driver.switchTo().defaultContent();
-        clickElement(commonPageLocators.completeSecureCheckout, "Checkout",false);
+        clickElement(commonPageLocators.completeSecureCheckout, "Checkout", false);
         waitTillPageLoad();
         Thread.sleep(8000);
     }
@@ -144,7 +144,7 @@ public class HSLandingPageActions {
     public void enterAccountDetailsAndCompleteCheckout(String Value) throws Exception {
 
         typeText(commonPageLocators.enter_Account_Number, Value, "account number");
-        clickElement(commonPageLocators.completeSecureCheckout, "complete secure checkout",false);
+        clickElement(commonPageLocators.completeSecureCheckout, "complete secure checkout", false);
         waitTillPageLoad();
 
     }
@@ -159,40 +159,39 @@ public class HSLandingPageActions {
         waitTillPageLoad();
         Thread.sleep(5000);
         try {
-            if (commonPageLocators.AddressNotFound.getText().contains("Address not found!")
-                //	commonPageLocators.AddressNotFound.getText().equalsIgnoreCase("Address not found!")
-            ) {
-                clickElement(commonPageLocators.use_This_Address, "use the address",false);
+            if (commonPageLocators.AddressNotFound.getText().contains("Address not found!")) {
+                clickElement(commonPageLocators.use_This_Address, "use the address", false);
                 waitTillPageLoad();
-                Thread.sleep(5000);
-				if (verifyWebElementPresent(commonPageLocators.PaymentnotprocessedDialog))
-				{
-					Assert.fail("ERROR : ------Payment Not Processed:--------");
+                sleep(10);
+                if (waitForElementavailblilityboolean(commonPageLocators.orderConfirmationTitle,"orderConfirmationTitle",30)) {
+                    Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
+                    BrowserorderNumberText = commonPageLocators.orderNumber.getText();
+                    String[] parts = BrowserorderNumberText.split("\\.");
+                    String extractedValue = parts[1];
+                    System.out.println("Extracted Value:" + extractedValue.trim());
 
-				} else {
-					Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
-					BrowserorderNumberText = commonPageLocators.orderNumber.getText();
-					String[] parts = BrowserorderNumberText.split("\\.");
-					String extractedValue = parts[1];
-					System.out.println("Extracted Value:" + extractedValue.trim());
+                    BrowserorderNumberTexts = extractedValue.trim();
+                    System.out.println("Order Number is: " + BrowserorderNumberTexts);
+                    log.info("Order Number is: " + BrowserorderNumberTexts);
+                    System.out.println("Sale completed.");
+                    log.info("Sale completed.");
 
-					BrowserorderNumberTexts = extractedValue.trim();
-					System.out.println("Order Number is: " + BrowserorderNumberTexts);
-					log.info("Order Number is: " + BrowserorderNumberTexts);
-
-					log.info("Homeserve sale completed.");
-				}
+                } else if (verifyWebElementPresent(commonPageLocators.PaymentnotprocessedDialog)) {
+                    Assert.fail("ERROR : ------Payment Not Processed:--------");
+                }else {
+                    Assert.fail("ERROR : ------Sale Not Completed OR UI Latency issue, check screenshots:--------");
+                }
             } else {
                 waitForElement(getWebElementByValue("TVStreaming"), "TVStreaming", 40);
-                clickElement(getWebElementByValue("TVStreaming"), "TVStreaming",false);
-                clickElement(getWebElementByText("Finish"), "Finish",false);
+                clickElement(getWebElementByValue("TVStreaming"), "TVStreaming", false);
+                clickElement(getWebElementByText("Finish"), "Finish", false);
                 waitTillPageLoad();
                 String feedBackMessage = getWebElementByClass("survey__message survey__message--subtitle").getText();
                 Thread.sleep(5000);
                 if (feedBackMessage.equals("Your feedback has been submitted successfully.")) {
 
                     if (configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")) {
-                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn",false);
+                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
                         Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
                         WebElement ordertext = driver.findElement(By.xpath("//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"));
                         scrollToElement(ordertext);
@@ -210,7 +209,7 @@ public class HSLandingPageActions {
 
                         System.out.println("Order Number is : " + BrowserorderNumberTexts);
                     } else {
-                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn",false);
+                        clickElement(commonPageLocators.feedbackPopUpCloseBtn, "Feedback close btn", false);
                         Assert.assertTrue("Order Confirmation not present ", verifyWebElementPresent(commonPageLocators.orderConfirmationTitle));
                         BrowserorderNumberText = commonPageLocators.orderNumber.getText();
                         String[] parts = BrowserorderNumberText.split("\\.");
@@ -226,7 +225,7 @@ public class HSLandingPageActions {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            new Exception(e);
+            Assert.fail("ERROR : ------Sale Not Completed OR UI Latency issue, check screenshots:--------");
         }
 
     }
@@ -257,17 +256,17 @@ public class HSLandingPageActions {
     public void enterZipCodeByLocationAndEnterZipCode(WebElement element, String zipCode) throws InterruptedException {
         // Check if element with XPath condition 1 exists
         if (verifyWebElementPresent(element)) {
-            clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip",false);
+            clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip", false);
             typeText(getWebElementByID("wrapout-zipcode"), zipCode, "ZipCode field");
             waitTillPageLoad();
-            clickElement(getWebElementByClass("button button-blue zip-button"), "View Plans",false);
+            clickElement(getWebElementByClass("button button-blue zip-button"), "View Plans", false);
             waitTillPageLoad();
             verifyWebElementVisibleWebElementBoolean(getWebElementByText("View Plans On SLWA"));
         }
         // Check if element with XPath condition 2 exists
         else if (verifyWebElementPresent(element)) {
             typeText(getWebElementByID("home-zip-input"), zipCode, "Zipcode");
-            clickElement(commonPageLocators.shopNowBannerBtn, "Shop now",false);
+            clickElement(commonPageLocators.shopNowBannerBtn, "Shop now", false);
             waitTillPageLoad();
         } else {
 
@@ -279,7 +278,7 @@ public class HSLandingPageActions {
 
         selectFromDropdownByVisibletext(commonPageLocators.select_States, StateValue);
         sleep(2);
-        clickElement(commonPageLocators.state_Ok_Button, "OK",false);
+        clickElement(commonPageLocators.state_Ok_Button, "OK", false);
         waitTillPageLoad();
         sleep(10);
 

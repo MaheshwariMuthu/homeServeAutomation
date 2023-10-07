@@ -47,16 +47,17 @@ public class Hooks extends StartDriver {
 		if ((browser.equalsIgnoreCase("chrome"))) {
 		//	WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-			options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			options.addArguments("--no-sandbox");
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("-incognito");
 			options.addArguments("--remote-allow-origins=*");
 			options.addArguments("start-maximized");
+			options.addArguments("--force-device-scale-factor=0.8");
 //			options.setExperimentalOption("excludeSwitches",
 //				    Arrays.asList("disable-popup-blocking"));
 			options.addArguments("--disable-popup-blocking");
-			options.setBrowserVersion("116");
+			options.setBrowserVersion("117");
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setAcceptInsecureCerts(true);
 			caps.acceptInsecureCerts();

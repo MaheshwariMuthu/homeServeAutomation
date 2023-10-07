@@ -4,7 +4,7 @@ import io.cucumber.java.en.When;
 import pageActions.CommonPageActions;
 import pageActions.OttawaPageAction;
 
-public class OttawafrenchStepDef {
+public class OttawaStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();
 
 	OttawaPageAction ottawaPageAction = new OttawaPageAction();

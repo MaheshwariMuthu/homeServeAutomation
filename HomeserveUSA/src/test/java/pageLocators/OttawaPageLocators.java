@@ -17,14 +17,10 @@ public class OttawaPageLocators  extends Hooks {
 	}
 	
 	/* Selected  Plans X-path */
-	@FindBy(xpath = "//span[@class='checkmark']")
-	public static List<WebElement> checkboxOttawa;
 
 	@FindAll({
-			@FindBy(xpath = "/html/body/main/div[3]/div/div/div[1]/div/div[2]/div[1]/div[1]/div/div/label/span[1]"),
-			@FindBy(xpath = "//span[@class='checkmark']"),
-			@FindBy(xpath = "//div[3]/div/div/div[1]/div/div[2]/div[1]/div[1]/div/div/label/span[1]"),
-
+//			@FindBy(xpath = "(//input[@type='checkbox'])[1]"),
+			@FindBy(xpath = "//*[contains(text(),'Selected Plans')]/following::input[@type='checkbox'][1]/following-sibling::label/span[1]"),
 	})
 	public static WebElement SelectAPlanOttawa;
 
