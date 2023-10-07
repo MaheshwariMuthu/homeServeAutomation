@@ -52,6 +52,7 @@ public class SanjosePageActions {
 			throw new Exception("Checkout Cart is Empty");
 		} else {
 			System.out.println("Item added to cart.");
+			waitForElement(sanjosePageLocators.proceedToCheckout, "Proceed to checkout",30);
 			clickElement(sanjosePageLocators.proceedToCheckout, "Proceed to checkout",false);
 		}
 

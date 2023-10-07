@@ -49,8 +49,13 @@ public class Waits {
 //			System.out.println("JS in NOT Ready!");
 			// Wait for Javascript to load
 			wait.until(jsLoad);
+
+			// Wait jQuery until it is Ready!
+			wait.until(webDriver -> (Boolean) ((JavascriptExecutor) webDriver)
+					.executeScript("return jQuery.active == 0"));
+
 		} else {
-			sleep(5);
+			sleep(10);
 		}
 	}
 

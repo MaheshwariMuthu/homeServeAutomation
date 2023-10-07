@@ -4,3 +4,4 @@ HomeserveUSA/test-output/html/ExtentReport.html
 *.png
 HomeserveUSA/target/.*
 *.class
+*.class
