@@ -36,7 +36,7 @@ public class SLWALandingPageActions {
 				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
 				Paymenttype.click();
 				sleep(2);
-				clickElement(commonPageLocators.checkingAccountOption, "Checking Account");
+				clickElement(commonPageLocators.checkingAccountOption, "Checking Account",false);
 				commonPageLocators.checkingAccountOption.click();
 				sleep(2);
 				typeText(getWebElementByID("checking-full-name"), "Dean Heandreson", "Full name");
@@ -52,24 +52,24 @@ public class SLWALandingPageActions {
 				waitTillPageLoad();
 			}else {
 
-				clickElement(getWebElementByText("Checking Account"), "Checking Account");
+				clickElement(getWebElementByText("Checking Account"), "Checking Account",false);
 				sleep(5);
 				typeText(getWebElementByID("full-name"), "Dean Heandreson", "Full name");
 				typeText(getWebElementByID("routing-number"), "021912915", "Routing number");
 				typeText(getWebElementByID("checking-account"), "6011000000000000", "Account number");
 				typeText(getWebElementByID("verify-checking-account"), "6011000000000000", "Checking account number");
-				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
+				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout",false);
 				getCurrentTime();
 				waitTillPageLoad();
 			}
 		}
 		else if (accountType.equalsIgnoreCase("Credit or Debit Card")) {
 			if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofc") ||
-					configProperties.getProperty("server.site").equalsIgnoreCase("ottawa-french")) {
+					configProperties.getProperty("server.site").equalsIgnoreCase("ottawa")) {
 
 				scrollToElement(commonPageLocators.select_Go_PaperLess);
-				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
-				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
+				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess",false);
+				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type",false);
 				sleep(5);
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[1]")));
@@ -77,35 +77,35 @@ public class SLWALandingPageActions {
 				sleep(5);
 				commonPageLocators.card_Number.sendKeys(configProperties.getProperty("card.Number"));
 				commonPageLocators.month_Year.sendKeys("0527");
-				clickElement(commonPageLocators.add_Card, "add card");
+				clickElement(commonPageLocators.add_Card, "add card",false);
 				sleep(5);
 				//	PageActions.verify_text_on_page(commonPageLocators.success_Message, "success");
 				//	sleep(2);
 				driver.switchTo().defaultContent();
-				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout");
+				clickElement(commonPageLocators.completeSecureCheckout, "completeSecureCheckout",false);
 				getCurrentTime();
 			} else if (configProperties.getProperty("server.site").equalsIgnoreCase("lasanitation")||
 					configProperties.getProperty("server.site").equalsIgnoreCase("slwofa"))
 
 					 {
 				scrollToElement(commonPageLocators.choosePaymentTYpe);
-				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
+				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type",false);
 				sleep(5);
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[1]")));
 				driver.switchTo().frame(iframe);
 				sleep(5);
 				System.out.println(commonPageLocators.cardType.getAttribute("value"));
-				clickElement(commonPageLocators.cardType, "cardtype");
+				clickElement(commonPageLocators.cardType, "cardtype",false);
 				typeText(commonPageLocators.card_Number, configProperties.getProperty("card.Number"), "card number");
-				clickElement(commonPageLocators.cardExpiryMonth, "cardtype");
+				clickElement(commonPageLocators.cardExpiryMonth, "cardtype",false);
 				selectFromDropdownByValue(commonPageLocators.cardExpiryMonth, "05");
-				clickElement(commonPageLocators.cardExpiryYear, "cardtype");
+				clickElement(commonPageLocators.cardExpiryYear, "cardtype",false);
 				selectFromDropdownByValue(commonPageLocators.cardExpiryYear, "2040");
-				clickElement(commonPageLocators.nextButton, "Next Button");
+				clickElement(commonPageLocators.nextButton, "Next Button",false);
 				sleep(5);
 				driver.switchTo().defaultContent();
-				clickElement(getWebElementByClass("button js-post-message"), "Complete Secure Checkout");
+				clickElement(getWebElementByClass("button js-post-message"), "Complete Secure Checkout",false);
 				getCurrentTime();
 				waitTillPageLoad();
 				getCurrentTime();
@@ -113,7 +113,7 @@ public class SLWALandingPageActions {
 				WebElement Paymenttype = driver.findElement(By.className("select2-selection__rendered"));
 				Paymenttype.click();
 				sleep(2);
-				clickElement(commonPageLocators.creditCardOption, "CreditCard");
+				clickElement(commonPageLocators.creditCardOption, "CreditCard",false);
 				commonPageLocators.creditCardOption.click();
 				sleep(2);
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -131,13 +131,13 @@ public class SLWALandingPageActions {
 
 				driver.switchTo().defaultContent();
 				typeText(getWebElementByID("micro-exp-date"), "122027", "Expiratioin Date");
-				clickElement(commonPageLocators.completeSecureCheckout, "Checkout");
+				clickElement(commonPageLocators.completeSecureCheckout, "Checkout",false);
 				getCurrentTime();
 				waitTillPageLoad();
 			}else {
 				scrollToElement(commonPageLocators.select_Go_PaperLess);
-				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess");
-				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type");
+				clickElement(commonPageLocators.select_Go_PaperLess, "select_Go_PaperLess",false);
+				clickElement(commonPageLocators.choosePaymentTYpe, "Choose Payment Type",false);
 				sleep(5);
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 				WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(*//iframe)[2]")));
@@ -145,16 +145,16 @@ public class SLWALandingPageActions {
 				//driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
 				sleep(5);
 				System.out.println(commonPageLocators.cardType.getAttribute("value"));
-				clickElement(commonPageLocators.cardType, "cardtype");
+				clickElement(commonPageLocators.cardType, "cardtype",false);
 				typeText(commonPageLocators.card_Number, configProperties.getProperty("card.Number"), "card number");
-				clickElement(commonPageLocators.cardExpiryMonth, "cardtype");
+				clickElement(commonPageLocators.cardExpiryMonth, "cardtype",false);
 				selectFromDropdownByValue(commonPageLocators.cardExpiryMonth, "05");
-				clickElement(commonPageLocators.cardExpiryYear, "cardtype");
+				clickElement(commonPageLocators.cardExpiryYear, "cardtype",false);
 				selectFromDropdownByValue(commonPageLocators.cardExpiryYear, "2040");
-				clickElement(commonPageLocators.nextButton, "Next Button");
+				clickElement(commonPageLocators.nextButton, "Next Button",false);
 				sleep(5);
 				driver.switchTo().defaultContent();
-				clickElement(getWebElementByClass("button js-post-message"), "Complete Secure Checkout");
+				clickElement(getWebElementByClass("button js-post-message"), "Complete Secure Checkout",false);
 				getCurrentTime();
 				waitTillPageLoad();
 			}

@@ -27,16 +27,7 @@ public class SanjosePageActions {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void handleSanjosePagePopups() throws Exception {
-		System.out.println("handle Sanjose Page Popups if any");
-		Thread.sleep(2000);
-		if (waitForElementavailblilityboolean(sanjosePageLocators.sanjoseWaterpopup,"sanjose Water popup",10)) {
-//			scrollToElement(sanjosePageLocators.sanjoseWaterpopup);
-			mouseHoverAndClick(sanjosePageLocators.sanjoseWaterpopupClose,"Sanjose Water popup");
-//			clickElement(sanjosePageLocators.sanjoseWaterpopupClose, "Sanjose Water popup");
-			waitTillPageLoad();
-		}
-	}
+
 
 	/**
 	 * Description: Selecting Product to cart and then proceed to checkout
@@ -47,10 +38,10 @@ public class SanjosePageActions {
 	public void selectProductProceedToCheckout(String productCount) throws Exception {
 		int i = 0;
 		scrollToElement(sanjosePageLocators.addToCart);
-		clickElement(sanjosePageLocators.addToCart, "Add to cart");
+		clickElement(sanjosePageLocators.addToCart, "Add to cart",false);
 		for (; i < Integer.parseInt(productCount); i++) {
 			scrollToElement(sanjosePageLocators.addToCart);
-			clickElement(sanjosePageLocators.addToCart, "Add to cart");
+			clickElement(sanjosePageLocators.addToCart, "Add to cart",false);
 			Thread.sleep(2000);
 		}
 		String messageText = driver.getTitle();
@@ -61,7 +52,7 @@ public class SanjosePageActions {
 			throw new Exception("Checkout Cart is Empty");
 		} else {
 			System.out.println("Item added to cart.");
-			clickElement(sanjosePageLocators.proceedToCheckout, "Proceed to checkout");
+			clickElement(sanjosePageLocators.proceedToCheckout, "Proceed to checkout",false);
 		}
 
 	}
@@ -71,49 +62,7 @@ public class SanjosePageActions {
 	 * 
 	 * @throws InterruptedException
 	 */
-	public void entercontactDetails(String Zipcode,String City) throws InterruptedException {
-//		String generateRandomEmail = RandomStringUtils.randomNumeric(3);
-//		String email = "aabislathia+" + generateRandomEmail + "@gmail.com";
 
-       String generateRandomAddress=RandomStringUtils.randomNumeric(4);
-		
-		Email = "chandra.hstest+" + RandomStringUtils.randomNumeric(3) + "@gmail.com";
-		Address = generateRandomAddress+ " Chapmans Lane";
-		PhoneNumber = "65070"+RandomStringUtils.randomNumeric(3)+"34";
-		ApartmentNumber = RandomStringUtils.randomNumeric(4);
-		
-		System.out.println(PhoneNumber);
-		waitTillPageLoad();
-		typeText(getWebElementByID("email"), Email, "Email");
-		typeText(getWebElementByID("email-confirm"), Email, "Conform Email");
-		typeText(getWebElementByID("first-name"), "Zack", "First name");
-		typeText(getWebElementByID("last-name"), "Ansley", "Last name");
-		typeText(getWebElementByID("address-line-1"), Address, "Adress");
-		typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Adress Second");
-		typeText(getWebElementByID("city"), City, "Adress");
-		typeText(getWebElementByID("zip-code"), Zipcode, "Zip code");
-		WebElement State = driver.findElement(By.xpath("//*[@id=\"state\"]"));
-		String state = State.getAttribute("value");
-		System.out.println(state);
-
-		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
-			&& state.equalsIgnoreCase("IN")) {
-			// (313) 793-4983
-			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
-			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
-		}
-		if(configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
-				&& state.equalsIgnoreCase("MI")) {
-			// (313) 793-4983
-			String MobileNumber = "33131"+RandomStringUtils.randomNumeric(3)+"340";
-			typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
-		}
-
-		else{
-			typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
-		}
-		Thread.sleep(4000);
-	}
 
 	/**
 	 * Description: Enter credit/ Debit card details
@@ -125,7 +74,7 @@ public class SanjosePageActions {
 
 		if (PaymentType.equals("Checking Account")) {
 
-			clickElement(getWebElementByText("Checking Account"), "Checking Account");
+			clickElement(getWebElementByText("Checking Account"), "Checking Account",false);
 			typeText(getWebElementByID("full-name"), "Dean Heandreson", "Full name");
 			typeText(getWebElementByID("routing-number"), "021912915", "Routing number");
 			typeText(getWebElementByID("checking-account"), "6011000000000000", "Account number");
@@ -133,8 +82,8 @@ public class SanjosePageActions {
 
 		} else if (PaymentType.equals("Credit or Debit Card")) {
 			if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
-				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options");
-				clickElement(commonPageLocators.creditCardOption, "CreditCard");
+				clickElement(getWebElementByID("select2-checkout-form__method-container"), "Payment options",false);
+				clickElement(commonPageLocators.creditCardOption, "CreditCard",false);
 				Thread.sleep(12000);
 				waitTillPageLoad();
 				driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
@@ -143,19 +92,19 @@ public class SanjosePageActions {
 				typeText(commonPageLocators.card_Number, "4024007168458700", "Card number");
 				driver.switchTo().defaultContent();
 				typeText(getWebElementByID("micro-exp-date"), "122027", "Expiratioin Date");
-				clickElement(commonPageLocators.completeSecureCheckout, "Checkout");
+				clickElement(commonPageLocators.completeSecureCheckout, "Checkout",false);
 				waitTillPageLoad();
 				Thread.sleep(8000);
 			}else{
-			clickElement(getWebElementByText("Credit or Debit Card"), "Credit or Debit Card");
+			clickElement(getWebElementByText("Credit or Debit Card"), "Credit or Debit Card",false);
 			Thread.sleep(5000);
 			driver.switchTo().frame(commonPageLocators.creditCardNumberFrame);
 			sleep(8);
-			clickElement(getWebElementByText("Visa"), "Visa");
+			clickElement(getWebElementByText("Visa"), "Visa",false);
 			typeText(getWebElementByID("card_number"), configProperties.getProperty("card.Number"), "Conform Email");
 			selectFromDropdownByValue(getWebElementByID("card_expiry_month"), "06");
 			selectFromDropdownByValue(getWebElementByID("card_expiry_year"), "2026");
-			clickElement(getWebElementByValue("Next"), "Next btn");
+			clickElement(getWebElementByValue("Next"), "Next btn",false);
 			driver.switchTo().defaultContent();
 			sleep(10);
 		}
@@ -163,7 +112,7 @@ public class SanjosePageActions {
 		}else {
 			Assert.fail("Add payment failed");
 		}
-		clickElement(getWebElementByText("Complete Secure Checkout"), "Complete Secure Checkout");
+		clickElement(getWebElementByText("Complete Secure Checkout"), "Complete Secure Checkout",false);
 	}
 
 	/**
@@ -174,7 +123,7 @@ public class SanjosePageActions {
 	public void selectBillingFrequency(String billingFreq) throws InterruptedException {
 		Thread.sleep(5000);
 		if(configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")){
-			clickElement(getWebElementByClass("billing-frequency__dropdown"),"Bill Frequency");
+			clickElement(getWebElementByClass("billing-frequency__dropdown"),"Bill Frequency",false);
 			WebElement FreqDropdown = getWebElementByClass("billing-frequency__dropdown");
 		//	FreqDropdown.click();
 			if(billingFreq.equalsIgnoreCase("Monthly")) {
@@ -189,15 +138,15 @@ public class SanjosePageActions {
 		}
 
 		else if (billingFreq.equalsIgnoreCase("Monthly")) {
-			clickElement(getWebElementByText("Monthly"), "Monthly");
+			clickElement(getWebElementByText("Monthly"), "Monthly",false);
 			System.out.println("Monthly checkbox selected");
 			log.info("Mothly checkbox selected");
 		} else if (billingFreq.equalsIgnoreCase("Quarterly")) {
-			clickElement(getWebElementByText("Quarterly"), "Quarterly");
+			clickElement(getWebElementByText("Quarterly"), "Quarterly",false);
 			log.info("Quarterly checkbox selected");
 			System.out.println("Quarterly checkbox selected");
 		} else if (billingFreq.equalsIgnoreCase("Annually")) {
-			clickElement(getWebElementByText("Annually"), "Annually");
+			clickElement(getWebElementByText("Annually"), "Annually",false);
 			log.info("Annually checkbox selected");
 			System.out.println("Annually checkbox selected");
 		}else {
@@ -214,7 +163,7 @@ public class SanjosePageActions {
 //		Order name and 
 		
 		waitTillPageLoad();
-		clickElement(sanjosePageLocators.use_this_address_button, "Yes, use this address");
+		clickElement(sanjosePageLocators.use_this_address_button, "Yes, use this address",false);
 		Assert.assertTrue("Order Confirmation not present ",verifyWebElementPresent(sanjosePageLocators.orderConfirmationTitle));
 		Assert.assertTrue("Order Confirmation not present ",verifyWebElementPresent(getWebElementByID("btn-create-new-account")));
 		BrowserorderNumberText = sanjosePageLocators.orderNumber.getText();

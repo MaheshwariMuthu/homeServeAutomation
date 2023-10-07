@@ -53,15 +53,15 @@ public class HomeserveStepDef {
 	}
 
 	@Then("add product to the cart and the user clicks on Proceed to Checkout")
-	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws InterruptedException {
-
+	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws Exception {
+		commonPageActions.handleEnterCodePopups();
 		hslandingPage.addProductToCartAndProceedToCheckout();
 	}
 
 	@Then("the user fills in the Contact details")
 	public void the_user_fills_in_the_contact_details()
 			throws InterruptedException, FileNotFoundException, IOException, ParseException {
-		hslandingPage.entercontactDetails("RegFN","RegLN");
+		commonPageActions.enterUserDetails("","");
 
 	}
 

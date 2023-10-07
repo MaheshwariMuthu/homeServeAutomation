@@ -28,7 +28,7 @@ public class OttawaPageAction {
 	public void changeTheLanguageIntoEnglish() throws InterruptedException {
 		Thread.sleep(3000);
 		scrollToElement(getWebElementByText("See plan details in English."));
-		clickElement(getWebElementByText("See plan details in English."),"Change Language");
+		clickElement(getWebElementByText("See plan details in English."),"Change Language",false);
 		waitTillPageLoad();
 		switchWindow();
 
@@ -44,10 +44,10 @@ public class OttawaPageAction {
 		commonPageActions.closeCookiesBottom();
 		Thread.sleep(5000);
 		scrollToElement(ottawaPageLocators.SelectAPlanOttawa);
-		clickElement(ottawaPageLocators.SelectAPlanOttawa, "Select A Plan");
-		clickElement(commonPageLocators.addToCart, "Add to cart");
-		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout");
-		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout");
+		clickElement(ottawaPageLocators.SelectAPlanOttawa, "Select A Plan",false);
+		clickElement(commonPageLocators.addToCart, "Add to cart",false);
+		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout",false);
+		clickElement(commonPageLocators.proceedToCheckout, "Proceed to checkout",false);
 		waitTillPageLoad();
 
 	}
