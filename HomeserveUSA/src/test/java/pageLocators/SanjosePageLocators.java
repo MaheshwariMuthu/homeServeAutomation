@@ -1,15 +1,13 @@
 package pageLocators;
 
+import static automationFramework.StartDriver.driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import stepDefinations.Hooks;
-
-
 import java.util.List;
 
 
-public class SanjosePageLocators extends Hooks {
+public class SanjosePageLocators {
 	public SanjosePageLocators() {
 		PageFactory.initElements(driver, this);
 	}

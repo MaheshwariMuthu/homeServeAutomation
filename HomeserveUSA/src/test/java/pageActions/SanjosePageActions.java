@@ -10,18 +10,20 @@ import static automationFramework.PageActions.selectFromDropdownByValue;
 import static automationFramework.PageActions.typeText;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
-import static pageActions.CommonPageActions.commonPageLocators;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import pageLocators.CommonPageLocators;
 import pageLocators.SanjosePageLocators;
 
 
 public class SanjosePageActions {
 	SanjosePageLocators sanjosePageLocators = new SanjosePageLocators();
+	CommonPageLocators commonPageLocators = new CommonPageLocators();
+
 
 	public SanjosePageActions() {
 		PageFactory.initElements(driver, this);

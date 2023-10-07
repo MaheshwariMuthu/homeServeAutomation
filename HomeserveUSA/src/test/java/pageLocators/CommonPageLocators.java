@@ -15,275 +15,294 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CommonPageLocators {
-	public CommonPageLocators() {
-		PageFactory.initElements(driver, this);
-	}
+    public CommonPageLocators() {
+        PageFactory.initElements(driver, this);
+    }
 
-//	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
+    //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
 //	public WebElement enterZipHeaderLink;
-@FindAll({
-		@FindBy(xpath = "//div[@class='component generic-error-lightbox light-box js-generic-error-lb']")
-		//	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
-})
-public WebElement PaymentnotprocessedDialog;
-	@FindAll({
-			@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
-		//	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
-	})
-	public WebElement enterZipHeaderLink;
+    @FindAll({
+            @FindBy(xpath = "//div[@class='component generic-error-lightbox light-box js-generic-error-lb']")
+            //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
+    })
+    public WebElement PaymentnotprocessedDialog;
+    @FindAll({
+            @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
+            //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
+    })
+    public WebElement enterZipHeaderLink;
 
-	@FindAll({
-			@FindBy(xpath ="/html/body/main/section/div[2]/div/div/div/div[2]/div/form/fieldset/div/div/div[2]/div/input[1]"),
-			@FindBy(xpath ="//*[@id=\"zip-code\"]"),
+    @FindAll({
+            @FindBy(xpath = "/html/body/main/section/div[2]/div/div/div/div[2]/div/form/fieldset/div/div/div[2]/div/input[1]"),
+            @FindBy(xpath = "//*[@id=\"zip-code\"]"),
 
-	})public WebElement txtZipCode;
+    })
+    public WebElement txtZipCode;
 
-	@FindBy(xpath = "//*[@id=\"city\"]")
-	public WebElement city_Details;
+    @FindBy(xpath = "//*[@id=\"city\"]")
+    public WebElement city_Details;
 
-	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div[2]/a")
-	public WebElement use_This_Address;
-//
-	@FindAll({
-			@FindBy(xpath = "//*[text()='Address not found!']"),
-			@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/h2"),
+    @FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div[2]/a")
+    public WebElement use_This_Address;
+    //
+    @FindAll({
+            @FindBy(xpath = "//*[text()='Address not found!']"),
+            @FindBy(xpath = "/html/body/div[2]/div/div[1]/div/h2"),
 
-	}) public WebElement AddressNotFound;
-@FindAll({
-			@FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[1]"),
-			@FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[1]"),
-			@FindBy(xpath = "//button[text()='Add To Cart']"),
-			@FindBy(xpath = "//*[@class='button js-add-to-cart']"),
-		    @FindBy(xpath = "(//span[text()='Add To Cart'])[1]"),
-	}) public WebElement addToCart;
+    })
+    public WebElement AddressNotFound;
+    @FindAll({
+            @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[1]"),
+            @FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[1]"),
+            @FindBy(xpath = "//button[text()='Add To Cart']"),
+            @FindBy(xpath = "//*[@class='button js-add-to-cart']"),
+            @FindBy(xpath = "(//span[text()='Add To Cart'])[1]"),
+    })
+    public WebElement addToCart;
 
-	@FindAll({
+    @FindAll({
 
-	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div"),
-	@FindBy(xpath = "/html/body/div[2]/div/div[1]")
-			})
-	public WebElement Payment_not_Processed_Alert;
+            @FindBy(xpath = "/html/body/div[2]/div/div[1]/div"),
+            @FindBy(xpath = "/html/body/div[2]/div/div[1]")
+    })
+    public WebElement Payment_not_Processed_Alert;
 
 
-	@FindBy(xpath = "//*[@id=\"code-input\"]")
-	public WebElement entercodepopup;
+    @FindBy(xpath = "//*[@id=\"code-input\"]")
+    public WebElement entercodepopup;
 
-	@FindBy(xpath = "//*[@id='mtw-code-form']/fieldset/div/a")
-	public WebElement entercodepopupClose;
+    @FindBy(xpath = "//*[@id='mtw-code-form']/fieldset/div/a")
+    public WebElement entercodepopupClose;
 
-	@FindBy(xpath = "//*[@id=\"onetrust-close-btn-container\"]/button")
-	public WebElement btnCookiesClose;
+    @FindBy(xpath = "//*[@id=\"onetrust-close-btn-container\"]/button")
+    public WebElement btnCookiesClose;
 
-	@FindBy(xpath = "//*[@id=\"installmentsPerYear\"]")
-	public WebElement Select_Bill_Frequency;
+    @FindBy(xpath = "//*[@id=\"installmentsPerYear\"]")
+    public WebElement Select_Bill_Frequency;
 
 
-	@FindBy(xpath = "//*[@id=\"payment_details_lower\"]/input")
-	public WebElement Add_To_Cart_Button;
+    @FindBy(xpath = "//*[@id=\"payment_details_lower\"]/input")
+    public WebElement Add_To_Cart_Button;
 
-	@FindAll({
-		@FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[7]/a/div"),
-		@FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
-	})public WebElement Proceed_To_Cart_Button;
+    @FindAll({
+            @FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[7]/a/div"),
+            @FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
+    })
+    public WebElement Proceed_To_Cart_Button;
 
 
-	@FindAll({
-			@FindBy(xpath = "//*[@class='checkmark']"),
+    @FindAll({
+            @FindBy(xpath = "//*[@class='checkmark']"),
 
-	}) public List<WebElement> select_Plan;
+    })
+    public List<WebElement> select_Plan;
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"firstName\"]"),
-			@FindBy(xpath = "//*[@id=\"first-name\"]")
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"firstName\"]"),
+            @FindBy(xpath = "//*[@id=\"first-name\"]")
 
-	}) public WebElement firstName;
+    })
+    public WebElement firstName;
 
-	@FindAll({
+    @FindAll({
 
-			@FindBy(xpath = "//*[@id=\"AddressLine1\"]"),
-			@FindBy(xpath = "//*[@id=\"address-line-1\"]")
+            @FindBy(xpath = "//*[@id=\"AddressLine1\"]"),
+            @FindBy(xpath = "//*[@id=\"address-line-1\"]")
 
-	}) public WebElement addressLine;
+    })
+    public WebElement addressLine;
 
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"address-line-2\"]"),
-			@FindBy(xpath = "//*[@id=\"AddressLine1\"]")
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"address-line-2\"]"),
+            @FindBy(xpath = "//*[@id=\"AddressLine1\"]")
 
-	}) public WebElement apartmentDetails;
+    })
+    public WebElement apartmentDetails;
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"card_expiry_month\"]"),
-			@FindBy(xpath = "//*[@id='Expiry']"),
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"card_expiry_month\"]"),
+            @FindBy(xpath = "//*[@id='Expiry']"),
 
-	})public WebElement cardExpiryMonth;
+    })
+    public WebElement cardExpiryMonth;
 
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"card_expiry_year\"]")
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"card_expiry_year\"]")
 
-	})public WebElement cardExpiryYear;
-	@FindBy(xpath = "//*[@id=\"payment_details_lower\"]/input")
-	public WebElement nextButton;
+    })
+    public WebElement cardExpiryYear;
+    @FindBy(xpath = "//*[@id=\"payment_details_lower\"]/input")
+    public WebElement nextButton;
 
-	@FindAll({
-			@FindBy(xpath = "//div[3]/div[2]/div[2]/p/button"),
-			@FindBy(xpath = "//*[@class='c491-add-new-payment__btn']"),
-			@FindBy(xpath = "//*[@id=\"select2-checkout-form__method-container\"]"),
+    @FindAll({
+            @FindBy(xpath = "//div[3]/div[2]/div[2]/p/button"),
+            @FindBy(xpath = "//*[@class='c491-add-new-payment__btn']"),
+            @FindBy(xpath = "//*[@id=\"select2-checkout-form__method-container\"]"),
 
-	}) public WebElement choosePaymentTYpe;
-	//div[4]/div/div[1]/fieldset/div/div[1]/input
+    })
+    public WebElement choosePaymentTYpe;
+    //div[4]/div/div[1]/fieldset/div/div[1]/input
 
-	@FindAll({
-	@FindBy(xpath = "//fieldset/div[4]/div/div[1]/fieldset/div/div[1]/input"),
-	@FindBy(xpath = "//*[@id=\"card_type_001\"]"),
-			@FindBy(xpath = "//*[text()='Credit or Debit Card']"),
-	})	public WebElement cardType;
-	@FindAll({
-		@FindBy(xpath = "/html/body/form/input[2]"),
-		@FindBy(xpath = "//*[@id=\"CardNumber\"]"),
-		@FindBy(xpath = "//*[@id=\"card_number\"]"),
-		@FindBy(xpath = "//input[@id='number']"),
-		@FindBy(xpath = "//*[@id=\"number\"]"),
+    @FindAll({
+            @FindBy(xpath = "//fieldset/div[4]/div/div[1]/fieldset/div/div[1]/input"),
+            @FindBy(xpath = "//*[@id=\"card_type_001\"]"),
+            @FindBy(xpath = "//*[text()='Credit or Debit Card']"),
+    })
+    public WebElement cardType;
+    @FindAll({
+            @FindBy(xpath = "/html/body/form/input[2]"),
+            @FindBy(xpath = "//*[@id=\"CardNumber\"]"),
+            @FindBy(xpath = "//*[@id=\"card_number\"]"),
+            @FindBy(xpath = "//input[@id='number']"),
+            @FindBy(xpath = "//*[@id=\"number\"]"),
 
-	}) public WebElement card_Number;
+    })
+    public WebElement card_Number;
 
-	@FindBy(xpath = "//*[@class='button js-post-message']")
-	public WebElement Complete_secure_CheckOut;
+    @FindBy(xpath = "//*[@class='button js-post-message']")
+    public WebElement Complete_secure_CheckOut;
 
-	@FindBy(xpath = "//*[@id=\"States\"]")
-	public WebElement select_States;
+    @FindBy(xpath = "//*[@id=\"States\"]")
+    public WebElement select_States;
 
-	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div[1]/form/fieldset/div[2]/button")
-	public WebElement state_Ok_Button;
+    @FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div[1]/form/fieldset/div[2]/button")
+    public WebElement state_Ok_Button;
 
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"Expiry\"]"),
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"Expiry\"]"),
 
-	}) public WebElement month_Year;
+    })
+    public WebElement month_Year;
 
 
+    @FindAll({
+            @FindBy(xpath = "//*[@id=\"ContentDiv\"]/input[2]"),
 
-	@FindAll({
-			@FindBy(xpath = "//*[@id=\"ContentDiv\"]/input[2]"),
+    })
+    public WebElement add_Card;
 
-	}) public WebElement add_Card;
 
+    @FindAll({
+            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
+            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
 
+    })
+    public WebElement view_Plan;
 
-	@FindAll({
-			@FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
-			@FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
 
-	}) public WebElement view_Plan;
+    @FindAll({
+            @FindBy(xpath = "/html/body/div[2]/div/div[2]/main/div/h2"),
 
+    })
+    public WebElement other_Customers_Purchased;
 
 
-	@FindAll({
-			@FindBy(xpath = "/html/body/div[2]/div/div[2]/main/div/h2"),
+    @FindAll({
+            @FindBy(xpath = "/html/body/div"),
 
-	}) public WebElement other_Customers_Purchased;
 
+    })
+    public WebElement success_Message;
 
 
-	@FindAll({
-			@FindBy(xpath = "/html/body/div"),
+    /* Proceed to checkout */
+    @FindAll({
+            @FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[2]"),
+            @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[2]"),
+            @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[1]/div/div[3]/div[3]/a/span[2]"),
+            @FindBy(xpath = "/html/body/div[2]/div/div[1]/aside/div[2]/a"),
+            @FindBy(xpath = "/html/body/main/div[3]/div[1]/div[1]/div/div[2]/div[2]/a/span[2]"),
+            @FindBy(xpath = "*//aside/div[2]/a"),
+            @FindBy(xpath = "//div[3]/div[2]/a/span[2]"),
+            @FindBy(xpath = "//*[@class='btn btn--red product-tile__cta-button']"),
+            @FindBy(xpath = "//div[@class='cart__submit-container']/descendant::a[contains(text(),'Proceed To Checkout')]"),
+            @FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
+            @FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[9]/a/div"),
+    })
+    public WebElement proceedToCheckout;
 
+    //
 
-	}) public WebElement success_Message;
+    @FindBy(xpath = "//*[@id=\"account-number\"]")
+    public WebElement enter_Account_Number;
 
 
-	/* Proceed to checkout */
-	@FindAll({
-			@FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[2]"),
-			@FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[2]"),
-			@FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[1]/div/div[3]/div[3]/a/span[2]"),
-			@FindBy(xpath = "/html/body/div[2]/div/div[1]/aside/div[2]/a"),
-			@FindBy(xpath = "/html/body/main/div[3]/div[1]/div[1]/div/div[2]/div[2]/a/span[2]"),
-			@FindBy(xpath = "*//aside/div[2]/a"),
-			@FindBy(xpath = "//div[3]/div[2]/a/span[2]"),
-			@FindBy(xpath = "//*[@class='btn btn--red product-tile__cta-button']"),
-			@FindBy(xpath = "//div[@class='cart__submit-container']/descendant::a[contains(text(),'Proceed To Checkout')]"),
-			@FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
-			@FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[9]/a/div"),
-	})public WebElement proceedToCheckout;
+    @FindBy(xpath = "//div[2]/fieldset/div/div[2]/div/label")
+    public WebElement select_Go_PaperLess;
 
-	//
+    /* Credit Card option X-path */
+    @FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]")
+    public WebElement creditCardOption;
 
-	@FindBy(xpath = "//*[@id=\"account-number\"]")
-	public WebElement enter_Account_Number;
+    @FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]")
+    public WebElement checkingAccountOption;
 
 
-	@FindBy(xpath = "//div[2]/fieldset/div/div[2]/div/label")
-	public WebElement select_Go_PaperLess;
+    /* Credit Card option X-path */
+    @FindAll({
+            @FindBy(xpath = "/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/section/div/div[2]/div/button"),
+            @FindBy(xpath = "/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
+            @FindBy(xpath = "(//div[@class='checkout-form__container']//button[text()='Complete Secure Checkout'])[1]"),
+            @FindBy(xpath = "(/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
+            @FindBy(xpath = "//*[@id=\"checking-form\"]/div[3]/button"),
+    })
+    public WebElement completeSecureCheckout;
 
-	/* Credit Card option X-path */
-	@FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]")
-	public WebElement creditCardOption;
+    /* Card number X-path */
 
-	@FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]")
-	public WebElement checkingAccountOption;
 
+    /* Credit card number X-path */
+    @FindAll({
+            @FindBy(xpath = "(//iframe)[1]"),
+            @FindBy(xpath = "(//iframe)[2]"),
+            @FindBy(xpath = "//*[@id=\"micro-number-container\"]/iframe"),
 
-	/* Credit Card option X-path */
-	@FindAll({
-			@FindBy(xpath = "/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/section/div/div[2]/div/button"),
-			@FindBy(xpath = "/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
-			@FindBy(xpath = "(//div[@class='checkout-form__container']//button[text()='Complete Secure Checkout'])[1]"),
-			@FindBy(xpath = "(/html/body/main/div/div/div/div[3]/form/div/div/div[2]/div[3]/div[2]/div[2]/div[2]/button"),
-			@FindBy(xpath = "//*[@id=\"checking-form\"]/div[3]/button"),
-	})public WebElement completeSecureCheckout;
+    })
+    public WebElement creditCardNumberFrame;
 
-	/* Card number X-path */
+    /* Credit card number X-path */
+    @FindBy(xpath = "(//span[text()='Shop Now'])[1]")
+    public WebElement shopNowBannerBtn;
 
+    /* View available palns X-path */
+    @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
+    public WebElement viewAvailablePlans;
 
-	/* Credit card number X-path */
-	@FindAll({
-			@FindBy(xpath = "(//iframe)[1]"),
-			@FindBy(xpath = "(//iframe)[2]"),
-			@FindBy(xpath = "//*[@id=\"micro-number-container\"]/iframe"),
+    /* View palns X-path */
+    @FindBy(xpath = "//button[@class='button zip-button js-show-ps']/descendant::span[text()='View Plans']")
+    public WebElement viewPlans;
 
-	})public WebElement creditCardNumberFrame;
+    /* Close button for Feedback pop X-path */
+    @FindBy(xpath = "//button[text()='Close']")
+    public WebElement feedbackPopUpCloseBtn;
 
-	/* Credit card number X-path */
-	@FindBy(xpath = "(//span[text()='Shop Now'])[1]")
-	public WebElement shopNowBannerBtn;
+    /* Title X-path */
+    @FindBy(xpath = "//h1[contains(text(),'Order')]")
+    public WebElement orderConfirmationTitle;
 
-	/* View available palns X-path */
-	@FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
-	public WebElement viewAvailablePlans;
+    /* Order number X-path */
+    @FindAll({
+            @FindBy(xpath = "//span[@class='order-confirm__text']/descendant::span"),
+            @FindBy(xpath = "*//p/strong"),
+            @FindBy(xpath = "/html/body/main/div/div/div/div/div/div/div[1]/div[4]/p/strong"),
+            @FindBy(xpath = "//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"),
 
-	/* View palns X-path */
-	@FindBy(xpath = "//button[@class='button zip-button js-show-ps']/descendant::span[text()='View Plans']")
-	public WebElement viewPlans;
-
-	/* Close button for Feedback pop X-path */
-	@FindBy(xpath = "//button[text()='Close']")
-	public WebElement feedbackPopUpCloseBtn;
-
-	/* Title X-path */
-	@FindBy(xpath = "//h1[contains(text(),'Order')]")
-	public WebElement orderConfirmationTitle;
-
-	/* Order number X-path */
-	@FindAll({
-			@FindBy(xpath = "//span[@class='order-confirm__text']/descendant::span"),
-			@FindBy(xpath = "*//p/strong"),
-			@FindBy(xpath = "/html/body/main/div/div/div/div/div/div/div[1]/div[4]/p/strong"),
-			@FindBy(xpath = "//*[@id=\"site-main\"]/div[2]/div/div/div/div/div[2]/div/span[1]"),
-
-	})public WebElement orderNumber;
+    })
+    public WebElement orderNumber;
 
 //	/* First name checkout X-path */
 //	@FindBy(xpath = "//input[@placeholder='First Name']")
 //	public WebElement firstName;
 
-	/* Close cookies X-path */
-	@FindAll({
-			@FindBy(xpath = "//div[@id='onetrust-close-btn-container']/descendant::button"),
-			@FindBy(xpath = "/html/body/main/div[3]/div/button"),
-			@FindBy(xpath = "/html/body/main/div[6]/div/button"),
-})public WebElement cookiesClose;
+    /* Close cookies X-path */
+    @FindAll({
+            @FindBy(xpath = "//div[@id='onetrust-close-btn-container']/descendant::button"),
+            @FindBy(xpath = "/html/body/main/div[3]/div/button"),
+            @FindBy(xpath = "/html/body/main/div[6]/div/button"),
+    })
+    public WebElement cookiesClose;
 
 }
