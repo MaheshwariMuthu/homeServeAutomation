@@ -27,10 +27,15 @@ public class CommonPageLocators {
     })
     public WebElement PaymentnotprocessedDialog;
     @FindAll({
-            @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
-            //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
+            @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span"),
+            @FindBy(xpath = "//a[@for=\"trigger-zip-form\"]/span"), //div[@class='field zip-bar']/input[@name='zipcode']
     })
     public WebElement enterZipHeaderLink;
+
+    @FindAll({
+            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']"),
+    })
+    public WebElement txtZipCodeHearder;
 
     @FindAll({
             @FindBy(xpath = "/html/body/main/section/div[2]/div/div/div/div[2]/div/form/fieldset/div/div/div[2]/div/input[1]"),
@@ -188,6 +193,8 @@ public class CommonPageLocators {
     @FindAll({
             @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
             @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
+            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
+            @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
 
     })
     public WebElement view_Plan;
@@ -234,7 +241,10 @@ public class CommonPageLocators {
     public WebElement select_Go_PaperLess;
 
     /* Credit Card option X-path */
-    @FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]")
+    @FindAll({
+            @FindBy(xpath = "//li/descendant::*[contains(text(),'Credit or Debit Card')]"),
+            @FindBy(css = "#select2-checkout-form__method-result-oqsm-Credit\\ or\\ Debit\\ Card"),
+    })
     public WebElement creditCardOption;
 
     @FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]")
@@ -272,8 +282,12 @@ public class CommonPageLocators {
     public WebElement viewAvailablePlans;
 
     /* View palns X-path */
-    @FindBy(xpath = "//button[@class='button zip-button js-show-ps']/descendant::span[text()='View Plans']")
-    public WebElement viewPlans;
+
+//    @FindAll({
+//            @FindBy(xpath = "//button[@class='button zip-button js-show-ps']/descendant::span[text()='View Plans']"),
+//            @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
+//    })
+//    public WebElement viewPlan;
 
     /* Close button for Feedback pop X-path */
     @FindBy(xpath = "//button[text()='Close']")

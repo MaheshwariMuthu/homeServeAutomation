@@ -14,7 +14,7 @@ Feature: aepindianamichigan feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-
+  @saleaep
   Scenario: Complete a sale in HomeServe aepindianamichigan-Indiana
     When the user Selects the State as "Indiana"
     Then add product to the cart and the user clicks on Proceed to Checkout

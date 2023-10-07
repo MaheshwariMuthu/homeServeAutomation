@@ -5,3 +5,17 @@ HomeserveUSA/test-output/html/ExtentReport.html
 HomeserveUSA/target/.*
 *.class
 *.class
+HomeserveUSA/target/test-classes/features/aepindianamichigan.feature
+HomeserveUSA/target/test-classes/features/buffalowaternipcnew.feature
+HomeserveUSA/target/test-classes/features/firstenergy-fundle.feature
+HomeserveUSA/target/test-classes/features/homeserve-ce.feature
+HomeserveUSA/target/test-classes/features/kypower-tabs.feature
+HomeserveUSA/target/test-classes/features/lasanitation.feature
+HomeserveUSA/target/test-classes/features/wvwachoice.feature
+HomeserveUSA/target/test-classes/features/aepindianamichigan.feature
+HomeserveUSA/target/test-classes/features/buffalowaternipcnew.feature
+HomeserveUSA/target/test-classes/features/firstenergy-fundle.feature
+HomeserveUSA/target/test-classes/features/homeserve-ce.feature
+HomeserveUSA/target/test-classes/features/kypower-tabs.feature
+HomeserveUSA/target/test-classes/features/lasanitation.feature
+HomeserveUSA/target/test-classes/features/wvwachoice.feature

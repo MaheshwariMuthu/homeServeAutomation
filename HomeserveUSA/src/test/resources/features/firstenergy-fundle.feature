@@ -6,7 +6,7 @@ Feature: Complete an sale for firstenergy-fundle
 Background: User navigate to Homeserve-firstenergy-fundle page
 	Given User is on "firstenergy-fundle" Home page
 
-@sale
+@salefirstenergy
 Scenario: Complete an sale for firstenergy-fundle
 	Then add product to the cart and the user clicks on Proceed to Checkout
 	Then the user fills up the Contact details with Zipcode as "22209" and City as "something"

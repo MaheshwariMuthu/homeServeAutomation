@@ -66,10 +66,11 @@ public class CommonPageActions {
      */
     public void enterZipCodeAndSubmit(String zipCode, String EnterZipLocation) throws InterruptedException {
         if (EnterZipLocation.equalsIgnoreCase("header")) {
+            System.out.println(EnterZipLocation);
             clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip", false);
-            typeText(getWebElementByID("zipcode"), zipCode, "ZipCode field");
+            typeText(commonPageLocators.txtZipCodeHearder, zipCode, "ZipCode field");
             waitTillPageLoad();
-            clickElement(commonPageLocators.viewPlans, "View Plans", false);
+            clickElement(commonPageLocators.view_Plan, "View Plans", false);
             waitTillPageLoad();
             waitTillPageLoad();
             clickElement(commonPageLocators.viewAvailablePlans, "View available plans", false);
@@ -103,14 +104,26 @@ public class CommonPageActions {
         ApartmentNumber = RandomStringUtils.randomNumeric(4);
 
         waitTillPageLoad();
-        typeText(getWebElementByID("email"), Email, "Email");
-        typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
-        typeText(getWebElementByID("first-name"), "Zack", "First name");
-        typeText(getWebElementByID("last-name"), "Ansley", "Last name");
-        typeText(getWebElementByID("address-line-1"), Address, "Address");
-        typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
-        typeText(getWebElementByID("home-phone"), PhoneNumber, "Home Phone");
 
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("Homeserve")) {
+            verifyWebElementVisibleWebElementBoolean(getWebElementByID("email"));
+            waitForElement(getWebElementByID("email"), "Email", 120);
+            typeText(getWebElementByID("email"), Email, "Email");
+            typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
+            typeText(commonPageLocators.firstName, "AutoFirstName", "First name");
+            typeText(getWebElementByID("last-name"), "AutoLastName", "Last name");
+            typeText(commonPageLocators.addressLine, Address, "Address");
+            typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
+            typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
+        } else {
+            typeText(getWebElementByID("email"), Email, "Email");
+            typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
+            typeText(getWebElementByID("first-name"), "AutoFirstName", "First name");
+            typeText(getWebElementByID("last-name"), "AutoLastName", "Last name");
+            typeText(getWebElementByID("address-line-1"), Address, "Address");
+            typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
+            typeText(getWebElementByID("home-phone"), PhoneNumber, "Home Phone");
+        }
         if (configProperties.getProperty("server.site").equalsIgnoreCase("ottawa") ||
                 configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan") ||
                 configProperties.getProperty("server.site").equalsIgnoreCase("buffalowaternipcnew") ||
@@ -142,28 +155,6 @@ public class CommonPageActions {
 
         }
     }
-
-//	public void entercontactDetails(String FirstName, String LastName) throws InterruptedException, FileNotFoundException, IOException, ParseException {
-//		String generateRandomEmail = RandomStringUtils.randomNumeric(3);
-//		String generateRandomPhonenumber = RandomStringUtils.randomNumeric(3);
-//		String generateRandomAddress = RandomStringUtils.randomNumeric(4);
-//		// homeservertesting@gmail.com
-//		Email = "chandra.hstest+" + generateRandomEmail + "@gmail.com";
-//		Address = generateRandomAddress + " Chapmans Lane";
-//		PhoneNumber = "45070" + generateRandomPhonenumber + "34";
-//		ApartmentNumber = RandomStringUtils.randomNumeric(4);
-//		verifyWebElementVisibleWebElementBoolean(getWebElementByID("email"));
-//		waitForElement(getWebElementByID("email"), "Email", 120);
-//		typeText(getWebElementByID("email"), Email, "Email");
-//		typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
-//		typeText(commonPageLocators.firstName, FirstName, "First name");
-//		typeText(getWebElementByID("last-name"), LastName, "Last name");
-//		typeText(commonPageLocators.addressLine, Address, "Adress");
-//		typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
-//		typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
-//
-//	}
-
 
     /**
      * Description: Closing cookies pop up.

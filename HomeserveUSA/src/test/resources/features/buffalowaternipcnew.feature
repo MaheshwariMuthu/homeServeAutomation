@@ -7,7 +7,7 @@ Feature: Complete an sale for buffalowaternipcnew
 		Given User is on "buffalowaternipcnew" Home page
 
 
-@sale
+@salebuff
 Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Credit or Debit Card
 	Then User select product and proceed to checkout
 	Then the user selects the Billing Frequency as "Monthly"
@@ -17,7 +17,7 @@ Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Credit
 	Then open Gmail and Validate order number in confirmation email is received
 
 
-	@sale
+	@salebuff
 	Scenario: Complete Quarterly sale in buffalowaternipcnew with PaymetType as Credit or Debit Card
 		Then User select product and proceed to checkout
 		Then the user selects the Billing Frequency as "Quarterly"
@@ -27,7 +27,7 @@ Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Credit
 		Then open Gmail and Validate order number in confirmation email is received
 
 
-	@sale
+	@salebuff
 	Scenario: Complete Annually sale in buffalowaternipcnew with PaymetType as Credit or Debit Card
 		Then User select product and proceed to checkout
 		Then the user selects the Billing Frequency as "Annually"
@@ -36,7 +36,7 @@ Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Credit
 		Then the user should see an order confirmation message
 		Then open Gmail and Validate order number in confirmation email is received
 
-@sale
+	@salebuff
 Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Checking Account
 	Then User select product and proceed to checkout
 	Then the user selects the Billing Frequency as "Monthly"
@@ -46,7 +46,7 @@ Scenario: Complete Monthly sale in buffalowaternipcnew with PaymetType as Checki
 	Then open Gmail and Validate order number in confirmation email is received
 
 
-@sale
+	@salebuff
 Scenario: Complete Quarterly sale in buffalowaternipcnew with PaymetType as Checking Account
 	Then User select product and proceed to checkout
 	Then the user selects the Billing Frequency as "Quarterly"
@@ -56,7 +56,7 @@ Scenario: Complete Quarterly sale in buffalowaternipcnew with PaymetType as Chec
 	Then open Gmail and Validate order number in confirmation email is received
 
 
-@sale
+	@salebuff
 Scenario: Complete Annually sale in buffalowaternipcnew with PaymetType as Checking Account
 	Then User select product and proceed to checkout
 	Then the user selects the Billing Frequency as "Annually"
