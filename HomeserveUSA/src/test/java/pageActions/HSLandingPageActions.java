@@ -27,7 +27,7 @@ import java.util.TimeZone;
 public class HSLandingPageActions {
 
     public static String currentDateandTime;
-    public static Logger log = Logger.getLogger(PageActions.class);
+    public static Logger log = Logger.getLogger(HSLandingPageActions.class);
     CommonPageLocators commonPageLocators = new CommonPageLocators();
     Utils Utils = new Utils();
 
@@ -38,7 +38,6 @@ public class HSLandingPageActions {
 
 
     public HSLandingPageActions() {
-        PageFactory.initElements(driver, this);
     }
 
 

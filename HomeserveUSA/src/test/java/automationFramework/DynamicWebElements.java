@@ -1,15 +1,11 @@
 package automationFramework;
 
 import static automationFramework.StartDriver.driver;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class DynamicWebElements {
 
-	
-	
 	public static WebElement getWebElementByContainsClass(String value) {
 		return driver.findElement(By.xpath("//*[contains(@class,'" + value + "')]"));
 	}
@@ -112,8 +108,7 @@ public class DynamicWebElements {
 
 	/**
 	 * Description:
-	 * 
-	 * @param value
+	 *
 	 * @return
 	 */
 	public static WebElement dailyTsDropdownList(String value1, int value2) {
@@ -132,8 +127,7 @@ public class DynamicWebElements {
 	
 	/**
 	 * Description:
-	 * 
-	 * @param value
+	 *
 	 * @return
 	 */
 

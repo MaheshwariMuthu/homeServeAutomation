@@ -68,8 +68,3 @@ Feature: Complete an sale for sanjose
     Then the user selects the PaymentType as "Checking Account" Makes the Payment and clicks on Complete Secure Checkout
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
-
-
-
-
-

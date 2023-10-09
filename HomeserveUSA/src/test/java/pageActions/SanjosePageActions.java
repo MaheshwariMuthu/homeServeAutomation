@@ -26,7 +26,6 @@ public class SanjosePageActions {
 
 
 	public SanjosePageActions() {
-		PageFactory.initElements(driver, this);
 	}
 
 

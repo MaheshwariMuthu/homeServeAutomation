@@ -7,16 +7,18 @@ import java.util.List;
 import java.util.Map;
 
 import Config.update_Config_Properties;
-import Email_Validator.Verify_Gmail;
 import org.json.simple.parser.ParseException;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.sample.Verify_Gmail;
 import pageActions.CommonPageActions;
 import pageActions.HSLandingPageActions;
 import pageActions.SanjosePageActions;
+
+import static automationFramework.DataReader.configProperties;
 
 public class HomeserveStepDef {
 	CommonPageActions commonPageActions = new CommonPageActions();
@@ -108,7 +110,7 @@ public class HomeserveStepDef {
 	@Then("open Gmail and Validate order number in confirmation email is received")
 	public void open_Gmail_and_Verify_Order_number_in_confirmation_email_is_received() throws Exception {
 
-		Verify_Gmail.Validate_Order_Confirmation_Email();
+		Verify_Gmail.check(configProperties.getProperty("host"), configProperties.getProperty("mailStoreType"), configProperties.getProperty("gmusername"), configProperties.getProperty("gmpassword"), HSLandingPageActions.currentDateandTime, HSLandingPageActions.BrowserorderNumberTexts);
 	}
 
 }

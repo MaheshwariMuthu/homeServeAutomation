@@ -27,7 +27,6 @@ public class CommonPageActions {
     PageActions pageActions = new PageActions();
 
     public CommonPageActions() {
-        PageFactory.initElements(driver, this);
     }
 
 

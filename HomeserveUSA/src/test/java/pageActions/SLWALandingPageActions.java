@@ -20,13 +20,12 @@ import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
 import static pageActions.HSLandingPageActions.getCurrentTime;
 
-public class SLWALandingPageActions {
+public class SLWALandingPageActions{
 
 	public static Logger log = Logger.getLogger(PageActions.class);
 	CommonPageLocators commonPageLocators = new CommonPageLocators();
 
 	public SLWALandingPageActions() {
-		PageFactory.initElements(driver, this);
 	}
 
 	public void chooseAndMakePayementType(String accountType)throws Exception {
