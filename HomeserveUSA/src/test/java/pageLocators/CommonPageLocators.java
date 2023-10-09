@@ -246,8 +246,10 @@ public class CommonPageLocators {
             @FindBy(css = "#select2-checkout-form__method-result-oqsm-Credit\\ or\\ Debit\\ Card"),
     })
     public WebElement creditCardOption;
-
-    @FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]")
+    @FindAll({
+            @FindBy(xpath = "//li/descendant::*[contains(text(),'Checking Account')]"),
+            @FindBy(xpath = "//span[@class='selection']"),
+    })
     public WebElement checkingAccountOption;
 
 

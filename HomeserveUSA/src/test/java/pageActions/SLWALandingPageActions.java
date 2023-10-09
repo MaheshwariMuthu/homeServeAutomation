@@ -37,7 +37,7 @@ public class SLWALandingPageActions {
 				Paymenttype.click();
 				sleep(2);
 				clickElement(commonPageLocators.checkingAccountOption, "Checking Account",false);
-				commonPageLocators.checkingAccountOption.click();
+//				commonPageLocators.checkingAccountOption.click();
 				sleep(2);
 				typeText(getWebElementByID("checking-full-name"), "Dean Heandreson", "Full name");
 				typeText(getWebElementByID("checking-routing-number"), "021912915", "Routing number");

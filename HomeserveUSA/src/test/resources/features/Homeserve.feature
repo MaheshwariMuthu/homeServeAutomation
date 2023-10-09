@@ -45,7 +45,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-  @sale-Homeserve
+  @sale-Homeserve1
   Scenario: Complete a Monthly sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -58,7 +58,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-  @sale-Homeserve
+  @sale-Homeserve1
   Scenario: Complete a Quarterly sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -71,7 +71,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-  @sale-Homeserve
+  @sale-Homeserve1
   Scenario: Complete a Annually sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |

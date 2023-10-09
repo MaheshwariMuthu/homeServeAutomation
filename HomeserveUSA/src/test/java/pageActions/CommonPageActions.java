@@ -44,14 +44,17 @@ public class CommonPageActions {
     }
 
     public void handlePopups() throws Exception {
-        System.out.println("handleing EnterCode Popups if any");   // //a[contains(text(),'Do Not Have Code')]
+        System.out.println("handleing Popups if any");   // //a[contains(text(),'Do Not Have Code')]
         waitTillPageLoad();
-        if (configProperties.getProperty("server.site").equalsIgnoreCase("sanjose")) {
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("sanjose") ||
+                configProperties.getProperty("server.site").equalsIgnoreCase("wvwachoice") ||
+                configProperties.getProperty("server.site").equalsIgnoreCase("lasanitation")
+        ) {
 
             WebElement entercodepopupClose = getWebElementByContainsText("Do Not Have Code");
 
-            if (waitForElementavailblilityboolean(entercodepopupClose,"Water popup",30)) {
-                clickElement(entercodepopupClose, "Water popup",false);
+            if (waitForElementavailblilityboolean(entercodepopupClose,"Enter Code popup",30)) {
+                clickElement(entercodepopupClose, "Enter Code popup",false);
                 waitTillPageLoad();
             }
         }
