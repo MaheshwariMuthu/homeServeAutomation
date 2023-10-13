@@ -286,6 +286,7 @@ public class PageActions extends StartDriver {
 					element);
 			element.sendKeys(value);
 			log.info(value + " typed into " + elementName);
+			System.out.println(value + " : typed into : " + elementName);
 		} catch (AssertionError error) {
 			log.info(" Unable to type " + value + " into " + elementName);
 			Assert.fail("Unable to type " + elementName);
