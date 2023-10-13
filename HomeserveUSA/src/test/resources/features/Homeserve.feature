@@ -6,7 +6,8 @@ Feature: Homeserve feature file
   Background: User navigate to Homeserve application
     Given User is on "Homeserve" Home page
 
-    @sale-Homeserve
+  @sale
+  @sale-Homeserve
   Scenario: Complete Monthly sale in Homeserve with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -19,6 +20,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale
   @sale-Homeserve
   Scenario: Complete Quarterly sale in Homeserve with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
@@ -32,6 +34,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale
   @sale-Homeserve
   Scenario: Complete Annually sale in Homeserve with PaymetType as Credit or Debit Card
     When the user enters a valid zipcode and clicks on View Plans
@@ -45,6 +48,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale
   @sale-Homeserve1
   Scenario: Complete a Monthly sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
@@ -58,7 +62,8 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-  @sale-Homeserve1
+  @sale
+  @sale-Homeserve12
   Scenario: Complete a Quarterly sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans
       | zipcode | EnterZipLocation |
@@ -71,6 +76,7 @@ Feature: Homeserve feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
+  @sale
   @sale-Homeserve1
   Scenario: Complete a Annually sale in HomeServe with payment type as Checking Account
     When the user enters a valid zipcode and clicks on View Plans

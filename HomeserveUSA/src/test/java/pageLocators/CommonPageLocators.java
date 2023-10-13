@@ -26,6 +26,7 @@ public class CommonPageLocators {
             //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
     })
     public WebElement PaymentnotprocessedDialog;
+
     @FindAll({
             @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span"),
             @FindBy(xpath = "//a[@for=\"trigger-zip-form\"]/span"), //div[@class='field zip-bar']/input[@name='zipcode']
@@ -228,6 +229,7 @@ public class CommonPageLocators {
             @FindBy(xpath = "//div[@class='cart__submit-container']/descendant::a[contains(text(),'Proceed To Checkout')]"),
             @FindBy(xpath = "/html/body/div[1]/div/div[1]/aside/div[2]/a"),
             @FindBy(xpath = "/html/body/main/div[3]/div/div/div[2]/div/div/div/form/div[9]/a/div"),
+            @FindBy(xpath = "(//a[contains(@class, 'add-to-cart')]/descendant::*[contains(text(),'Proceed To Checkout')])[1]"),
     })
     public WebElement proceedToCheckout;
 

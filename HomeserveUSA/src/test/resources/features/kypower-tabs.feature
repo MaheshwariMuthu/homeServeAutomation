@@ -5,7 +5,8 @@ Feature: kypower-tabs feature file
   Background: User navigate to Homeserve-kypower-tabs application
     Given User is on "kypower-tabs" Home page
 
-    @salekypower
+  @sale
+  @salekypower
   Scenario: Complete a sale in HomeServe kypower-tabs
     When add product to the cart and the user clicks on Proceed to Checkout
     Then the user fills up the Contact details with Zipcode as "40475" and City as "something"

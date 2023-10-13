@@ -52,7 +52,7 @@ public class HSLandingPageActions {
      *
      * @throws InterruptedException
      */
-    public void addProductToCartAndProceedToCheckout() throws InterruptedException {
+    public void addProductToCartAndProceedToCheckout(boolean multipleItemsIntoCart) throws InterruptedException {
         int i = 0;
 
         if (commonPageLocators.addToCart.isEnabled()) {
@@ -60,6 +60,11 @@ public class HSLandingPageActions {
                 scrollToElement(commonPageLocators.addToCart);
                 clickElement(commonPageLocators.addToCart, "Add to cart", false);
                 waitTillPageLoad();
+                if (multipleItemsIntoCart && verifyWebElementVisibleWebElementBoolean(commonPageLocators.addToCart)) {
+                    scrollToElement(commonPageLocators.addToCart);
+                    clickElement(commonPageLocators.addToCart, "Add to cart", false);
+                    waitTillPageLoad();
+                }
                 String CartPage = driver.getTitle();
                 System.out.println(CartPage);
 
@@ -67,8 +72,17 @@ public class HSLandingPageActions {
                     Assert.fail("Your Cart is Empty");
                 } else {
                     System.out.println("Product is added to Cart successfully");
-                    verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
-                    clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout", false);
+                    sleep(3);
+                    //somehow for 'aepindianamichigan' site, 'Process to Checkout' is NOT enabling on load, so creating it on fly
+                    if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")) {
+                        WebElement entercodepopupClose = driver.findElement(By.xpath("(//a[contains(@class, 'add-to-cart')]/descendant::*[contains(text(),'Proceed To Checkout')])[1]"));                        if (waitForElementavailblilityboolean(entercodepopupClose,"proceed To Checkout",30)) {
+                            clickElement(entercodepopupClose, "proceed To Checkout",false);
+                           }
+                    }else {
+                        waitForElementavailblilityboolean(commonPageLocators.proceedToCheckout, "proceed To Checkout", 30);
+//                    verifyWebElementVisibleWebElementBoolean(commonPageLocators.proceedToCheckout);
+                        clickElement(commonPageLocators.proceedToCheckout, "Proceed To Checkout", false);
+                    }
 
                     waitTillPageLoad();
                     System.out.println(configProperties.getProperty("server.site"));

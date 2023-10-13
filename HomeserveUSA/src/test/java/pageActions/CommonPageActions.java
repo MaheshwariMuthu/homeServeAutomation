@@ -71,6 +71,7 @@ public class CommonPageActions {
         if (EnterZipLocation.equalsIgnoreCase("header")) {
             System.out.println(EnterZipLocation);
             clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip", false);
+            waitForElement(commonPageLocators.txtZipCodeHearder,"ZipCode input field",10);
             typeText(commonPageLocators.txtZipCodeHearder, zipCode, "ZipCode field");
             waitTillPageLoad();
             clickElement(commonPageLocators.view_Plan, "View Plans", false);
@@ -81,7 +82,7 @@ public class CommonPageActions {
 //			same code with different locators
             System.out.println(EnterZipLocation);
             clickElement(commonPageLocators.txtZipCode, "Enter Your ZIP Code", false);
-            Thread.sleep(2000);
+            sleep(2);
             typeText(commonPageLocators.txtZipCode, zipCode, "Enter Your ZIP Code");
             waitTillPageLoad();
             if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofa")) {
@@ -149,7 +150,7 @@ public class CommonPageActions {
             if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")
                     && state.equalsIgnoreCase("IN")) {
                 // (313) 793-4983
-                String MobileNumber = "33131" + RandomStringUtils.randomNumeric(3) + "340";
+                String MobileNumber = "4631" + RandomStringUtils.randomNumeric(3) + "340";
                 typeText(getWebElementByID("home-phone"), MobileNumber, "Home phone");
             }
             Thread.sleep(4000);

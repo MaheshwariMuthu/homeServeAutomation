@@ -104,7 +104,7 @@ public class Waits {
 	}
 
 	public static Boolean verifyWebElementVisibleWebElementBoolean(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_280_SEC));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_60_SEC));
 		wait.pollingEvery(Duration.ofSeconds(20));
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
