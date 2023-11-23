@@ -229,11 +229,16 @@ public class PageActions extends StartDriver {
 	 * @throws AWTException 
 	 * @throws InterruptedException 
 	 */
-	public static void pressTabKeyThenEnter() throws AWTException, InterruptedException {
+	public void pressTabKeyThenEnter() throws AWTException, InterruptedException {
 		Robot robot = new Robot();
 		robot.keyPress(KeyEvent.VK_TAB);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		
+	}
+
+	public void pressTabKey() throws AWTException, InterruptedException {
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_TAB);
 	}
 
 	/**

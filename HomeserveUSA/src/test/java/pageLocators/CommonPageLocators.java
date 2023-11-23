@@ -192,10 +192,11 @@ public class CommonPageLocators {
 
 
     @FindAll({
-            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
-            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
-            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
+            @FindBy(xpath = "//div[@class='field zip-bar']/button[@type='submit']/descendant::span[text()='GO']"),
             @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
+//            @FindBy(xpath = "//*[@class='button zip-button js-show-ps']"),
+            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
+//            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
 
     })
     public WebElement view_Plan;
@@ -282,7 +283,10 @@ public class CommonPageLocators {
     public WebElement shopNowBannerBtn;
 
     /* View available palns X-path */
-    @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
+    @FindAll({
+    @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a"),
+    @FindBy(xpath = "//a[@class='button icon tertiary flipped js-partner-link']")
+    })
     public WebElement viewAvailablePlans;
 
     /* View palns X-path */

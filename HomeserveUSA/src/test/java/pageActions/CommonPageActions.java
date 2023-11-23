@@ -8,6 +8,8 @@ import static automationFramework.DynamicWebElements.*;
 import static automationFramework.PageActions.*;
 import static automationFramework.StartDriver.driver;
 import static automationFramework.Waits.*;
+
+import java.awt.*;
 import java.io.IOException;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -67,7 +69,7 @@ public class CommonPageActions {
      *
      * @throws InterruptedException
      */
-    public void enterZipCodeAndSubmit(String zipCode, String EnterZipLocation) throws InterruptedException {
+    public void enterZipCodeAndSubmit(String zipCode, String EnterZipLocation) throws InterruptedException, AWTException {
         if (EnterZipLocation.equalsIgnoreCase("header")) {
             System.out.println(EnterZipLocation);
             clickElement(commonPageLocators.enterZipHeaderLink, "Enter Zip", false);
@@ -85,11 +87,18 @@ public class CommonPageActions {
             sleep(2);
             typeText(commonPageLocators.txtZipCode, zipCode, "Enter Your ZIP Code");
             waitTillPageLoad();
+//            pageActions.pressTabKey();
             if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofa")) {
                 clickElement(commonPageLocators.view_Plan, "Shop Now", false);
             }
             if (configProperties.getProperty("server.site").equalsIgnoreCase("slwofc")) {
                 clickElement(commonPageLocators.view_Plan, "Get a quote", false);
+            }
+            if (configProperties.getProperty("server.site").equalsIgnoreCase("homeserve")) {
+                clickElement(commonPageLocators.view_Plan, "GO or View Plans", true);
+                waitTillPageLoad();
+                sleep(2);
+                clickElement(commonPageLocators.viewAvailablePlans, "View available plans", false);
             }
             waitTillPageLoad();
             waitTillPageLoad();
@@ -101,8 +110,9 @@ public class CommonPageActions {
     public void enterUserDetails(String Zipcode, String City) throws InterruptedException {
 
         String generateRandomAddress = RandomStringUtils.randomNumeric(4);
+        String generateRandomEmail = RandomStringUtils.randomNumeric(3);
 
-        Email = "chandra.hstest+" + RandomStringUtils.randomNumeric(3) + "@gmail.com";
+        Email = "chandra.hstest+" + generateRandomEmail + "@gmail.com";
         Address = generateRandomAddress + " Chapmans Lane";
         PhoneNumber = "4409845223";
         ApartmentNumber = RandomStringUtils.randomNumeric(4);
@@ -114,16 +124,16 @@ public class CommonPageActions {
             waitForElement(getWebElementByID("email"), "Email", 120);
             typeText(getWebElementByID("email"), Email, "Email");
             typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
-            typeText(commonPageLocators.firstName, "AutoFirstName", "First name");
-            typeText(getWebElementByID("last-name"), "AutoLastName", "Last name");
+            typeText(commonPageLocators.firstName, "AutoFirstName"+generateRandomEmail, "First name");
+            typeText(getWebElementByID("last-name"), "AutoLastName"+generateRandomEmail, "Last name");
             typeText(commonPageLocators.addressLine, Address, "Address");
             typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
             typeText(getWebElementByID("home-phone"), PhoneNumber, "Home phone");
         } else {
             typeText(getWebElementByID("email"), Email, "Email");
             typeText(getWebElementByID("email-confirm"), Email, "Confirm Email");
-            typeText(getWebElementByID("first-name"), "AutoFirstName", "First name");
-            typeText(getWebElementByID("last-name"), "AutoLastName", "Last name");
+            typeText(getWebElementByID("first-name"), "AutoFirstName"+generateRandomEmail, "First name");
+            typeText(getWebElementByID("last-name"), "AutoLastName"+generateRandomEmail, "Last name");
             typeText(getWebElementByID("address-line-1"), Address, "Address");
             typeText(getWebElementByID("address-line-2"), ApartmentNumber, "Address Second");
             typeText(getWebElementByID("home-phone"), PhoneNumber, "Home Phone");

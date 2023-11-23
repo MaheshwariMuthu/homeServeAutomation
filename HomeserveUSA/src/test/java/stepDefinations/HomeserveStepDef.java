@@ -1,5 +1,6 @@
 package stepDefinations;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -44,7 +45,7 @@ public class HomeserveStepDef {
 	 */
 	@When("the user enters a valid zipcode and clicks on View Plans")
 	public void the_user_enters_a_valid_zipcode_and_clicks_on_view_plans(DataTable dataTable)
-			throws InterruptedException {
+			throws InterruptedException, AWTException {
 		List<Map<String, String>> userDetailsList = dataTable.asMaps(String.class, String.class);
 		for (Map<String, String> userDetails : userDetailsList) {
 			commonPageActions.enterZipCodeAndSubmit(userDetails.get("zipcode"), userDetails.get("EnterZipLocation"));
