@@ -9,76 +9,40 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CommonPageLocators {
-
-
     public CommonPageLocators() {
-
         PageFactory.initElements(driver, this);
     }
 
     //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
 //	public WebElement enterZipHeaderLink;
-//    @FindAll({
+    @FindAll({
             @FindBy(xpath = "//div[@class='component generic-error-lightbox light-box js-generic-error-lb']")
             //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
-//    })
+    })
     public WebElement PaymentnotprocessedDialog;
     @FindAll({
-            @FindBy(css = "a[class='link js-header-enter-zip'] > span"),
-            @FindBy(css = "div[class='component header-popup'] > div > a >span"),
-            @FindBy(xpath ="//a[@class='link js-header-enter-zip']"),
-            @FindBy(xpath ="//div/a[@class ='link header-popup-button']")
-//          @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span"),
-//          //div[@class='field zip-bar']/input[@name='zipcode']
+            @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span"),
+            @FindBy(xpath = "//a[@for=\"trigger-zip-form\"]/span"), //div[@class='field zip-bar']/input[@name='zipcode']
     })
     public WebElement enterZipHeaderLink;
 
     @FindAll({
-            @FindBy(css = "input[placeholder='Enter Your ZIP Code']"),
-            @FindBy(css = "div[class='wrapper-out'] * input[class='zip-input js-partner-zip zip-can zip-value']"),
-            @FindBy(xpath="//div[@class='header-zip-popup']//div[@class='wrapper-in']//input"),
-            @FindBy(css ="input#changezipcode.zip-input.js-partner-zip.zip-can")
-//            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']"),
+            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']"),
     })
     public WebElement txtZipCodeHearder;
 
     @FindAll({
-            @FindBy(xpath = "(//input[@name='zipcode'])[3]"),
-            @FindBy(xpath = "//*/input[@placeholder ='Enter Your ZIP Code']"),
+            @FindBy(xpath = "/html/body/main/section/div[2]/div/div/div/div[2]/div/form/fieldset/div/div/div[2]/div/input[1]"),
             @FindBy(xpath = "//*[@id=\"zip-code\"]"),
-            @FindBy(xpath = "(//button[@type='submit'])[3]")
 
     })
     public WebElement txtZipCode;
-
-    @FindAll({
-            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
-            @FindBy(xpath = "(//button[@type='submit'])[2]"),
-            @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
-            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
-            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
-            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
-
-    })
-    public WebElement view_Plan;
-
-    @FindAll({
-            /* Clicking the EnterZip of the Header and then enter the zip and checking the plans */
-             @FindBy(xpath = "//html/body/div[1]/div/ul/li[2]/a"),
-            /* Enter the zip code and then click on the Go to button then we need to select the plans */
-            @FindBy(xpath = "(//a[@class='button icon js-partner-link'])[1]"),
-            @FindBy(xpath = "(//a[@class='button icon js-partner-link'])[2]"),
-            @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
-
-    })
-    public WebElement viewAvailablePlans;
 
     @FindBy(xpath = "//*[@id=\"city\"]")
     public WebElement city_Details;
@@ -93,7 +57,6 @@ public class CommonPageLocators {
     })
     public WebElement AddressNotFound;
     @FindAll({
-            @FindBy(xpath = "//button[@id='btn-add-to-cart-a0q6g000001JP7HAAW']"),
             @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[1]"),
             @FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[1]"),
             @FindBy(xpath = "//button[text()='Add To Cart']"),
@@ -227,28 +190,15 @@ public class CommonPageLocators {
     public WebElement add_Card;
 
 
-//    @FindAll({
-//            @FindBy(xpath = "(//button[@type='submit'])[2]"),
-//            @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
-//            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
-//            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
-//            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
-//
-//    })
-//    public WebElement view_Plan;
-//@FindAll({
-//        /* Clicking the EnterZip of the Header and then enter the zip and checking the plans */
-//        @FindBy(xpath = "(//a[text()=' View available plans'])[1]"),
-//        @FindBy(xpath = "(//a[text()=' View available plans'])[2]"),
-//        @FindBy(xpath = "(//a[text()=' View available plans'])[3]"),
-///* Enter the zip code and then click on the Go to button then we need to select the plans */
-//        @FindBy(xpath = "(//a[@class='button icon js-partner-link'])[1]"),
-//        @FindBy(xpath = "(//a[@class='button icon js-partner-link'])[2]"),
-//        @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
-//
-//
-//})
-//public WebElement viewAvailablePlans;
+    @FindAll({
+            @FindBy(xpath = "//*[@class='button zip-button js-show-ps red-theme']"),
+            @FindBy(xpath = "//*[contains(text(),'Get a quote')]"),
+            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']/following::button[@type='submit']"),
+            @FindBy(xpath = "//button[@type='submit']/descendant::span[text()='View Plans']"),
+
+    })
+    public WebElement view_Plan;
+
 
     @FindAll({
             @FindBy(xpath = "/html/body/div[2]/div/div[2]/main/div/h2"),
@@ -267,7 +217,6 @@ public class CommonPageLocators {
 
     /* Proceed to checkout */
     @FindAll({
-            @FindBy(xpath = "//a[@class='btn btn--red product-tile__cta-button']"),
             @FindBy(xpath = "/html/body/main/div[2]/div/div/div/div[1]/div/div[3]/div[2]/a/span[2]"),
             @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[2]/div/div[3]/div[3]/a/span[2]"),
             @FindBy(xpath = "/html/body/main/div[4]/div/div/div/div[1]/div/div[3]/div[3]/a/span[2]"),
@@ -331,15 +280,8 @@ public class CommonPageLocators {
     public WebElement shopNowBannerBtn;
 
     /* View available palns X-path */
-//    @FindAll({
-//            @FindBy(xpath = ("//a[text()=' View available plans'])[1]"),
-//                    @FindBy(xpath = "//a[text()=' View available plans'])[2]"),
-//                    @FindBy(xpath = "//a[text()=' View available plans'])[3]"),
-//                    @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a"),
-//
-//
-//                    })
-//    public WebElement viewAvailablePlans;
+    @FindBy(xpath = "//li[@class='provider-selection__provider']/descendant::a")
+    public WebElement viewAvailablePlans;
 
     /* View palns X-path */
 
