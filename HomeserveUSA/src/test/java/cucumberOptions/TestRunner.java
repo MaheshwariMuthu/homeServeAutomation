@@ -9,11 +9,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"classpath:features"},
-<<<<<<< Updated upstream
+
 		//tags = "@saleaep or @saleslwofa or @sale",
-=======
+
 		//tags = "@saleaep or @saleslwofa or @sale",@
->>>>>>> Stashed changes
+
      tags = "@sale1",
 
 		glue = "stepDefinations",
