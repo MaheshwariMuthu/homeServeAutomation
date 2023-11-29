@@ -1,22 +1,21 @@
 package stepDefinations;
 
-import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import Config.update_Config_Properties;
-import org.json.simple.parser.ParseException;
-
+import Email_Validator.Verify_Gmail;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.sample.Verify_Gmail;
+import org.json.simple.parser.ParseException;
+//import org.sample.Verify_Gmail;
 import pageActions.CommonPageActions;
 import pageActions.HSLandingPageActions;
 import pageActions.SanjosePageActions;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import static automationFramework.DataReader.configProperties;
 
@@ -47,7 +46,7 @@ public class HomeserveStepDef {
 	 */
 	@When("the user enters a valid zipcode and clicks on View Plans")
 	public void the_user_enters_a_valid_zipcode_and_clicks_on_view_plans(DataTable dataTable)
-			throws InterruptedException, AWTException {
+			throws InterruptedException {
 		List<Map<String, String>> userDetailsList = dataTable.asMaps(String.class, String.class);
 		for (Map<String, String> userDetails : userDetailsList) {
 			commonPageActions.enterZipCodeAndSubmit(userDetails.get("zipcode"), userDetails.get("EnterZipLocation"));
@@ -58,12 +57,12 @@ public class HomeserveStepDef {
 	@Then("add product to the cart and the user clicks on Proceed to Checkout")
 	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws Exception {
 		commonPageActions.handlePopups();
-		hslandingPage.addProductToCartAndProceedToCheckout(false);
+		hslandingPage.addProductToCartAndProceedToCheckout();
 	}
 
 	@Then("the user fills in the Contact details")
 	public void the_user_fills_in_the_contact_details()
-			throws InterruptedException, FileNotFoundException, IOException, ParseException {
+			throws InterruptedException, IOException, ParseException {
 		commonPageActions.enterUserDetails("","");
 
 	}
@@ -71,7 +70,7 @@ public class HomeserveStepDef {
 
 	@Then("the user fills in the Zipcode {string} and City {string} details")
 	public void the_user_fills_in_the_Zipcode_and_City_details(String Zipcode,String City)
-			throws InterruptedException, FileNotFoundException, IOException, ParseException {
+			throws InterruptedException, IOException, ParseException {
 		hslandingPage.enter_Zipcode_and_City_Details(Zipcode,City);
 
 	}
@@ -110,7 +109,8 @@ public class HomeserveStepDef {
 	@Then("open Gmail and Validate order number in confirmation email is received")
 	public void open_Gmail_and_Verify_Order_number_in_confirmation_email_is_received() throws Exception {
 
-		Verify_Gmail.check(configProperties.getProperty("host"), configProperties.getProperty("mailStoreType"), configProperties.getProperty("gmusername"), configProperties.getProperty("gmpassword"), HSLandingPageActions.currentDateandTime, HSLandingPageActions.BrowserorderNumberTexts);
+		//Verify_Gmail.check(configProperties.getProperty("host"), configProperties.getProperty("mailStoreType"), configProperties.getProperty("gmusername"), configProperties.getProperty("gmpassword"), HSLandingPageActions.currentDateandTime, HSLandingPageActions.BrowserorderNumberTexts);
+		Verify_Gmail.check(configProperties.getProperty("host"), configProperties.getProperty("mailStoreType"), configProperties.getProperty("gmusername"), configProperties.getProperty("gmpassword"));
 	}
 
 }
