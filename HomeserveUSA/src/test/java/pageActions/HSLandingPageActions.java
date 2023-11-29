@@ -117,7 +117,8 @@ public class HSLandingPageActions {
 
 
     public void enter_Zipcode_and_City_Details(String Zipcode, String City) {
-        if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")) {
+        if (configProperties.getProperty("server.site").equalsIgnoreCase("aepindianamichigan")|| 
+        	configProperties.getProperty("server.site").equalsIgnoreCase("apco-carousel")) {
             typeText(commonPageLocators.txtZipCode, Zipcode, "Zipcode");
             typeText(commonPageLocators.city_Details, City, "Zipcode");
 

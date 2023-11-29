@@ -32,7 +32,9 @@ public class CommonPageLocators {
     public WebElement PaymentnotprocessedDialog;
     @FindAll({
             @FindBy(css = "a[class='link js-header-enter-zip'] > span"),
-            @FindBy(css = "div[class='component header-popup'] > div > a >span")
+            @FindBy(css = "div[class='component header-popup'] > div > a >span"),
+            @FindBy(xpath ="//a[@class='link js-header-enter-zip']"),
+            @FindBy(xpath ="//div/a[@class ='link header-popup-button']")
 //          @FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span"),
 //          //div[@class='field zip-bar']/input[@name='zipcode']
     })
@@ -40,14 +42,16 @@ public class CommonPageLocators {
 
     @FindAll({
             @FindBy(css = "input[placeholder='Enter Your ZIP Code']"),
-            @FindBy(css = "div[class='wrapper-out'] * input[class='zip-input js-partner-zip zip-can zip-value']")
+            @FindBy(css = "div[class='wrapper-out'] * input[class='zip-input js-partner-zip zip-can zip-value']"),
+            @FindBy(xpath="//div[@class='header-zip-popup']//div[@class='wrapper-in']//input"),
+            @FindBy(css ="input#changezipcode.zip-input.js-partner-zip.zip-can")
 //            @FindBy(xpath = "//div[@class='field zip-bar']/input[@name='zipcode']"),
     })
     public WebElement txtZipCodeHearder;
 
     @FindAll({
             @FindBy(xpath = "(//input[@name='zipcode'])[3]"),
-            @FindBy(xpath = "/html/body/main/section/div[2]/div/div/div/div[2]/div/form/fieldset/div/div/div[2]/div/input[1]"),
+            @FindBy(xpath = "//*/input[@placeholder ='Enter Your ZIP Code']"),
             @FindBy(xpath = "//*[@id=\"zip-code\"]"),
             @FindBy(xpath = "(//button[@type='submit'])[3]")
 

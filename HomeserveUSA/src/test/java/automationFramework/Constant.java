@@ -10,6 +10,8 @@ public class Constant {
 	public static String PhoneNumber;
 	public static String Address;
 	public static String ApartmentNumber;
+	public static String AFirstName;
+	public static String ALastName;
 	
 	
 	
