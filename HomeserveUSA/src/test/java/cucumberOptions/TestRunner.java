@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 
 		//tags = "@saleaep or @saleslwofa or @sale",@
 
-     tags = "@sale1",
+     tags = "@saleaepM",
 
 		glue = "stepDefinations",
 		dryRun = false,

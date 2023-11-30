@@ -26,62 +26,62 @@ public class DataReader {
 			switch (Site){
 				case"aepindianamichigan":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url;
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"wvwachoice":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"buffalowaternipcnew":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"kypower-tabs":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"firstenergy-fundle":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case "sanjose":
 					url= "https://www.reghomeserve.com/sc/mail/" +Site;
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"lasanitation":
@@ -92,12 +92,12 @@ public class DataReader {
 					break;
 				case"Homeserve":
 					url= "https://www.reghomeserve.com/?ncr=true";
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 				case"slwofa":
@@ -108,12 +108,12 @@ public class DataReader {
 					break;
 				case"HomeServe-CE":
 					url= "https://www.reghomeserve.com/sc/mail/homeserve-ce";
-					if(env.equalsIgnoreCase("preprod2")){
-						url = url.replace("www.reg","preprod.");
+					if(env.equalsIgnoreCase("preprod")){
+						url = url.replace("www.reg","www.reg");
 					} else if (env.equalsIgnoreCase("test")) {
-						url = url.replace("www.reg","uat");
+						url = url.replace("www.reg","www.uat");
 					}else if (env.equalsIgnoreCase("prod")) {
-						url = url.replace("www.reg","prod.");
+						url = url.replace("www.reg","www.");
 					}
 					break;
 

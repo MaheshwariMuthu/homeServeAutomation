@@ -22,6 +22,11 @@ public class CommonPageLocators {
     //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span")
 //	public WebElement enterZipHeaderLink;
     @FindAll({
+        @FindBy(xpath = "//button[@aria-label='toggle-email-popup']")
+        //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
+})
+public WebElement email_capture_close_button;
+    @FindAll({
             @FindBy(xpath = "//div[@class='component generic-error-lightbox light-box js-generic-error-lb']")
             //	@FindBy(xpath = "//a[@class='link js-header-enter-zip']/descendant::span");
     })
@@ -318,6 +323,7 @@ public class CommonPageLocators {
             @FindBy(xpath = "//div[@id='onetrust-close-btn-container']/descendant::button"),
             @FindBy(xpath = "/html/body/main/div[3]/div/button"),
             @FindBy(xpath = "/html/body/main/div[6]/div/button"),
+            @FindBy(xpath = "//button[contains(@class,'footer-banner')]")
     })
     public WebElement cookiesClose;
 

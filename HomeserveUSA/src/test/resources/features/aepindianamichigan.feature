@@ -5,8 +5,8 @@ Feature: aepindianamichigan feature file
   Background: User navigate to Homeserve-aepindianamichigan application
     Given User is on "aepindianamichigan" Home page
 
-  @sale
-  @saleaep
+  
+  @saleaepM
   Scenario: Complete a sale in HomeServe aepindianamichigan-Michigan
     When the user Selects the State as "Michigan"
     Then add product to the cart and the user clicks on Proceed to Checkout
@@ -15,8 +15,8 @@ Feature: aepindianamichigan feature file
     Then the user should see an order confirmation message
     Then open Gmail and Validate order number in confirmation email is received
 
-  @sale
-  @saleaep
+  
+  @saleaepI
   Scenario: Complete a sale in HomeServe aepindianamichigan-Indiana
     When the user Selects the State as "Indiana"
     Then add product to the cart and the user clicks on Proceed to Checkout

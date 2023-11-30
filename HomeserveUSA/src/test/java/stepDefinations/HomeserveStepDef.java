@@ -12,6 +12,7 @@ import pageActions.CommonPageActions;
 import pageActions.HSLandingPageActions;
 import pageActions.SanjosePageActions;
 
+import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -43,10 +44,11 @@ public class HomeserveStepDef {
 	 * Description: End to end flow for sale Homeserve
 	 * 
 	 * @throws InterruptedException
+	 * @throws Throwable 
 	 */
 	@When("the user enters a valid zipcode and clicks on View Plans")
 	public void the_user_enters_a_valid_zipcode_and_clicks_on_view_plans(DataTable dataTable)
-			throws InterruptedException {
+			throws InterruptedException, Throwable {
 		List<Map<String, String>> userDetailsList = dataTable.asMaps(String.class, String.class);
 		for (Map<String, String> userDetails : userDetailsList) {
 			commonPageActions.enterZipCodeAndSubmit(userDetails.get("zipcode"), userDetails.get("EnterZipLocation"));
@@ -55,9 +57,9 @@ public class HomeserveStepDef {
 	}
 
 	@Then("add product to the cart and the user clicks on Proceed to Checkout")
-	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws Exception {
+	public void add_product_to_the_cart_and_the_user_clicks_on_proceed_to_checkout() throws Throwable {
 		commonPageActions.handlePopups();
-		hslandingPage.addProductToCartAndProceedToCheckout();
+		hslandingPage.addProductToCartAndProceedToCheckout(true);
 	}
 
 	@Then("the user fills in the Contact details")
